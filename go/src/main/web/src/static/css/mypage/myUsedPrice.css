@@ -1,0 +1,137 @@
+/*myUsedPrice style*/
+.mypage_wrap .mypage_info_frame {
+  position: relative;
+}
+
+.mypage_wrap .mypage_info_frame.chart_frame .mypage_info_title {
+  margin-bottom: 10px;
+}
+
+.mypage_wrap .mypage_info_frame.chart_frame .mypage_info_title.tPink {
+  font-size: 22px;
+  color: #EE8AFF;
+}
+
+.mypage_wrap .mypage_info_frame ul.chart_period_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid rgba(196, 196, 196, 0.7);
+  padding: 0 50px;
+  border-radius: 5px;
+  width: 100%;
+  height: 38px;
+  font-family: "PretendardR";
+  font-size: 16px;
+  color: #E7E7E7;
+}
+
+.mypage_wrap .mypage_info_frame ul.total_price_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 65px;
+  height: auto;
+  font-family: "PretendardR";
+  font-size: 15px;
+  color: #CFCFCF;
+  position: absolute;
+  top: 110px;
+  right: -7px;
+}
+
+.mypage_wrap .mypage_info_frame ul.total_price_list > li {
+  height: 25px;
+}
+
+.mypage_wrap .mypage_info_frame .chart_area {
+  width: 930px;
+  height: 110px;
+  margin-top: 27.5px;
+  margin-bottom: 75px;
+}
+
+.mypage_wrap .mypage_info_frame .chart_area .chart_in {
+  width: 100%;
+  height: 100%;
+}
+
+.mypage_wrap .mypage_info_frame ul.used_product_head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid rgba(196, 196, 196, 0.7);
+  padding: 0 50px;
+  width: 100%;
+  height: 38px;
+  font-family: "PretendardM";
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.mypage_wrap .mypage_info_frame ul.used_product_head > li {
+  width: 20%;
+  text-align: center;
+}
+
+.mypage_wrap .mypage_info_frame .used_product_list {
+  width: 100%;
+  height: 367px;
+  padding-top: 17px;
+}
+
+.mypage_wrap .mypage_info_frame .used_product_list ul.used_product_body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid rgba(196, 196, 196, 0.7);
+  border-radius: 5px;
+  padding: 0 50px;
+  width: 100%;
+  height: 38px;
+  font-family: "PretendardM";
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.mypage_wrap .mypage_info_frame .used_product_list ul.used_product_body:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mypage_wrap .mypage_info_frame .used_product_list ul.used_product_body > li {
+  width: 20%;
+  text-align: center;
+}
+
+.mypage_wrap .mypage_info_frame .used_product_list ul.used_product_body > li:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,137 @@
+/*main style*/
+.dash_container {
+  padding-top: 649px;
+}
+
+.dash_container .main_dash_area {
+  width: 100%;
+  height: 503px;
+  background-color: #21248D;
+  padding: 97px 0 0 84px;
+  position: absolute;
+  top: 70px;
+  left: 0;
+}
+
+.dash_container .main_dash_area .main_dash_text {
+  font-family: "PretendardB";
+  font-size: 70px;
+  color: #FFFFFF;
+  line-height: 1.4;
+}
+
+.dash_container .main_dash_area .search_input_area {
+  width: 497px;
+  height: 90px;
+  position: absolute;
+  top: 283px;
+  right: 187px;
+}
+
+.dash_container .main_dash_area .search_input_area .search_input {
+  width: 497px;
+  height: 90px;
+  border: none;
+  border-bottom: 10px solid #4247E7;
+  background-color: transparent;
+  padding-left: 10px;
+  padding-right: 150px;
+  font-family: "PretendardB";
+  font-size: 70px;
+  color: #FFFFFF;
+}
+
+.dash_container .main_dash_area .search_input_area .search_input::-webkit-input-placeholder {
+  /* Edge */
+  font-family: "PretendardB";
+  font-size: 70px;
+  color: #4247E7;
+}
+
+.dash_container .main_dash_area .search_input_area .search_input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  font-family: "PretendardB";
+  font-size: 70px;
+  color: #4247E7;
+}
+
+.dash_container .main_dash_area .search_input_area .search_input::-ms-input-placeholder {
+  font-family: "PretendardB";
+  font-size: 70px;
+  color: #4247E7;
+}
+
+.dash_container .main_dash_area .search_input_area .btn_search {
+  width: 137px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: #FFE36D;
+  background-image: url("../../image/dark/page/main/icon/icon_arrow_right.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+}
+
+.dash_container .main_dash_area .search_input_area .btn_search:hover {
+  transform: translate(10px, 0);
+  -ms-transform: translate(10px, 0);
+  -webkit-transform: translate(10px, 0);
+}
+
+.dash_container .main_product_list_wrap {
+  width: 100%;
+}
+
+.dash_container .main_product_list_wrap .main_product_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin-bottom: 60px;
+}
+
+.dash_container .main_product_list_wrap .main_product_list .main_list_title {
+  font-family: "PretendardB";
+  font-size: 28px;
+  color: #FFFFFF;
+  margin-bottom: 5px;
+}
+
+.dash_container .main_product_list_wrap .main_product_list .main_list_sub_title {
+  font-family: "PretendardM";
+  font-size: 20px;
+  color: #B9B9B9;
+  margin-bottom: 20px;
+}
+
+.dash_container .main_product_list_wrap .main_product_list .product_frame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 355px;
+  margin-bottom: 55.5px;
+}
+
+.dash_container .main_product_list_wrap .main_product_list .product_frame .product_box {
+  width: 292px;
+  height: 355px;
+  border-radius: 25px;
+  background-color: rgba(196, 196, 196, 0.3);
+  margin-right: 36.5px;
+}
+
+.dash_container .main_product_list_wrap .main_product_list .product_frame .product_box:last-child {
+  margin-right: 0;
+}

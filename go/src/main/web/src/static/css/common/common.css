@@ -1,0 +1,129 @@
+/*dashboard commmon style*/
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 1920px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.dashWrap {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1920px;
+  position: relative;
+  background-color: #0F0655;
+}
+
+.dash_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: auto;
+  padding: 160px 320px 150px 320px;
+  background-color: #0F0655;
+}
+
+.dash_container .btn_more {
+  width: 124px;
+  height: 52px;
+  font-family: "PretendardM";
+  font-size: 22px;
+  color: #000000;
+  background-color: #FFE36D;
+  margin: 0 auto;
+  border-radius: 10px;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+}
+
+.dash_container .btn_more:hover {
+  transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+}
+
+.dash_container .btn_like {
+  width: 39px;
+  height: 36px;
+  background: url("../../image/dark/page/product/btn/btn_like_normal.png") no-repeat;
+  position: absolute;
+  bottom: 17px;
+  right: 20px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  z-index: 1;
+}
+
+.dash_container .btn_like.active {
+  background: url("../../image/dark/page/product/btn/btn_like_active.png") no-repeat;
+}
+
+.dash_container .btn_sort {
+  width: auto;
+  height: 30px;
+  font-family: "PretendardSB";
+  font-size: 18px;
+  padding-right: 27px;
+  color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.dash_container .btn_sort::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 9px;
+  background: url("../../image/dark/page/product/btn/btn_arrow_down.png") no-repeat;
+  background-size: 100%;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+
+.dash_container ul.sort_list {
+  width: 164px;
+  height: auto;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 10px 0px;
+  position: absolute;
+  top: 35px;
+  right: 0px;
+  z-index: 1;
+  display: none;
+}
+
+.dash_container ul.sort_list > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  height: 25px;
+  font-family: "PretendardSB";
+  font-size: 18px;
+  padding-right: 27px;
+  color: #0F0F0F;
+  cursor: pointer;
+}
+
+.dash_container ul.sort_list > li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

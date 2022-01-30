@@ -1,0 +1,70 @@
+/*profileInfo style*/
+.mypage_wrap .profile_frame {
+  padding-top: 63px;
+}
+
+.mypage_wrap .profile_frame .user_name {
+  margin-bottom: 13px;
+}
+
+.mypage_wrap .mypage_info_frame {
+  margin-bottom: 20px;
+}
+
+.mypage_wrap .mypage_info_frame .mypage_info_title {
+  margin-bottom: 30px;
+}
+
+.mypage_wrap .mypage_info_frame .login_info_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 574px;
+  height: auto;
+  margin-bottom: 39px;
+  position: relative;
+}
+
+.mypage_wrap .mypage_info_frame .login_info_box .mypage_title {
+  font-family: "PretendardM";
+  font-size: 18px;
+  color: #E7E7E7;
+}
+
+.mypage_wrap .mypage_info_frame .login_info_box .mypage_info_text {
+  width: 100%;
+  height: 53px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  font-family: "PretendardM";
+  font-size: 20px;
+  color: #E1E1E1;
+  padding-top: 22px;
+}
+
+.mypage_wrap .mypage_info_frame .login_info_box .btn_info_edit {
+  width: 70px;
+  height: 34px;
+  font-family: "PretendardM";
+  font-size: 15px;
+  color: #000000;
+  background-color: #FFE36D;
+  margin: 0 auto;
+  border-radius: 10px;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  position: absolute;
+  top: 30px;
+  right: 0;
+}
+
+.mypage_wrap .mypage_info_frame .login_info_box .btn_info_edit:hover {
+  transform: scale(1.1, 1.1);
+  -ms-transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1);
+}

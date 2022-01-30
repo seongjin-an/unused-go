@@ -1,0 +1,17 @@
+/*scroll style*/
+.used_product_list .mCSB_scrollTools .mCSB_draggerContainer {
+    top: -12px;
+    right: 3px;
+}
+.used_product_list .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #566694;
+    border-radius: 5px;
+    width: 10px;
+    height: 100%;
+}
+.used_product_list .mCSB_scrollTools .mCSB_draggerRail {
+    background-color: transparent;
+    border-radius: 2.5px;
+    width: 5px;
+    height: 100%;
+}

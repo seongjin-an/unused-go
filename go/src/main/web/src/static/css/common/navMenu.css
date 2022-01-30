@@ -1,0 +1,46 @@
+/*navMenu style*/
+ul.nav_menu_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 212px;
+  height: auto;
+}
+
+ul.nav_menu_list > li {
+  width: 100%;
+  font-family: "PretendardM";
+  font-size: 20px;
+  color: #FFFFFF;
+  margin-bottom: 17px;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+}
+
+ul.nav_menu_list > li:first-child {
+  font-family: "PretendardB";
+  font-size: 24px;
+  margin-bottom: 32px;
+  cursor: default;
+}
+
+ul.nav_menu_list > li:first-child:hover {
+  transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
+  color: #FFFFFF;
+}
+
+ul.nav_menu_list > li:hover {
+  transform: translate(3px, 0);
+  -ms-transform: translate(3px, 0);
+  -webkit-transform: translate(3px, 0);
+  color: #FFE782;
+}

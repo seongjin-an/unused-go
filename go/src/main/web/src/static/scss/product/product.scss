@@ -1,0 +1,442 @@
+/*product style*/
+.dash_container{
+    padding-top: 160px;
+
+    .product_list_wrap{
+        display: flex;
+        flex-direction: column;
+        width: 1032px;
+        height: auto;
+        padding-top: 53px;
+        position: relative;
+
+        .product_list{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+
+            .product_box{
+                display: flex;
+                flex-direction: column;
+                width: 308px;
+                height: auto;
+                margin-left: 35.5px;
+                margin-bottom: 40px;
+                cursor: pointer;
+
+                .product_img{
+                    width: 308px;
+                    height: 373px;
+                    border-radius: 25px;
+                    background-color: rgba(196, 196, 196,0.5);
+                    position: relative;
+                    margin-bottom: 20px;
+                }
+
+                .product_name{
+                    font-family: "PretendardM";
+                    font-size: 18px;
+                    color: #EE8AFF;
+                    padding-left: 10px;
+                }
+                .product_price{
+                    font-family: "PretendardSB";
+                    font-size: 18px;
+                    color: #FFFFFF;
+                    margin: 8px 0;
+                    padding-left: 10px;
+                }
+                .product_count_value{
+                    font-family: "PretendardM";
+                    font-size: 15px;
+                    color: #ADACAC;
+                    padding-left: 10px;
+                }
+            }
+        }
+        .btn_more{
+            margin-left: 475px;
+        }
+    }
+
+    .picture_area{
+        width: 432px;
+        height: auto;
+
+        .picture_box{
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            background-color: rgba(196, 196, 196,0.5);
+            background-image: url("../../image/dark/page/product/img/img_camera.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 15.5px;
+        }
+        .picture_list{
+            display: flex;
+            width: 100%;
+            height: 96px;
+
+            .picture_small_box{
+                width: 88px;
+                height: 88px;
+                border-radius: 15px;
+                background-color: rgba(196, 196, 196,0.5);
+                position: relative;
+                margin-right: 15.5px;
+
+                &:last-child{
+                    margin-right: 0;
+                }
+
+                .btn_delete{
+                    width: 15px;
+                    height: 15px;
+                    background: url("../../image/dark/page/product/btn/btn_delete.png") no-repeat;
+                    position: absolute;
+                    top: 9px;
+                    right: 9px;
+                    z-index: 1;
+                    transition: transform .3s ease-in-out; 
+
+                    &:hover{
+                        transform:rotate(90deg);
+                        -ms-transform:rotate(90deg);
+                        -webkit-transform:rotate(90deg);
+                    }
+                }
+            }
+        }
+    }
+    .product_info_wrap{
+        width: 817px;
+        height: auto;
+        border-left: 3px solid rgba(196, 196, 196,0.5);
+        padding: 64px 0 124px 53px;
+        position: relative;
+        
+        .user_name{
+            font-family: "PretendardM";
+            font-size: 18px;
+            color: #E7E7E7;
+            padding-left: 24px;
+            position: absolute;
+            top: 0;
+            left: 53px;
+
+            &::before{
+                content:"";
+                display: block;
+                width: 18px;
+                height: 18px;
+                background: url("../../image/dark/page/product/img/img_profile.png") no-repeat;
+                background-size: 100%;
+                opacity: 0.7;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        .product_name{
+            font-family: "PretendardM";
+            font-size: 22px;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+        .product_price{
+            font-family: "PretendardM";
+            font-size: 24px;
+            color: #FFFFFF;
+            margin-bottom: 45px;
+        }
+        .product_info_frame{
+            width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+            position: relative;
+
+            &.comment_frame{
+                margin-top: 50px;
+
+                .btn_comment_create{
+                    width: 68px;
+                    height: 34px;
+                    font-family: "PretendardM";
+                    font-size: 15px;
+                    color: #000000;
+                    background-color: #FFE36D;
+                    margin: 0 auto;
+                    border-radius: 10px;
+                    transition: transform .3s ease-in-out;  
+                    position: absolute;
+                    top: -9px;
+                    right: 0;
+                
+                    &:hover{
+                        transform: scale(1.1, 1.1);;
+                        -ms-transform: scale(1.1, 1.1);
+                        -webkit-transform: scale(1.1, 1.1);
+                    }
+                }
+
+                .comment_area{
+                    width: 100%;
+                    height: auto;
+                    margin-top: 30px;
+                    
+                    .comment_block{
+                        display: flex;
+                        width: 100%;
+                        height: auto;
+                        margin-bottom: 10px;
+                        position: relative;
+
+                        .comment_text{
+                            width: 80%;
+                            height: 20px;
+                            font-family: "PretendardM";
+                            font-size: 18px;
+                            color: #E7E7E7;
+                            padding-left: 20px;
+
+                            &::before{
+                                content:"";
+                                display: block;
+                                width: 10px;
+                                height: 12px;
+                                background: url("../../image/dark/page/product/img/img_deco.png") no-repeat;
+                                background-size: 100%;
+                                position: absolute;
+                                top: 2px;
+                                left: 5px;
+                            }
+                        }
+                        .comment_user{
+                            width: 20%;
+                            font-family: "PretendardM";
+                            font-size: 18px;
+                            color: rgba(196, 196, 196, 0.8);
+                            text-align: right;
+                        }
+                    }
+                }
+                
+            }
+
+            .product_info_title{
+                font-family: "PretendardM";
+                font-size: 20px;
+                color: #E7E7E7;
+                margin-bottom: 10px;
+            }
+
+            ul.chart_period_list{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border: 2px solid rgba(196, 196, 196,0.7);
+                padding: 0 50px;
+                border-radius: 5px;
+                width: 100%;
+                height: 38px;
+                font-family: "PretendardR";
+                font-size: 16px;
+                color: #E7E7E7;
+            }
+
+            ul.total_price_list{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 65px;
+                height: auto;
+                font-family: "PretendardR";
+                font-size: 15px;
+                color: #CFCFCF;
+                position: absolute;
+                top: 91px;
+                right: -7px;
+            
+                > li{
+                    height: 25px;
+                }
+            }
+
+            .chart_area{
+                width: 700px;
+                height: 110px;
+                margin-top: 27.5px;
+                margin-bottom: 75px;
+
+                .chart_in{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .product_info_box{
+                width: 100%;
+                height: 200px;
+                border: 2px solid rgba(196, 196, 196, 0.7);
+                border-radius: 5px;
+                margin-bottom: 15px;
+                font-family: "PretendardR";
+                font-size: 16px;
+                color: #E7E7E7;
+                padding: 20px 20px;
+            }
+
+            .product_btn_group{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                height: 40px;
+
+                .btn_product_like{
+                    width: 100%;
+                    height: 100%;
+                    border: 2px solid rgba(196, 196, 196, 0.7);
+                    border-radius: 5px;
+                    font-family: "PretendardR";
+                    font-size: 18px;
+                    color: #fff;
+                    padding-left: 27px;
+                    position: relative;
+                    transition: all .3s;
+
+                    &::before{
+                        content:"";
+                        display: block;
+                        width: 16px;
+                        height: 15px;
+                        background: url("../../image/dark/page/product/icon/icon_like.png") no-repeat;
+                        background-size: 100%;
+                        position: absolute;
+                        top: 11px;
+                        left: 322px;
+                    }
+
+                    &:hover{
+                        background-color: rgba(255,255,255,0.1);
+                    }
+                }
+            }
+
+            .comment_input{
+                width: 100%;
+                height: 30px;
+                background-color: transparent;
+                border: none;
+                border-top: 2px solid rgba(196, 196, 196, 0.7);
+                padding-top: 10px;
+                font-family: "PretendardR";
+                font-size: 16px;
+                color: #E7E7E7;
+                padding-left: 10px;
+            }
+            .comment_input::-webkit-input-placeholder {
+                /* Edge */
+                font-family: "PretendardR";
+                font-size: 16px;
+                color: rgba(196, 196, 196, 0.7);
+            }
+            .comment_input:-ms-input-placeholder {
+                /* Internet Explorer 10-11 */
+                font-family: "PretendardR";
+                font-size: 16px;
+                color: rgba(196, 196, 196, 0.7);
+            }
+            .comment_input::-ms-input-placeholder {
+                font-family: "PretendardR";
+                font-size: 16px;
+                color: rgba(196, 196, 196, 0.7);
+            }
+
+            .color_select_area{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                height: 38px;
+
+                .color_block{
+                    width: 38px;
+                    height: 38px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    border: 2px solid transparent;
+                    background-color: rebeccapurple;
+                    position: relative;
+                    transition: all .3s;
+
+                    &.color_white{
+                        background-color: #fff;
+
+                        &.active{
+                            border-color: #000;
+                        }
+                    }
+                    &.color_gray{
+                        background-color: #9c9c9b;
+                    }
+                    &.color_dark_gray{
+                        background-color: #52565b;
+                    }
+                    &.color_black{
+                        background-color: #000;
+                    }
+                    &.color_red{
+                        background-color: #ff0000;
+                    }
+                    &.color_pink{
+                        background-color: #ff9db5;
+                    }
+                    &.color_orange{
+                        background-color: #ff7200;
+                    }
+                    &.color_yellow{
+                        background-color: #feea00;
+                    }
+                    &.color_mint{
+                        background-color: #00c4ab;
+                    }
+                    &.color_green{
+                        background-color: #00b000;
+                    }
+                    &.color_dark_green{
+                        background-color: #03431d;
+                    }
+                    &.color_sky_blue{
+                        background-color: #00c3eb;
+                    }
+                    &.color_blue{
+                        background-color: #2508ff;
+                    }
+                    &.color_violet{
+                        background-color: #570070;
+                    }
+
+                    &.active{
+                        border-color: #fff;
+                    }
+                }
+            }
+
+            .product_info_text{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+                border-radius: 5px;
+                border: 2px solid rgba(196, 196, 196, 0.7);
+                background-color: transparent;
+                padding-left: 16px;
+                font-family: "PretendardR";
+                font-size: 16px;
+                color: #E7E7E7;
+            }
+        }
+    }
+}

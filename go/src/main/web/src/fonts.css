@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "PretendardBlack";
+    src: url('./static/fonts/Pretendard-Black.ttf') format("truetype")
+}
+@font-face {
+    font-family: "PretendardBold";
+    src: url('./static/fonts/Pretendard-Bold.ttf') format("truetype")
+}
+@font-face {
+    font-family: "PretendardExtraBold";
+    src: url('./static/fonts/Pretendard-ExtraBold.ttf') format("truetype")
+}
+@font-face {
+    font-family: "PretendardExtraLight";
+    src: url('./static/fonts/Pretendard-ExtraLight.ttf') format("truetype")
+}
+@font-face {
+    font-family: "PretendardLight";
+    src: url('./static/fonts/Pretendard-Light.ttf') format("truetype")
+}
+@font-face {
+    font-family: "PretendardMedium";
+    src: url('./static/fonts/Pretendard-Medium.ttf') format("truetype")
+}
+@font-face {
+    font-family: "PretendardRegular";
+    src: url('./static/fonts/Pretendard-Regular.ttf') format("truetype")
+}
+@font-face {
+    font-family: "PretendardSemiBold";
+    src: url('./static/fonts/Pretendard-SemiBold.ttf') format("truetype")
+}
+@font-face {
+    font-family: "PretendardThin";
+    src: url('./static/fonts/Pretendard-Thin.ttf') format("truetype")
+}

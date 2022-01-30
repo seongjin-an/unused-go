@@ -1,0 +1,176 @@
+/*selectBox style*/
+.selectric-wrapper {
+    margin: 0px;
+}
+.selectric-select_category .selectric-items ul,
+.selectric-select_history .selectric-items ul{
+    padding: 0px;
+}
+.selectric-select_category .button:after,
+.selectric-select_history .button:after {
+    border-top-color: transparent;
+    width: 0px;
+    height: 0px;
+    border: none;
+}
+.selectric-select_category .selectric-items .selectric-scroll,
+.selectric-select_history .selectric-items .selectric-scroll{
+    overflow-x: hidden;
+}
+.selectric-select_category .selectric-items .disabled {
+    display: none;
+}
+
+/*select_category*/
+.selectric-select_category .selectric {
+    width: 761px;
+    height: 40px;
+    font-family: "PretendardL";
+    font-size: 16px;
+    color: #E7E7E7;
+    text-align: left;
+    padding-left: 0px;
+    margin: 0px;
+    cursor: pointer;
+    border: 2px solid rgba(196, 196, 196, 0.7);
+    background-color: transparent;
+    border-radius: 5px;
+    float: left;
+    margin-bottom: 11px;
+}
+.selectric-select_category .selectric-items {
+    width: 761px;
+    border-radius: 5px;   
+    margin: 0px;
+    border: 2px solid rgba(196, 196, 196, 0.7);
+    background-color: #21248D;
+    margin-top: -7px;
+    padding: 7px 0;
+}
+.selectric-select_category .selectric-items li {
+    font-family: "PretendardM";
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.6;
+    color: #ffffff;
+    padding: 0 0 0 14px;
+    width: 761px;
+    height: 40px;
+    transition: all .3s;
+}
+.selectric-select_category .selectric-items li:hover {
+    width: 761px;
+    height: 40px;
+    font-family: "PretendardM";
+    font-size: 16px;
+    color: #EE8AFF
+}
+.selectric-select_category .selectric-items li.selected,
+.selectric-select_category .selectric-items li.selected:hover {
+    width: 761px;
+    height: 40px;
+    font-family: "PretendardM";
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #341CFF;
+}
+.selectric-select_category .selectric .label {
+    font-family: "PretendardL";
+    font-size: 16px;
+    text-align: left;
+    color: #ffffff;
+    text-align: left;
+    padding-left: 14px;
+    line-height: 2;
+    height: 40px;
+}
+.selectric-select_category .button {
+    width: 18px;
+    height: 11px;
+    background: url("../../image/dark/page/product/btn/btn_arrow_down.png") no-repeat;
+    top: 13px;
+    right: 22px;
+}
+
+/*select_category*/
+.selectric-select_history .selectric {
+    width: 162px;
+    height: 40px;
+    font-family: "PretendardL";
+    font-size: 16px;
+    color: #E7E7E7;
+    text-align: left;
+    padding-left: 0px;
+    margin: 0px;
+    cursor: pointer;
+    border: 2px solid rgba(196, 196, 196, 0.7);
+    background-color: transparent;
+    border-radius: 5px;
+    float: left;
+    margin-bottom: 11px;
+}
+.selectric-select_history .selectric-items {
+    width: 162px;
+    border-radius: 5px;   
+    margin: 0px;
+    border: 2px solid rgba(196, 196, 196, 0.7);
+    background-color: #21248D;
+    margin-top: -7px;
+    padding: 7px 0;
+}
+.selectric-select_history .selectric-items li {
+    font-family: "PretendardM";
+    font-size: 16px;
+    text-align: left;
+    line-height: 2.6;
+    color: #ffffff;
+    padding: 0 0 0 14px;
+    width: 162px;
+    height: 40px;
+}
+.selectric-select_history .selectric-items li:hover {
+    width: 162px;
+    height: 40px;
+    font-family: "PretendardM";
+    font-size: 16px;
+    color: #EE8AFF
+}
+.selectric-select_history .selectric-items li.selected,
+.selectric-select_history .selectric-items li.selected:hover {
+    width: 162px;
+    height: 40px;
+    font-family: "PretendardM";
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #341CFF;
+}
+.selectric-select_history .selectric .label {
+    font-family: "PretendardL";
+    font-size: 16px;
+    text-align: left;
+    color: #ffffff;
+    text-align: left;
+    padding-left: 14px;
+    line-height: 2;
+    height: 40px;
+}
+.selectric-select_history .button {
+    width: 18px;
+    height: 11px;
+    background: url("../../image/dark/page/product/btn/btn_arrow_down.png") no-repeat;
+    top: 13px;
+    right: 22px;
+}
+
+/*selectric scroll style*/
+.selectric-wrapper ::-webkit-scrollbar {
+    background-color: transparent;
+    width: 4px;
+}
+.selectric-wrapper ::-webkit-scrollbar-track {
+    background-color:transparent;
+}
+.selectric-wrapper ::-webkit-scrollbar-thumb {
+    background-color:#646a9b;    
+    border-radius: 4px;
+}

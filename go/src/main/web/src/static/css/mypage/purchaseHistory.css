@@ -1,0 +1,26 @@
+/*purchaseHistory style*/
+.mypage_wrap .mypage_info_frame .history_frame .history_box {
+  width: 33.33%;
+}
+
+.mypage_wrap .mypage_info_frame .history_frame .history_box .history_value.tRed {
+  color: #FF0000;
+}
+
+.mypage_wrap .mypage_info_frame .history_frame .history_box .history_value.tMint {
+  color: #00CAD7;
+}
+
+.mypage_wrap .mypage_info_frame .purchase_history_frame {
+  width: 100%;
+  height: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  padding-top: 20px;
+}
+
+.mypage_wrap .mypage_info_frame .purchase_history_frame .history_hint {
+  font-family: "PretendardR";
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
