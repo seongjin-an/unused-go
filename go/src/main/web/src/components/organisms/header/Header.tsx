@@ -1,16 +1,20 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from "@emotion/styled";
-import {Logo, TopMenus} from "../../molecules/header";
-import {TopFunc} from "../../molecules/header/TopFunc";
+import {Logo, TopMenus, TopFunc, TopSearch} from "../../molecules/header";
 
 export const Header: React.FC = () => {
+    const [isSearchShow, setIsSearchShow] = useState<boolean>(false)
+    const handleOpenSearch = () => setIsSearchShow(true)
+    const handleCloseSearch = () => setIsSearchShow(false)
+
     return (
         <StyledTopBar>
             <Logo/>
             <StyledMenuWrapper>
                 <TopMenus/>
-                <TopFunc/>
+                <TopFunc handleOpenSearch={handleOpenSearch}/>
             </StyledMenuWrapper>
+            <TopSearch isSearchShow={isSearchShow} handleCloseSearch={handleCloseSearch}/>
         </StyledTopBar>
     )
 }
@@ -40,5 +44,5 @@ const StyledTopBar = styled.section`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index:10;
 `

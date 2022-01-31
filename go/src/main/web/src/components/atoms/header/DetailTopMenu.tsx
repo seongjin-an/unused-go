@@ -1,4 +1,4 @@
-import React from "react";
+import React, {MouseEvent} from "react";
 import styled from "@emotion/styled";
 
 interface IProps{
@@ -47,14 +47,18 @@ export const DetailTopMenu: React.FC<IProps> = ({isShow}) => {
 }
 const StyledDetailMenu = styled.div<{isShow: boolean}>`
   display: ${({isShow}) => isShow ? 'flex' : 'none'};
+  //transition: opacity .15s ease-in-out, -webkit-transform .3s ease-in-out;
+  
   width: 100%;
   height: 372px;
   background-color: #341CFF;
   border-bottom: 1px solid #fff;
   padding: 42px 0 0 238px;
   position: absolute;
+  border-top: 1px solid #fff;
   top: 70px;
   left: 0;
+  
   & > ul {
     display: flex;
     width: auto;

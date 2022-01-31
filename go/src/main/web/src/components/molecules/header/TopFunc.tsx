@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "@emotion/styled";
 import {FuncButton, UserName} from "../../atoms/header";
-
-export const TopFunc:React.FC = () => {
+interface IProps{
+    handleOpenSearch: () => void;
+}
+export const TopFunc:React.FC<IProps> = ({handleOpenSearch}) => {
     return(
         <div>
             <StyledTopFunc>
                 <UserName/>
-                <FuncButton buttonType={'search'}/>
+                <FuncButton buttonType={'search'} callback={handleOpenSearch}/>
                 <FuncButton buttonType={'basket'}/>
             </StyledTopFunc>
         </div>

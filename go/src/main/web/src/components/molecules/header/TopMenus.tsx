@@ -4,16 +4,7 @@ import styled from "@emotion/styled";
 
 export const TopMenus: React.FC = () => {
     const [isShow, setIsShow] = useState<boolean>(false)
-    const handleMouseOver = (event: MouseEvent<HTMLDivElement>) => {
-        event.stopPropagation()
-        event.preventDefault()
-        console.log('handleMouseOver')
-    }
-    const handleMouseOut = (event: MouseEvent<HTMLDivElement>) => {
-        event.stopPropagation()
-        event.preventDefault()
-        console.log('handleMouseOut')
-    }
+
     const handleMouseEnter = (event: MouseEvent<HTMLDivElement>) => {
         event.stopPropagation()
         event.preventDefault()

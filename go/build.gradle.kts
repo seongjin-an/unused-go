@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+//    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -32,10 +32,52 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly("org.postgresql:postgresql")
+//    runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+val webappDir = "$projectDir/src/main/web"
+
+sourceSets {
+    main {
+        resources {
+            srcDirs(listOf("$webappDir/build", "$projectDir/src/main/resources", "$projectDir/src/main/resources/fonts"))
+        }
+    }
+}
+
+
+tasks {
+    processResources {
+        dependsOn("buildReact")
+        duplicatesStrategy = org.gradle.api.file.DuplicatesStrategy.EXCLUDE
+    }
+}
+
+tasks.register("buildReact", Exec::class) {
+    dependsOn("installReact")
+    workingDir(webappDir)
+    inputs.dir(webappDir)
+    group = BasePlugin.BUILD_GROUP
+    if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+        commandLine("npm.cmd", "run-script", "build")
+    } else {
+        commandLine("npm", "run-script", "build")
+    }
+}
+
+tasks.register("installReact", Exec::class) {
+    workingDir(webappDir)
+    inputs.dir(webappDir)
+    group = BasePlugin.BUILD_GROUP
+    if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+        commandLine("npm.cmd", "audit", "fix")
+        commandLine("npm.cmd", "install")
+    } else {
+        commandLine("npm", "audit", "fix")
+        commandLine("npm", "install")
+    }
 }
 
 tasks.withType<KotlinCompile> {

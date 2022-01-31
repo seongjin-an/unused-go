@@ -1,7 +1,11 @@
-import React from "react";
+import React, {MouseEvent} from "react";
 import styled from "@emotion/styled";
 
-export const BaseTopMenu: React.FC = () => {
+interface IProps{
+
+}
+
+export const BaseTopMenu: React.FC<IProps> = ({}) => {
     return(
         <StyledTopMenus>
             <li>나의 중고시새</li>

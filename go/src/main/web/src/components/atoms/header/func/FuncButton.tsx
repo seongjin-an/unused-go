@@ -3,15 +3,15 @@ import styled from "@emotion/styled";
 
 import searchButton from '../../../../static/image/dark/common/topBar/icon/icon_search.png'
 import basketButton from '../../../../static/image/dark/common/topBar/icon/icon_basket.png'
-import * as url from "url";
 
 interface IProps{
     buttonType: string;
+    callback?: () => void;
 }
 
-export const FuncButton: React.FC<IProps> = ({buttonType}) => {
+export const FuncButton: React.FC<IProps> = ({buttonType, callback}) => {
     return (
-        <StyledFuncButton buttonType={buttonType}/>
+        <StyledFuncButton buttonType={buttonType} onClick={callback}/>
     )
 }
 const StyledFuncButton = styled.button<IProps>`
