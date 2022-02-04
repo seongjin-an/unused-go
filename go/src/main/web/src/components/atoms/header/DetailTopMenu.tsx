@@ -1,5 +1,5 @@
 import React, {MouseEvent} from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 interface IProps{
     isShow: boolean;
@@ -79,7 +79,7 @@ const StyledDetailMenu = styled.div<{isShow: boolean}>`
   }
   
   & > ul > li > ul > li{
-    font-family: "PretendardSemiBold";
+    font-family: PretendardSemiBold;
     font-size: 18px;
     color: #FFFFFF;
     margin-bottom: 18px;

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import imgProfile from '../../../../static/image/dark/page/product/img/img_profile.png'
 
 export const UserName: React.FC = () => {
@@ -13,7 +13,7 @@ export const UserName: React.FC = () => {
 const StyledUserName = styled.div`
   justify-self: flex-end;
   width: 80px;
-  font-family: "PretendardBold";
+  font-family: PretendardBold;
   font-size: 18px;
   text-align: left;
   color: #fff;
@@ -38,7 +38,7 @@ const StyledUserName = styled.div`
   }
   
   & > span{
-    font-family: "PretendardMedium";
+    font-family: PretendardMedium;
     font-size: 15px;
     letter-spacing: -0.24px;
     color: #B9B9B9;

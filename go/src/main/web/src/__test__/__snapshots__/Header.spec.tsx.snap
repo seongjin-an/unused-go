@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header test~ should match snapshot Header 1`] = `
+<Header>
+  <styled.section>
+    <section
+      className="sc-ksdxgE hoWsOj"
+    >
+      <Logo>
+        <styled.div>
+          <div
+            className="sc-bdvvtL ewWqu"
+          >
+            <styled.div>
+              <div
+                className="sc-gsDKAQ ixANYz"
+              />
+            </styled.div>
+          </div>
+        </styled.div>
+      </Logo>
+      <styled.div>
+        <div
+          className="sc-bqiRlB eTOdwa"
+        >
+          <TopMenus>
+            <styled.div
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+            >
+              <div
+                className="sc-gKclnd ouheE"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <BaseTopMenu>
+                  <styled.ul>
+                    <ul
+                      className="sc-dkPtRN iwzmHV"
+                    >
+                      <li>
+                        나의 중고시새
+                      </li>
+                      <li>
+                        운동용품
+                      </li>
+                      <li>
+                        의류
+                      </li>
+                      <li>
+                        커뮤니티
+                      </li>
+                    </ul>
+                  </styled.ul>
+                </BaseTopMenu>
+                <DetailTopMenu
+                  isShow={false}
+                >
+                  <styled.div
+                    isShow={false}
+                  >
+                    <div
+                      className="sc-hKwDye hVXzjj"
+                    >
+                      <ul>
+                        <li>
+                          <ul>
+                            <li>
+                              중고시세 한눈에보기
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li>
+                              운동용품 전체
+                            </li>
+                            <li>
+                              아령
+                            </li>
+                            <li>
+                              바벨
+                            </li>
+                            <li>
+                              원판/플레이트
+                            </li>
+                            <li>
+                              벨트
+                            </li>
+                            <li>
+                              악력기
+                            </li>
+                            <li>
+                              밴드/짐볼
+                            </li>
+                            <li>
+                              스트랩/보호대
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li>
+                              의류 전체
+                            </li>
+                            <li>
+                              재킷 & 베스트
+                            </li>
+                            <li>
+                              탑 & 티셔츠
+                            </li>
+                            <li>
+                              팬츠 & 타이츠
+                            </li>
+                            <li>
+                              양말
+                            </li>
+                            <li>
+                              셋업
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <ul>
+                            <li>
+                              최신글
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </styled.div>
+                </DetailTopMenu>
+              </div>
+            </styled.div>
+          </TopMenus>
+          <TopFunc
+            handleOpenSearch={[Function]}
+          >
+            <div>
+              <styled.div>
+                <div
+                  className="sc-iCfMLu klAKLs"
+                >
+                  <UserName>
+                    <styled.div>
+                      <div
+                        className="sc-eCImPb hJLDrh"
+                      >
+                        안김안
+                        <span>
+                          님
+                        </span>
+                      </div>
+                    </styled.div>
+                  </UserName>
+                  <FuncButton
+                    buttonType="search"
+                    callback={[Function]}
+                  >
+                    <styled.button
+                      buttonType="search"
+                      onClick={[Function]}
+                    >
+                      <button
+                        className="sc-jRQBWg cLvFvO"
+                        onClick={[Function]}
+                      />
+                    </styled.button>
+                  </FuncButton>
+                  <FuncButton
+                    buttonType="basket"
+                  >
+                    <styled.button
+                      buttonType="basket"
+                    >
+                      <button
+                        className="sc-jRQBWg cLvFvO"
+                      />
+                    </styled.button>
+                  </FuncButton>
+                </div>
+              </styled.div>
+            </div>
+          </TopFunc>
+        </div>
+      </styled.div>
+      <TopSearch
+        handleCloseSearch={[Function]}
+        isSearchShow={false}
+      >
+        <styled.div
+          isSearchShow={false}
+        >
+          <div
+            className="sc-egiyK fZCaFO"
+          >
+            <CloseSearchButton
+              handleCloseSearch={[Function]}
+            >
+              <styled.button
+                onClick={[Function]}
+              >
+                <button
+                  className="sc-furwcr hLvxrx"
+                  onClick={[Function]}
+                />
+              </styled.button>
+            </CloseSearchButton>
+            <styled.div>
+              <div
+                className="sc-crHmcD dwlxTp"
+              >
+                <SearchInput>
+                  <styled.input
+                    type="text"
+                  >
+                    <input
+                      className="sc-kDTinF TWBvG"
+                      type="text"
+                    />
+                  </styled.input>
+                </SearchInput>
+                <SearchButton>
+                  <styled.button>
+                    <button
+                      className="sc-jrQzAO gofgDO"
+                    />
+                  </styled.button>
+                </SearchButton>
+              </div>
+            </styled.div>
+            <styled.div>
+              <div
+                className="sc-iqseJM djymIp"
+              >
+                <RecentItem>
+                  <styled.div>
+                    <div
+                      className="sc-pVTFL fwENdU"
+                    >
+                      <div
+                        className="img"
+                      />
+                      <div
+                        className="name"
+                      >
+                        아령
+                      </div>
+                    </div>
+                  </styled.div>
+                </RecentItem>
+                <RecentItem>
+                  <styled.div>
+                    <div
+                      className="sc-pVTFL fwENdU"
+                    >
+                      <div
+                        className="img"
+                      />
+                      <div
+                        className="name"
+                      >
+                        아령
+                      </div>
+                    </div>
+                  </styled.div>
+                </RecentItem>
+                <RecentItem>
+                  <styled.div>
+                    <div
+                      className="sc-pVTFL fwENdU"
+                    >
+                      <div
+                        className="img"
+                      />
+                      <div
+                        className="name"
+                      >
+                        아령
+                      </div>
+                    </div>
+                  </styled.div>
+                </RecentItem>
+                <RecentItem>
+                  <styled.div>
+                    <div
+                      className="sc-pVTFL fwENdU"
+                    >
+                      <div
+                        className="img"
+                      />
+                      <div
+                        className="name"
+                      >
+                        아령
+                      </div>
+                    </div>
+                  </styled.div>
+                </RecentItem>
+                <RecentItem>
+                  <styled.div>
+                    <div
+                      className="sc-pVTFL fwENdU"
+                    >
+                      <div
+                        className="img"
+                      />
+                      <div
+                        className="name"
+                      >
+                        아령
+                      </div>
+                    </div>
+                  </styled.div>
+                </RecentItem>
+              </div>
+            </styled.div>
+          </div>
+        </styled.div>
+      </TopSearch>
+    </section>
+  </styled.section>
+</Header>
+`;

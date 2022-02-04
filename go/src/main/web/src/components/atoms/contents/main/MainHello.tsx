@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 export const MainHello: React.FC = () => {
     return(
@@ -14,7 +14,7 @@ export const MainHello: React.FC = () => {
 }
 
 const StyledMainHello = styled.div`
-  font-family: "PretendardBold";
+  font-family: PretendardBold;
   font-size: 70px;
   color: #FFFFFF;
   line-height: 1.4;

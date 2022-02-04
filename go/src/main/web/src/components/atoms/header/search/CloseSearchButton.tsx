@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 import closeBtn from '../../../../static/image/dark/common/topBar/btn/btn_search_close.png'
 interface IProps{

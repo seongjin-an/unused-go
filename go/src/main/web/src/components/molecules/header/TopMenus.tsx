@@ -1,6 +1,6 @@
 import React, {MouseEvent, useState} from "react";
 import {BaseTopMenu, DetailTopMenu} from "../../atoms/header";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 export const TopMenus: React.FC = () => {
     const [isShow, setIsShow] = useState<boolean>(false)

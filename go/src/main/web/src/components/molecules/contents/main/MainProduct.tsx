@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import {MainProductFrame} from "../../../atoms/contents/main";
 
 export const MainProduct: React.FC = () => {
@@ -38,14 +38,14 @@ const StyledMainProductList = styled.div`
   margin-bottom: 60px;
   
   & > .main_list_title{
-    font-family: "PretendardBlack";
+    font-family: PretendardBlack;
     font-size: 28px;
     color: #FFFFFF;
     margin-bottom: 5px;
   }
   
   & > .main_list_sub_title{
-    font-family: "PretendardMedium";
+    font-family: PretendardMedium;
     font-size: 20px;
     color: #B9B9B9;
     margin-bottom: 20px;
@@ -59,7 +59,7 @@ const StyledMainProductList = styled.div`
   & .btn_more{
     width: 124px;
     height: 52px;
-    font-family: "PretendardMedium";
+    font-family: PretendardMedium;
     font-size: 22px;
     color: #000000;
     background-color: #FFE36D;

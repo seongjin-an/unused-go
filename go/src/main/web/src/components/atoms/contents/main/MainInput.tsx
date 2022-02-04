@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 import iconArrowRight from '../../../../static/image/dark/page/main/icon/icon_arrow_right.png'
 
@@ -26,7 +26,7 @@ const StyledMainInput =  styled.div`
     background-color: transparent;
     padding-left: 10px;
     padding-right: 150px;
-    font-family: "PretendardBlack";
+    font-family: PretendardBlack;
     font-size: 70px;
     color: #FFFFFF;
   }

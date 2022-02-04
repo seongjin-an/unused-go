@@ -6,12 +6,12 @@ import {ProductList, DetailProduct, CreateProduct} from './pages/product'
 import {Account, Intro, Profile, PurchaseHistory, RegisteredHistory, SoldHistory} from "./pages/mypage";
 import {Main} from "./pages/main";
 import {Community} from "./pages/community";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 const App = () => {
     return (
         <DashWrap>
-            <ErrorBoundary FallbackComponent={Error}>
+            {/*<ErrorBoundary FallbackComponent={Error}>*/}
                 <BrowserRouter basename="/unused-go">
                     <Routes>
                         <Route path="/create-product" element={<CreateProduct/>}/>
@@ -32,7 +32,7 @@ const App = () => {
                         <Route path="/*" element={<NotFound/>}/>
                     </Routes>
                 </BrowserRouter>
-            </ErrorBoundary>
+            {/*</ErrorBoundary>*/}
         </DashWrap>
     )
 }

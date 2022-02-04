@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import {MainInput, MainHello} from "../../../atoms/contents/main";
 
 export const MainDash: React.FC = () => {

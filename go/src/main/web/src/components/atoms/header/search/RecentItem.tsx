@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 export const RecentItem: React.FC = () => {
     return(
@@ -34,7 +34,7 @@ const StyledRecentItem = styled.div`
     background-color: #EEEEEE;
   }
   & .name{
-    font-family: "PretendardMedium";
+    font-family: PretendardMedium;
     font-size: 17px;
     color: #757575;
     margin-top: 12px;

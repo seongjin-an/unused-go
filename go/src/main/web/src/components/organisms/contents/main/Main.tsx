@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import {MainDash, MainProduct} from "../../../molecules/contents";
 
 export const Main: React.FC = () => {

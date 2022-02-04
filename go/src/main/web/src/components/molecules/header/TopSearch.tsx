@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 import imgLogo from '../../../static/image/dark/common/footer/img/img_logo.png'
 import {CloseSearchButton, RecentItem, SearchButton, SearchInput} from "../../atoms/header/search";

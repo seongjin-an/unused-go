@@ -1,5 +1,5 @@
 import React, {MouseEvent} from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 interface IProps{
 
@@ -28,7 +28,7 @@ const StyledTopMenus = styled.ul`
   list-style: none;
   
   & > li{
-    font-family: "PretendardBold";
+    font-family: PretendardBold;
     font-size: 18px;
     color: #F6F6F6;
   }

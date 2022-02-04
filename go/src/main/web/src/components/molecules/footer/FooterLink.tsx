@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 export const FooterLink: React.FC = () => {
     return (
@@ -41,7 +41,7 @@ const StyledCopyRightText = styled.div`
   width: 100%;
   height: auto;
   border-top: 1px solid #000000;
-  font-family: "PretendardRegular";
+  font-family: PretendardRegular;
   font-size: 15px;
   color: #000000;
   padding-top: 17px;
@@ -50,7 +50,7 @@ const StyledCopyRightText = styled.div`
 `;
 const StyledContactValue = styled.div`
   padding-top: 25px;
-  font-family: "PretendardRegular";
+  font-family: PretendardRegular;
   font-size: 14px;
   color: #000000;
   position: absolute;
@@ -60,7 +60,7 @@ const StyledContactValue = styled.div`
   &::before {
     content: "CONTACT";
     display: block;
-    font-family: "PretendardMedium";
+    font-family: PretendardMedium;
     font-size: 14px;
     color: #000000;
     position: absolute;
@@ -102,7 +102,7 @@ const StyledFooterLink = styled.ul`
   }
 
   & > li > ul > li {
-    font-family: "PretendardMedium";
+    font-family: PretendardMedium;
     font-size: 14px;
     color: #1A1FD2;
     margin-bottom: 11px;

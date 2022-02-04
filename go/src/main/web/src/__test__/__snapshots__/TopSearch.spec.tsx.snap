@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`header test~ should match snapshot Logo 1`] = `
+<TopSearch
+  handleCloseSearch={[MockFunction]}
+  isSearchShow={true}
+>
+  <styled.div
+    isSearchShow={true}
+  >
+    <div
+      className="sc-egiyK bpXcVW"
+    >
+      <CloseSearchButton
+        handleCloseSearch={[MockFunction]}
+      >
+        <styled.button
+          onClick={[MockFunction]}
+        >
+          <button
+            className="sc-furwcr hLvxrx"
+            onClick={[MockFunction]}
+          />
+        </styled.button>
+      </CloseSearchButton>
+      <styled.div>
+        <div
+          className="sc-crHmcD dwlxTp"
+        >
+          <SearchInput>
+            <styled.input
+              type="text"
+            >
+              <input
+                className="sc-kDTinF TWBvG"
+                type="text"
+              />
+            </styled.input>
+          </SearchInput>
+          <SearchButton>
+            <styled.button>
+              <button
+                className="sc-jrQzAO gofgDO"
+              />
+            </styled.button>
+          </SearchButton>
+        </div>
+      </styled.div>
+      <styled.div>
+        <div
+          className="sc-iqseJM djymIp"
+        >
+          <RecentItem>
+            <styled.div>
+              <div
+                className="sc-pVTFL fwENdU"
+              >
+                <div
+                  className="img"
+                />
+                <div
+                  className="name"
+                >
+                  아령
+                </div>
+              </div>
+            </styled.div>
+          </RecentItem>
+          <RecentItem>
+            <styled.div>
+              <div
+                className="sc-pVTFL fwENdU"
+              >
+                <div
+                  className="img"
+                />
+                <div
+                  className="name"
+                >
+                  아령
+                </div>
+              </div>
+            </styled.div>
+          </RecentItem>
+          <RecentItem>
+            <styled.div>
+              <div
+                className="sc-pVTFL fwENdU"
+              >
+                <div
+                  className="img"
+                />
+                <div
+                  className="name"
+                >
+                  아령
+                </div>
+              </div>
+            </styled.div>
+          </RecentItem>
+          <RecentItem>
+            <styled.div>
+              <div
+                className="sc-pVTFL fwENdU"
+              >
+                <div
+                  className="img"
+                />
+                <div
+                  className="name"
+                >
+                  아령
+                </div>
+              </div>
+            </styled.div>
+          </RecentItem>
+          <RecentItem>
+            <styled.div>
+              <div
+                className="sc-pVTFL fwENdU"
+              >
+                <div
+                  className="img"
+                />
+                <div
+                  className="name"
+                >
+                  아령
+                </div>
+              </div>
+            </styled.div>
+          </RecentItem>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</TopSearch>
+`;
