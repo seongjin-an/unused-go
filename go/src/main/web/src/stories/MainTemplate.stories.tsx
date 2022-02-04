@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+//npx -p @storybook/cli sb init
 import {MainTemplate} from "../components/templates/main";
 import {Header} from "../components/organisms/header/Header";
 import styled from "styled-components";
