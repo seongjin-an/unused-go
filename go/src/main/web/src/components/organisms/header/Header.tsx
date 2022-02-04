@@ -1,8 +1,10 @@
 import React, {useState} from "react"
 import styled from "styled-components";
 import {Logo, TopMenus, TopFunc, TopSearch} from "../../molecules/header";
+interface Props{
 
-export const Header: React.FC = () => {
+}
+export const Header: React.FC<Props> = ({}) => {
     const [isSearchShow, setIsSearchShow] = useState<boolean>(false)
     const handleOpenSearch = () => setIsSearchShow(true)
     const handleCloseSearch = () => setIsSearchShow(false)
