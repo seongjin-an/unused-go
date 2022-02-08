@@ -18,6 +18,8 @@ const StyledMainInput =  styled.div`
   top: 283px;
   right: 187px;
   
+  
+  
   & > input {
     width: 340px;
     height: 90px;
@@ -29,6 +31,10 @@ const StyledMainInput =  styled.div`
     font-family: PretendardBlack;
     font-size: 70px;
     color: #FFFFFF;
+
+    &:focus-visible{
+      outline: none;
+    }
   }
   
   & > input::placeholder{

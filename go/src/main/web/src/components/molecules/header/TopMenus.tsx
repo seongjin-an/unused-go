@@ -5,13 +5,13 @@ import styled from "styled-components";
 export const TopMenus: React.FC = () => {
     const [isShow, setIsShow] = useState<boolean>(false)
 
-    const handleMouseEnter = (event: MouseEvent<HTMLDivElement>) => {
+    const handleMouseEnter = (event: MouseEvent) => {
         event.stopPropagation()
         event.preventDefault()
         console.log('handleMouseEnter')
         setIsShow(true)
     }
-    const handleMouseLeave = (event: MouseEvent<HTMLDivElement>) => {
+    const handleMouseLeave = (event: MouseEvent) => {
         event.stopPropagation()
         event.preventDefault()
         console.log('handleMouseLeave')

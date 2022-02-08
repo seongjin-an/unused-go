@@ -1,7 +1,7 @@
 import React, {MouseEvent} from "react";
-import styled from "styled-components";
+import styled, {css, keyframes} from "styled-components";
 
-interface IProps{
+interface IProps {
     isShow: boolean;
 }
 
@@ -45,9 +45,33 @@ export const DetailTopMenu: React.FC<IProps> = ({isShow}) => {
         </StyledDetailMenu>
     )
 }
-const StyledDetailMenu = styled.div<{isShow: boolean}>`
-  display: ${({isShow}) => isShow ? 'flex' : 'none'};
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    //display: none;
+  }
+  to {
+    opacity: 1;
+    //display: flex;
+  }
+`
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+    //display: flex;
+  }
+  to {
+    opacity: 0;
+    //display: none;
+  }
+`
+const StyledDetailMenu = styled.div<{ isShow: boolean }>`
   //transition: opacity .15s ease-in-out, -webkit-transform .3s ease-in-out;
+  display: none;
+  ${({isShow}) => isShow ? css`display: flex; opacity: 1;` : css`display: none; opacity: 0;`};
+  animation-name: ${({isShow}) => isShow && fadeIn};
+  animation-duration: .3s;
+  //animation-iteration-count: 0;
   
   width: 100%;
   height: 372px;
@@ -58,18 +82,19 @@ const StyledDetailMenu = styled.div<{isShow: boolean}>`
   border-top: 1px solid #fff;
   top: 70px;
   left: 0;
-  
+
   & > ul {
     display: flex;
     width: auto;
     height: auto;
   }
+
   & ul {
     margin: 0;
     padding: 0;
     list-style: none;
   }
-  
+
   & > ul > li > ul {
     display: flex;
     -webkit-box-orient: vertical;
@@ -77,14 +102,19 @@ const StyledDetailMenu = styled.div<{isShow: boolean}>`
     flex-direction: column;
     margin-right: 60px;
   }
-  
-  & > ul > li > ul > li{
+
+  & > ul > li > ul > li {
     font-family: PretendardSemiBold;
     font-size: 18px;
     color: #FFFFFF;
     margin-bottom: 18px;
     cursor: pointer;
-    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out
+    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+    &:hover{
+      transform:translate(3px, 0);
+      -ms-transform:translate(3px, 0);
+      -webkit-transform:translate(3px, 0);
+    }
   }
-  
+
 `

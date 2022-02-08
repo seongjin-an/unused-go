@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const SearchInput: React.FC = () => {
     return(
-        <StyledSearchInput type="text"/>
+        <StyledSearchInput type="text" placeholder="검색"/>
     )
 }
 const StyledSearchInput = styled.input`
@@ -14,4 +14,8 @@ const StyledSearchInput = styled.input`
   font-family: PretendardMedium;
   font-size: 22px;
   color: #000;
+  
+  &:focus-visible{
+    outline: none;
+  }
 `

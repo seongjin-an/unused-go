@@ -20,4 +20,10 @@ const StyledCloseButton = styled.button`
   transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
   border: none;
   cursor: pointer;
+  
+  &:hover{
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
 `;
