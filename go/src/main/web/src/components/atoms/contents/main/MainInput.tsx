@@ -44,6 +44,7 @@ const StyledMainInput =  styled.div`
   & > .btn_search{
     width: 137px;
     height: 80px;
+    border:none;
     border-radius: 10px;
     background-color: #FFE36D;
     background-image: url(${iconArrowRight});
@@ -56,5 +57,11 @@ const StyledMainInput =  styled.div`
     transition: -webkit-transform .5s ease-in-out;
     transition: transform .5s ease-in-out;
     transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+    
+    &:hover{
+      transform: translate(10px, 0);
+      -ms-transform: translate(10px, 0);
+      -webkit-transform: translate(10px, 0);
+    }
   }
 `

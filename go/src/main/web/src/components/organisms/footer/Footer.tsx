@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
 
 const StyledFooter = styled.section`
   width: auto;
-  height: 350px;
+  height: 310px;
   background-color: #F2F6FF;
   padding: 45px 84px;
   position: relative;
