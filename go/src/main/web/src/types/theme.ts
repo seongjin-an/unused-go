@@ -1,7 +1,15 @@
 export interface Theme{
     palette: {
         [K in keyof IPalette]: IPalette[K]
+    },
+    padding: {
+        [K in keyof IPadding]: IPadding[K]
     }
+}
+
+export interface IPadding{
+    main: string;
+    secondary: string;
 }
 
 export interface IPalette{
@@ -14,8 +22,20 @@ export interface IPalette{
     info: IColors;
 }
 export interface ICommonColors{
-    black: string;
     white: string;
+    gray: string;
+    darkGray: string;
+    black: string;
+    red: string;
+    pink: string;
+    orange: string;
+    yellow: string;
+    mint: string;
+    green: string;
+    darkGreen: string;
+    skyBlue: string;
+    blue: string;
+    violet: string;
 }
 
 export interface IColors{
