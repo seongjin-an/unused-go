@@ -25,7 +25,7 @@ const StyledWrapper = styled.section<{sx?: SxProps<Theme>}>`
   justify-content: space-between;
   width: auto;
   height: auto;
-  padding: 649px 320px 150px 320px;
+  padding: 0 320px 150px 320px;
   background-color: #0F0655;
   ${({sx}) => ({...sx})};
 `;

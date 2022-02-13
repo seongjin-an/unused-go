@@ -29,6 +29,7 @@ const StyledProductMenuNavigator = styled.ul`
   padding: 0;
   & > li{
     width: 100%;
+    height: 20px;
     font-family: PretendardMedium;
     font-size: 20px;
     color: #FFFFFF;

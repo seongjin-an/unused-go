@@ -9,6 +9,6 @@ export const Main: React.FC = () => {
             <MainProduct/>
         </>
     )
-    const MainContents = withMain(WrappedMainContents)
+    const MainContents = withMain(WrappedMainContents, {paddingTop: theme => theme.padding.main})
     return <MainContents/>
 }
