@@ -1,21 +1,23 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
-export const ProductMenuNavigator: React.FC = () => {
+interface IProps{
+    menus: string[],
+    mypage?: boolean
+}
+
+export const MenuNavigator: React.FC<IProps> = ({menus, mypage}) => {
     return (
-        <StyledProductMenuNavigator>
-            <li>운동용품</li>
-            <li>아령</li>
-            <li>바벨</li>
-            <li>원판/플레이트</li>
-            <li>벨트</li>
-            <li>악력기</li>
-            <li>밴드/짐볼</li>
-            <li>스트랩/보호대</li>
+        <StyledProductMenuNavigator mypage={mypage}>
+            {
+                menus.map((menu, index) => (
+                    <li key={`${menu}_${index}`}>{menu}</li>
+                ))
+            }
         </StyledProductMenuNavigator>
     )
 }
-const StyledProductMenuNavigator = styled.ul`
+const StyledProductMenuNavigator = styled.ul<{mypage?: boolean}>`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,4 +61,17 @@ const StyledProductMenuNavigator = styled.ul`
     -webkit-transform: translate(3px, 0);
     color: #FFE782;
   }
+  ${({mypage}) => mypage && css`
+    & > li:nth-child(2){
+      color: #EB72FF;
+      font-family: PretendardMedium;
+      cursor: default;
+    }
+    & > li:nth-child(6){
+      color: #EB72FF;
+      font-family: PretendardMedium;
+      margin-top: 27px;
+      cursor: default;
+    }
+  `}
 `

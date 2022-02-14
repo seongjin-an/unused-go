@@ -1,12 +1,14 @@
 import React from "react";
-import {useParams} from "react-router-dom";
-import {Params} from "../../types/types";
+import {Header} from "../../components/organisms/header/Header";
+import {Footer} from "../../components/organisms/footer/Footer";
+import {MyPageTemplate} from "../../components/templates/mypage";
 
 export const Account: React.FC = () => {
-    const {id} = useParams<Params>()
     return(
-        <div>
-            ACCOUNT ID: {id}
-        </div>
+        <>
+            <Header/>
+            <MyPageTemplate/>
+            <Footer/>
+        </>
     )
 }
