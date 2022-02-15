@@ -13,6 +13,7 @@ module.exports = () => {
     console.log('publicPath:', publicPath);
     return {
         mode,
+        devtool: 'inline-source-map',
         devServer: {
             historyApiFallback: true,
             // inline: true,
@@ -30,6 +31,11 @@ module.exports = () => {
 
         module: {
             rules: [
+                // {
+                //     test: /\.(js|jsx|ts|tsx)$/,
+                //     enforce: 'pre',
+                //     use: ['source-map-loader'],
+                // },
                 {
                     test: /\.(ts|tsx)$/,
                     use: ['babel-loader', 'ts-loader'],
@@ -105,11 +111,10 @@ module.exports = () => {
         },
 
         output: {
-            path: path.join(__dirname, '/build/static'),
+            path: path.join(__dirname, 'build/static'),
             filename: '[contenthash].bundle.js',
             publicPath: publicPath
         },
-
         plugins: [
             // new webpack.ProvidePlugin({
             //   React: 'react',
@@ -121,7 +126,10 @@ module.exports = () => {
             new MiniCssExtractPlugin(),
             new CleanWebpackPlugin({
                 cleanAfterEveryBuildPatterns: ['build']
-            })
+            }),
+            // new webpack.SourceMapDevToolPlugin({
+            //     filename: "[file].map"
+            // })
         ],
     }
 };
