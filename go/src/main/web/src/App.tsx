@@ -20,12 +20,15 @@ const App = () => {
                             <Route path=":id" element={<DetailProduct/>}/>
                         </Route>
 
-                        <Route path="account" element={<Account/>}/>
-                        <Route path="intro" element={<Intro/>}/>
-                        <Route path="profile-info" element={<Profile/>}/>
-                        <Route path="my-used-prices" element={<RegisteredHistory/>}/>
-                        <Route path="purchase-history" element={<PurchaseHistory/>}/>
-                        <Route path="selling-history" element={<SoldHistory/>}/>
+                        <Route path="mypage" element={<Outlet/>}>
+                            <Route path="account" element={<Account/>}/>
+                            <Route path="intro" element={<Intro/>}/>
+                            <Route path="profile-info" element={<Profile/>}/>
+                            <Route path="my-used-prices" element={<RegisteredHistory/>}/>
+                            <Route path="purchase-history" element={<PurchaseHistory/>}/>
+                            <Route path="selling-history" element={<SoldHistory/>}/>
+                        </Route>
+
 
                         <Route path="main" element={<Main/>}/>
 

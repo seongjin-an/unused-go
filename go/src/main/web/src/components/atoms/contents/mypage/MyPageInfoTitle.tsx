@@ -16,4 +16,5 @@ const StyledMyPageInfoTitle = styled.div`
   font-family: PretendardMedium;
   font-size: 18px;
   color: #E7E7E7;
+  margin-bottom: 10px;
 `
