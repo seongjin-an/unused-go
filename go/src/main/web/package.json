@@ -5,9 +5,9 @@
   "main": "index.js",
   "homepage": "./",
   "scripts": {
-    "dev": "webpack server --mode development --open --hot",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "dev": "NODE_ENV=development webpack server --mode development --open --hot",
+    "build": "NODE_ENV=production webpack --mode production",
+    "start": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "jest src",
     "test:watch": "npm run test -- --watch",
     "cy:open": "cypress open",
