@@ -29,6 +29,7 @@ const StyledProductMenuNavigator = styled.ul<{mypage?: boolean}>`
   height: auto;
   list-style: none;
   padding: 0;
+  margin: 0;
   & > li{
     width: 100%;
     height: 20px;

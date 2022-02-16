@@ -3,7 +3,7 @@ import {useLocation} from "react-router-dom";
 import withMain from "../../../hoc/withMain";
 import {MenuNavigator} from "../../molecules/common";
 import {MyPageBankInfo, MyPageInfoFrame, ProfileFrame} from "../../molecules/contents/mypage";
-import {Account, Intro, MyPageWrapper} from "../../organisms/contents/mypage";
+import {Account, Intro, MyPageWrapper, ProductsArea} from "../../organisms/contents/mypage";
 
 export const MyPageTemplate = () => {
     const {pathname} = useLocation()
@@ -18,7 +18,11 @@ export const MyPageTemplate = () => {
                 ) : (
                     pathname.indexOf('intro') !== -1 ? (
                         <Intro/>
-                    ) : null
+                    ) : (
+                        pathname.indexOf('products') !== -1 ? (
+                            <ProductsArea/>
+                        ) : null
+                    )
                 )
             }
         </>

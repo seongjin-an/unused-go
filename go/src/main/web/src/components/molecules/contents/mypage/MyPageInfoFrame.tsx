@@ -1,15 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import {SxProps} from "../../../../types/sx";
+import {Theme} from "../../../../types/theme";
 
-export const MyPageInfoFrame: React.FC = ({children}) => {
+interface IProps{
+    sx?: SxProps<Theme>
+    titleMaringBottom?: boolean;
+}
+
+export const MyPageInfoFrame: React.FC<IProps> = ({sx, titleMaringBottom, children}) => {
     return(
-        <StyledMyPageInfoFrame>
+        <StyledMyPageInfoFrame sx={sx} titleMarginBottom={titleMaringBottom}>
             {children}
         </StyledMyPageInfoFrame>
     )
 }
 
-const StyledMyPageInfoFrame = styled.div`
+const StyledMyPageInfoFrame = styled.div<{sx?: SxProps<Theme>, titleMarginBottom?: boolean}>`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,10 +26,15 @@ const StyledMyPageInfoFrame = styled.div`
   flex-direction: column;
   width: 100%;
   height: auto;
+  ${({sx}) => ({...sx})};
   & > .mypage_info_title{
     font-family: PretendardMedium;
     font-size: 20px;
     color: #E7E7E7;
-    margin-bottom: 30px;
+    margin-bottom: ${({titleMarginBottom}) => !titleMarginBottom && '30px'};
+    &.tPink{
+      font-size: 22px;
+      color: #EE8AFF;
+    }
   }
 `

@@ -3,7 +3,11 @@ import styled from "styled-components";
 import Highcharts from 'highcharts'
 import HighchartsReact from "highcharts-react-official";
 
-export const ChartArea: React.FC = () => {
+interface IProps{
+    mypage?: boolean;
+}
+
+export const ChartArea: React.FC<IProps> = ({mypage}) => {
     const options = {
         chart: {
             backgroundColor: 'transparent',
@@ -94,7 +98,7 @@ export const ChartArea: React.FC = () => {
         }
     }
     return(
-        <StyledChartArea>
+        <StyledChartArea mypage={mypage}>
             <div className="chart_in">
                 <HighchartsReact highcharts={Highcharts} options={options} />
             </div>
@@ -102,8 +106,8 @@ export const ChartArea: React.FC = () => {
         </StyledChartArea>
     )
 }
-const StyledChartArea = styled.div`
-  width: 700px;
+const StyledChartArea = styled.div<{mypage?: boolean}>`
+  width: ${({mypage}) => mypage ? '930px' : '700px'};
   height: 110px;
   margin-top: 27.5px;
   margin-bottom: 75px;
