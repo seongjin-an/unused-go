@@ -13,14 +13,15 @@ export const ProfileFrame: React.FC = ({children}) => {
 }
 const StyledProfileFrame = styled.div`
   width: 80%;
-  height: 170px;
+  height: 196px;
   border: 2px solid rgba(196, 196, 196, 0.7);
   border-radius: 15px;
-  padding: 38px 0 0 199px;
+  padding: 0 0 0 199px;
   position: relative;
   margin-bottom: 57px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   &::before{
     content: "";
     display: block;
