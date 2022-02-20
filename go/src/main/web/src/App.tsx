@@ -7,6 +7,7 @@ import {Account, Intro, Profile, PurchaseSalesHistory, RegisteredHistory, SoldHi
 import {Main} from "./pages/main";
 import {Community} from "./pages/community";
 import styled from "styled-components";
+import TestPage from "./pages/TestPage";
 
 const App = () => {
     return (
@@ -14,6 +15,8 @@ const App = () => {
             {/*<ErrorBoundary FallbackComponent={Error}>*/}
                 <BrowserRouter basename="unused-go">
                     <Routes>
+                        <Route path="test" element={<TestPage/>}/>
+
                         <Route path="product" element={<Outlet/>}>
                             <Route path="list" element={<ProductList/>}/>
                             <Route path="create" element={<CreateProduct/>}/>
