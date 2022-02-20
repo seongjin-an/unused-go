@@ -1,11 +1,15 @@
 import React, {useState} from "react";
 import styled, {css, keyframes} from "styled-components";
 
-import {Product} from "../../../atoms/contents/product";
+import {ListItem} from "../../../atoms/list";
 
 import btnArrowDown from '../../../../static/image/dark/page/product/btn/btn_arrow_down.png'
 
-export const ProductList: React.FC = () => {
+interface IProps{
+    listType: 'product' | 'community'
+}
+
+export const List: React.FC<IProps> = ({listType}) => {
     const [sort, setSort] = useState<boolean>(false)
     const handleSortClick = () => {
         console.log('sort button clicked')
@@ -15,25 +19,29 @@ export const ProductList: React.FC = () => {
             setSort(true)
         }
     }
+    const productListSortItems: string[] = ['인기 순', '즉시 판매가순', '즉시 구매가순']
+    const communitySortItems: string[] = ['최신순', '채팅 많은 순', '관심 많은 순']
     return (
-        <StyledProductListWrapper>
+        <StyledListWrapper>
             <StyledSortArea sort={sort}>
-                <button onClick={handleSortClick}>인기&nbsp;순</button>
+                <button onClick={handleSortClick}>{listType === 'product' ? '인기 순' : '최신 순'}</button>
                 <ul>
-                    <li>인기&nbsp;순</li>
-                    <li>즉시 판매가순</li>
-                    <li>즉시 구매가순</li>
+                    {
+                        listType === 'product' ?
+                            productListSortItems.map(item => <li key={item}>{item}</li>) :
+                            communitySortItems.map(item => <li key={item}>{item}</li>)
+                    }
                 </ul>
             </StyledSortArea>
-            <StyledProductList>
+            <StyledList>
                 {
                     Array(9).fill(0).map((_, index) => (
-                        <Product key={index}/>
+                        <ListItem key={index} listType={listType}/>
                     ))
                 }
-            </StyledProductList>
+            </StyledList>
             <StyledSeeMore>더보기</StyledSeeMore>
-        </StyledProductListWrapper>
+        </StyledListWrapper>
     )
 }
 const StyledSeeMore = styled.button`
@@ -58,7 +66,7 @@ const StyledSeeMore = styled.button`
     -webkit-transform: scale(1.2, 1.2);
   }
 `
-const StyledProductList = styled.div`
+const StyledList = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -171,7 +179,7 @@ const StyledSortArea = styled.div<{ sort: boolean }>`
   }
 `
 
-const StyledProductListWrapper = styled.div`
+const StyledListWrapper = styled.div`
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

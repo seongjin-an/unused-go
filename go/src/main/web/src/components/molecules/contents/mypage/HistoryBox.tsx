@@ -4,15 +4,16 @@ import {HistoryTitle, HistoryValue} from "../../../atoms/contents/mypage";
 
 interface IProps{
     first?: boolean;
+    mode?: 'purchase' | 'sales'
     text: string;
     value: string;
 }
 
-export const HistoryBox:React.FC<IProps> = ({first, text, value}) => {
+export const HistoryBox:React.FC<IProps> = ({first, mode, text, value}) => {
     return(
         <StyledHistoryBox>
             <HistoryTitle text={text}/>
-            <HistoryValue value={value} first={first}/>
+            <HistoryValue value={value} first={first} mode={mode}/>
         </StyledHistoryBox>
     )
 }

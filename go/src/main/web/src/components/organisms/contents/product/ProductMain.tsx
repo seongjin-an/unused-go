@@ -1,6 +1,7 @@
 import React from "react";
 import withMain from "../../../../hoc/withMain";
-import {ProductList, ProductPicture} from "../../../molecules/contents/product";
+import {List} from '../../../molecules/contents/list'
+import {ProductPicture} from "../../../molecules/contents/product";
 import {useLocation, useParams} from "react-router-dom";
 import {ProductInfo} from "../../../molecules/contents/product/ProductInfo";
 import {MenuNavigator} from "../../../molecules/common";
@@ -18,7 +19,7 @@ export const ProductMain: React.FC<IProps> = () => {
             pathname.indexOf('list') !== -1 ? (
                 <>
                     <MenuNavigator menus={menus}/>
-                    <ProductList/>
+                    <List listType="product"/>
                 </>
             ) : pathname.indexOf('create') !== -1 ? (
                 <>

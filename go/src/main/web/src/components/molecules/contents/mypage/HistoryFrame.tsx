@@ -15,6 +15,7 @@ const StyledHistoryFrame = styled.div`
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  justify-content: space-evenly;
   width: 100%;
   height: 140px;
   border: 2px solid rgba(196, 196, 196, 0.7);

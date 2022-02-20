@@ -3,7 +3,7 @@ import {ErrorBoundary} from "react-error-boundary";
 import {BrowserRouter, Outlet, Route, Routes} from "react-router-dom";
 import {Error, NotFound} from './pages/error'
 import {ProductList, DetailProduct, CreateProduct} from './pages/product'
-import {Account, Intro, Profile, PurchaseHistory, RegisteredHistory, SoldHistory} from "./pages/mypage";
+import {Account, Intro, Profile, PurchaseSalesHistory, RegisteredHistory, SoldHistory} from "./pages/mypage";
 import {Main} from "./pages/main";
 import {Community} from "./pages/community";
 import styled from "styled-components";
@@ -25,8 +25,8 @@ const App = () => {
                             <Route path="intro" element={<Intro/>}/>
                             <Route path="profile" element={<Profile/>}/>
                             <Route path="products" element={<RegisteredHistory/>}/>
-                            <Route path="purchase-history" element={<PurchaseHistory/>}/>
-                            <Route path="selling-history" element={<SoldHistory/>}/>
+                            <Route path="purchase/history" element={<PurchaseSalesHistory/>}/>
+                            <Route path="sales/history" element={<PurchaseSalesHistory/>}/>
                         </Route>
 
 

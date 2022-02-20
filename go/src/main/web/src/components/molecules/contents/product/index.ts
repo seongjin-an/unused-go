@@ -1,4 +1,3 @@
-export {ProductList} from './ProductList'
 export {ProductPicture} from './ProductPicture'
 export {ChartPeriodList} from './ChartPeriodList'
 export {ChartArea} from './ChartArea'

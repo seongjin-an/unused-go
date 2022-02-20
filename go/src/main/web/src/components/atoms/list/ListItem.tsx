@@ -1,10 +1,14 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 
-import btnLikeNormal from "../../../../static/image/dark/page/product/btn/btn_like_normal.png";
-import btnLikeActive from '../../../../static/image/dark/page/product/btn/btn_like_active.png'
+import btnLikeNormal from "../../../static/image/dark/page/product/btn/btn_like_normal.png";
+import btnLikeActive from '../../../static/image/dark/page/product/btn/btn_like_active.png'
 
-export const Product: React.FC = () => {
+interface IProps{
+    listType: 'product' | 'community'
+}
+
+export const ListItem: React.FC<IProps> = ({listType}) => {
     const [active, setActive] = useState<boolean>(false)
     const handleClickHeart = () => {
         if(active){
@@ -15,12 +19,12 @@ export const Product: React.FC = () => {
     }
     return(
         <Wrapper>
-            <ProductImage active={active}>
+            <ListItemImage active={active}>
                 <button onClick={handleClickHeart}/>
-            </ProductImage>
-            <ProductName>아령</ProductName>
-            <ProductPrice>10,000원</ProductPrice>
-            <ProductCountValue>관심13&nbsp;채팅10</ProductCountValue>
+            </ListItemImage>
+            <ListItemName>{listType === 'product' ? '아령' : '헬린이 3일차 입니다...'}</ListItemName>
+            <ListItemPrice>{listType === 'product' ? '10,000원' : '1시간 전'}</ListItemPrice>
+            <ListItemCountValue>관심13&nbsp;채팅10</ListItemCountValue>
         </Wrapper>
     )
 }
@@ -38,7 +42,7 @@ const Wrapper = styled.div`
   margin-bottom: 40px;
   cursor: pointer;
 `
-const ProductImage = styled.div<{active: boolean}>`
+const ListItemImage = styled.div<{active: boolean}>`
   width: 308px;
   height: 373px;
   border-radius: 25px;
@@ -59,20 +63,20 @@ const ProductImage = styled.div<{active: boolean}>`
     cursor: pointer;
   }
 `
-const ProductName = styled.div`
+const ListItemName = styled.div`
   font-family: PretendardMedium;
   font-size: 18px;
   color: #EE8AFF;
   padding-left: 10px;
 `
-const ProductPrice = styled.div`
+const ListItemPrice = styled.div`
   font-family: PretendardSemiBold;
   font-size: 18px;
   color: #FFFFFF;
   margin: 8px 0;
   padding-left: 10px;
 `;
-const ProductCountValue = styled.div`
+const ListItemCountValue = styled.div`
   font-family: PretendardMedium;
   font-size: 15px;
   color: #ADACAC;

@@ -10,19 +10,20 @@ export type OptionType = {
 export interface ISelectInputProps {
     options: OptionType[]
     defaultValue: OptionType
+    small?: boolean
 }
 
-export const SelectInput: React.FC<ISelectInputProps> = ({defaultValue, options}) => {
+export const SelectInput: React.FC<ISelectInputProps> = ({defaultValue, options, small}) => {
 
-    return <StyledSelect options={options} isSearchable={true} classNamePrefix="area-select"
+    return <StyledSelect options={options} isSearchable={true} classNamePrefix="area-select" small={small}
                          defaultValue={defaultValue} onChange={() => console.log('hi')}/>
 }
 
-const StyledSelect = styled(Select)`
+const StyledSelect = styled(Select)<{small?: boolean}>`
   //최상위 속성 
   .area-select__control {
     cursor: pointer;
-    width: 100%;
+    width: ${({small}) => small ? '162px' : '100%'};
     height: 40px;
     font-family: PretendardLight;
     font-size: 16px;
@@ -98,7 +99,7 @@ const StyledSelect = styled(Select)`
 
   //활성화되었을 때 리스트
   .area-select__menu, .area-select__menu-list {
-    width: 100%;
+    width: ${({small}) => small ? '162px' : '100%'};
     padding: 0;
     //border-radius: 0.26vw;
     border-radius: 5px;

@@ -1,13 +1,13 @@
 import React from "react";
 import {Header} from "../../components/organisms/header/Header";
+import {MyPageTemplate} from "../../components/templates/mypage";
 import {Footer} from "../../components/organisms/footer/Footer";
-import {CommunityTemplate} from "../../components/templates/community";
 
-export const Community: React.FC = () => {
+export const PurchaseSalesHistory: React.FC = () => {
     return(
         <>
             <Header/>
-            <CommunityTemplate/>
+            <MyPageTemplate/>
             <Footer/>
         </>
     )
