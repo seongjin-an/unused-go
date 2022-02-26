@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import {ErrorBoundary} from "react-error-boundary";
 import {BrowserRouter, Outlet, Route, Routes} from "react-router-dom";
 import {Error, NotFound} from './pages/error'
@@ -8,11 +8,25 @@ import {Main} from "./pages/main";
 import {Community} from "./pages/community";
 import styled from "styled-components";
 import TestPage from "./pages/TestPage";
+import {Modal} from "./components/molecules/common";
+import {RecoilRoot, useRecoilState} from "recoil";
+import {modalState} from "./stores/modal";
+import ModalContext from "./contexts/modalContext";
 
 const App = () => {
+    // const [isOpen, setIsOpen] = useState<boolean>(false);
+    // const handleOpen = () => {
+    //     setIsOpen(true);
+    // }
+    // const handleClose = () => {
+    //     setIsOpen(false);
+    // }
+    // const {state: {isOpen}, action: {setIsOpen}} = useContext(ModalContext)
+    const [isOpen, setIsOpen] = useRecoilState(modalState)
     return (
-        <DashWrap>
-            {/*<ErrorBoundary FallbackComponent={Error}>*/}
+
+            <DashWrap>
+                {/*<ErrorBoundary FallbackComponent={Error}>*/}
                 <BrowserRouter basename="unused-go">
                     <Routes>
                         <Route path="test" element={<TestPage/>}/>
@@ -40,8 +54,14 @@ const App = () => {
                         <Route path="/*" element={<NotFound/>}/>
                     </Routes>
                 </BrowserRouter>
-            {/*</ErrorBoundary>*/}
-        </DashWrap>
+                {/*</ErrorBoundary>*/}
+                <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                    <ModalBody>
+                        <h2>Title</h2>
+                        <p>Description</p>
+                    </ModalBody>
+                </Modal>
+            </DashWrap>
     )
 }
 
@@ -53,5 +73,14 @@ const DashWrap = styled.section`
   position: relative;
   background-color: #0F0655;
 `
-
+const ModalBody = styled.div`
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+  max-height: calc(100vh - 16px);
+  overflow: hidden auto;
+  position: relative;
+  padding-block: 12px;
+  padding-inline: 24px;
+`;
 export default App
