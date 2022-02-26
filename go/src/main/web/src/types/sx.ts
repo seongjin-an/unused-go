@@ -1,4 +1,4 @@
-import * as CSS from "csstype"; 
+import * as CSS from "csstype";
 
 export type SxProps<Theme extends object = {}> =
     | SystemStyleObject<Theme>
