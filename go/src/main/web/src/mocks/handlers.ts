@@ -30,4 +30,11 @@ export const handlers = [
             }),
         )
     }),
+    rest.get('/products', (req, res, ctx) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(res(ctx.status(200)))
+            }, 3000)
+        })
+    })
 ]
