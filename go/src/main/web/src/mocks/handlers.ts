@@ -1,5 +1,6 @@
 // npx msw init public/ --save
 import { rest } from 'msw'
+import {createFakeProducts} from "./createFakes";
 
 export const handlers = [
     rest.post('/login', (req, res, ctx) => {
@@ -33,7 +34,14 @@ export const handlers = [
     rest.get('/products', (req, res, ctx) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(res(ctx.status(200)))
+                resolve(
+                    res(
+                        ctx.status(200),
+                        ctx.json({
+                            data: createFakeProducts()
+                        })
+                    )
+                )
             }, 3000)
         })
     })
