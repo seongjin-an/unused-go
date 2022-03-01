@@ -1,12 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, Suspense} from "react";
 import styled, {css, keyframes} from "styled-components";
 
 import {ListItem} from "../../../atoms/list";
 
 import btnArrowDown from '../../../../static/image/dark/page/product/btn/btn_arrow_down.png'
 import {useProducts} from "../../../../hook/useProducts";
+import {ErrorBoundary} from "react-error-boundary";
 
-interface IProps{
+interface IProps {
     listType: 'product' | 'community'
 }
 
@@ -23,8 +24,8 @@ export const List: React.FC<IProps> = ({listType}) => {
     const productListSortItems: string[] = ['인기 순', '즉시 판매가순', '즉시 구매가순']
     const communitySortItems: string[] = ['최신순', '채팅 많은 순', '관심 많은 순']
 
-    const {data, status, isPlaceholderData, } = useProducts()
-    console.log('data:', data)
+    const {data: products, status, isPlaceholderData,} = useProducts()
+    console.log('products:', products)
     console.log('isPlaceholderData:', isPlaceholderData)
 
     return (
@@ -39,13 +40,21 @@ export const List: React.FC<IProps> = ({listType}) => {
                     }
                 </ul>
             </StyledSortArea>
-            <StyledList>
-                {
-                    Array(9).fill(0).map((_, index) => (
-                        <ListItem key={index} listType={listType}/>
-                    ))
-                }
-            </StyledList>
+            {/*<Suspense fallback={<div style={{color: 'white', fontSize: '300px'}}>loading...</div>}>*/}
+                {/*<ErrorBoundary fallback={<>error</>} >*/}
+                    <StyledList>
+
+                        {
+                            products?.map((product, index) => (
+                                <ListItem key={index} listType={listType}/>
+                            ))
+                            // Array(9).fill(0).map((_, index) => (
+                            //     <ListItem key={index} listType={listType}/>
+                            // ))
+                        }
+                    </StyledList>
+                {/*</ErrorBoundary>*/}
+            {/*</Suspense>*/}
             <StyledSeeMore>더보기</StyledSeeMore>
         </StyledListWrapper>
     )
@@ -66,7 +75,8 @@ const StyledSeeMore = styled.button`
   transition: -webkit-transform .3s ease-in-out;
   transition: transform .3s ease-in-out;
   transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
-  &:hover{
+
+  &:hover {
     transform: scale(1.2, 1.2);
     -ms-transform: scale(1.2, 1.2);
     -webkit-transform: scale(1.2, 1.2);
@@ -121,15 +131,17 @@ const StyledSortArea = styled.div<{ sort: boolean }>`
 
     // display: none;
     // opacity: 0;
-    // ${({sort}) => sort ? css`opacity: 1; display: block` : css`opacity: 0; display: block`};
-    // animation-name: ${({sort}) => sort ? fadeIn : fadeOut};
+      // ${({sort}) => sort ? css`opacity: 1;
+      display: block` : css`opacity: 0;
+      display: block`};
+      // animation-name: ${({sort}) => sort ? fadeIn : fadeOut};
     // animation-duration: 1s;
     // animation-iteration-count: 1;
 
     visibility: ${({sort}) => sort ? 'visible' : 'hidden'};
     animation: ${({sort}) => sort ? fadeIn : fadeOut} .3s ease-out;
     transition: visibility .3s ease-out;
-    
+
     & > li {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -157,6 +169,7 @@ const StyledSortArea = styled.div<{ sort: boolean }>`
       background-color: rgba(0, 0, 0, 0.1);
     }
   }
+
   & > button {
     cursor: pointer;
     width: auto;

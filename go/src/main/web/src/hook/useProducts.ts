@@ -14,6 +14,7 @@ export const useProducts = ():UseQueryResult<IProduct[], AxiosError> => {
     return useQuery({
         queryKey: ['getProducts'],
         queryFn: getProducts2,
-        placeholderData: createFakeProducts2(),
+        // placeholderData: createFakeProducts2(),
+        suspense: true
     })
 }

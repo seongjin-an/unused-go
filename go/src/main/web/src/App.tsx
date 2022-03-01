@@ -1,5 +1,7 @@
 import React, {useContext, useState} from 'react'
-import {ErrorBoundary} from "react-error-boundary";
+import {QueryErrorResetBoundary} from 'react-query'
+import {ErrorBoundary} from 'react-error-boundary'
+import {QueryClient, QueryClientProvider} from "react-query";
 import {BrowserRouter, Outlet, Route, Routes} from "react-router-dom";
 import {Error, NotFound} from './pages/error'
 import {ProductList, DetailProduct, CreateProduct} from './pages/product'
@@ -12,9 +14,15 @@ import {Modal} from "./components/molecules/common";
 import {RecoilRoot, useRecoilState} from "recoil";
 import {modalState} from "./stores/modal";
 import ModalContext from "./contexts/modalContext";
-import {QueryClient, QueryClientProvider} from "react-query";
 
-const queryClient = new QueryClient()
+
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            suspense: true,
+        },
+    },
+})
 
 const App = () => {
     // const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -28,43 +36,57 @@ const App = () => {
     const [isOpen, setIsOpen] = useRecoilState(modalState)
     return (
         <QueryClientProvider client={queryClient}>
-            <DashWrap>
-                {/*<ErrorBoundary FallbackComponent={Error}>*/}
-                <BrowserRouter basename="unused-go">
-                    <Routes>
-                        <Route path="test" element={<TestPage/>}/>
+            {/*<QueryErrorResetBoundary>*/}
+            {/*    {({reset}) => (*/}
+            {/*        <ErrorBoundary*/}
+            {/*            onReset={reset}*/}
+            {/*            fallbackRender={({resetErrorBoundary}) => (*/}
+            {/*                <div>*/}
+            {/*                    There was an error!*/}
+            {/*                    <button onClick={() => resetErrorBoundary()}>Try again</button>*/}
+            {/*                </div>*/}
+            {/*            )}*/}
+            {/*        >*/}
+                        <DashWrap>
+                            {/*<ErrorBoundary FallbackComponent={Error}>*/}
+                            <BrowserRouter basename="unused-go">
+                                <Routes>
+                                    <Route path="test" element={<TestPage/>}/>
 
-                        <Route path="product" element={<Outlet/>}>
-                            <Route path="list" element={<ProductList/>}/>
-                            <Route path="create" element={<CreateProduct/>}/>
-                            <Route path=":id" element={<DetailProduct/>}/>
-                        </Route>
+                                    <Route path="product" element={<Outlet/>}>
+                                        <Route path="list" element={<ProductList/>}/>
+                                        <Route path="create" element={<CreateProduct/>}/>
+                                        <Route path=":id" element={<DetailProduct/>}/>
+                                    </Route>
 
-                        <Route path="mypage" element={<Outlet/>}>
-                            <Route path="account" element={<Account/>}/>
-                            <Route path="intro" element={<Intro/>}/>
-                            <Route path="profile" element={<Profile/>}/>
-                            <Route path="products" element={<RegisteredHistory/>}/>
-                            <Route path="purchase/history" element={<PurchaseSalesHistory/>}/>
-                            <Route path="sales/history" element={<PurchaseSalesHistory/>}/>
-                        </Route>
+                                    <Route path="mypage" element={<Outlet/>}>
+                                        <Route path="account" element={<Account/>}/>
+                                        <Route path="intro" element={<Intro/>}/>
+                                        <Route path="profile" element={<Profile/>}/>
+                                        <Route path="products" element={<RegisteredHistory/>}/>
+                                        <Route path="purchase/history" element={<PurchaseSalesHistory/>}/>
+                                        <Route path="sales/history" element={<PurchaseSalesHistory/>}/>
+                                    </Route>
 
 
-                        <Route path="main" element={<Main/>}/>
+                                    <Route path="main" element={<Main/>}/>
 
-                        <Route path="community" element={<Community/>}/>
+                                    <Route path="community" element={<Community/>}/>
 
-                        <Route path="/*" element={<NotFound/>}/>
-                    </Routes>
-                </BrowserRouter>
-                {/*</ErrorBoundary>*/}
-                <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                    <ModalBody>
-                        <h2>Title</h2>
-                        <p>Description</p>
-                    </ModalBody>
-                </Modal>
-            </DashWrap>
+                                    <Route path="/*" element={<NotFound/>}/>
+                                </Routes>
+                            </BrowserRouter>
+                            {/*</ErrorBoundary>*/}
+                            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                                <ModalBody>
+                                    <h2>Title</h2>
+                                    <p>Description</p>
+                                </ModalBody>
+                            </Modal>
+                        </DashWrap>
+            {/*        </ErrorBoundary>*/}
+            {/*    )}*/}
+            {/*</QueryErrorResetBoundary>*/}
         </QueryClientProvider>
     )
 }

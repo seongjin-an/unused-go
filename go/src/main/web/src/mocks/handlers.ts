@@ -37,9 +37,8 @@ export const handlers = [
                 resolve(
                     res(
                         ctx.status(200),
-                        ctx.json({
-                            data: createFakeProducts()
-                        })
+                        ctx.body(JSON.stringify(createFakeProducts())),
+                        // ctx.json(JSON.stringify(createFakeProducts()))
                     )
                 )
             }, 3000)

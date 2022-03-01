@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense} from "react";
 import withMain from "../../../../hoc/withMain";
 import {List} from '../../../molecules/contents/list'
 import {ProductPicture} from "../../../molecules/contents/product";
