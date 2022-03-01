@@ -4,6 +4,7 @@ import styled, {css, keyframes} from "styled-components";
 import {ListItem} from "../../../atoms/list";
 
 import btnArrowDown from '../../../../static/image/dark/page/product/btn/btn_arrow_down.png'
+import {useProducts} from "../../../../hook/useProducts";
 
 interface IProps{
     listType: 'product' | 'community'
@@ -21,6 +22,11 @@ export const List: React.FC<IProps> = ({listType}) => {
     }
     const productListSortItems: string[] = ['인기 순', '즉시 판매가순', '즉시 구매가순']
     const communitySortItems: string[] = ['최신순', '채팅 많은 순', '관심 많은 순']
+
+    const {data, status, isPlaceholderData, } = useProducts()
+    console.log('data:', data)
+    console.log('isPlaceholderData:', isPlaceholderData)
+
     return (
         <StyledListWrapper>
             <StyledSortArea sort={sort}>

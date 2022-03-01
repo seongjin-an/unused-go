@@ -12,6 +12,9 @@ import {Modal} from "./components/molecules/common";
 import {RecoilRoot, useRecoilState} from "recoil";
 import {modalState} from "./stores/modal";
 import ModalContext from "./contexts/modalContext";
+import {QueryClient, QueryClientProvider} from "react-query";
+
+const queryClient = new QueryClient()
 
 const App = () => {
     // const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -24,7 +27,7 @@ const App = () => {
     // const {state: {isOpen}, action: {setIsOpen}} = useContext(ModalContext)
     const [isOpen, setIsOpen] = useRecoilState(modalState)
     return (
-
+        <QueryClientProvider client={queryClient}>
             <DashWrap>
                 {/*<ErrorBoundary FallbackComponent={Error}>*/}
                 <BrowserRouter basename="unused-go">
@@ -62,6 +65,7 @@ const App = () => {
                     </ModalBody>
                 </Modal>
             </DashWrap>
+        </QueryClientProvider>
     )
 }
 
