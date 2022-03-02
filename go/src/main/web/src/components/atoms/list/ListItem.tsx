@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import btnLikeNormal from "../../../static/image/dark/page/product/btn/btn_like_normal.png";
 import btnLikeActive from '../../../static/image/dark/page/product/btn/btn_like_active.png'
+import {Skeleton} from "../skeleton";
 
 interface IProps{
     listType: 'product' | 'community'

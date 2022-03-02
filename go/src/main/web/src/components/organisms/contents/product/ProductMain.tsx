@@ -1,12 +1,12 @@
 import React, {Suspense} from "react";
 import withMain from "../../../../hoc/withMain";
-import {List} from '../../../molecules/contents/list'
+import {List, ListWrapper, PlaceholderList} from '../../../molecules/contents/list'
 import {ProductPicture} from "../../../molecules/contents/product";
 import {useLocation, useParams} from "react-router-dom";
 import {ProductInfo} from "../../../molecules/contents/product/ProductInfo";
 import {MenuNavigator} from "../../../molecules/common";
 
-interface IProps{
+interface IProps {
 
 }
 
@@ -19,7 +19,9 @@ export const ProductMain: React.FC<IProps> = () => {
             pathname.indexOf('list') !== -1 ? (
                 <>
                     <MenuNavigator menus={menus}/>
-                    <List listType="product"/>
+                    <Suspense fallback={<ListWrapper listType='product'><PlaceholderList/></ListWrapper>}>
+                        <List listType="product"/>
+                    </Suspense>
                 </>
             ) : pathname.indexOf('create') !== -1 ? (
                 <>
