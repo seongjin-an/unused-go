@@ -1,5 +1,144 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TopSearch test~ should match snapshot Logo 1`] = `
+<TopSearch
+  handleCloseSearch={[MockFunction]}
+  isSearchShow={true}
+>
+  <styled.div
+    isSearchShow={true}
+  >
+    <div
+      className="sc-bqiRlB gSYkBh"
+    >
+      <CloseSearchButton
+        handleCloseSearch={[MockFunction]}
+      >
+        <styled.button
+          onClick={[MockFunction]}
+        >
+          <button
+            className="sc-pVTFL dgyIXM"
+            onClick={[MockFunction]}
+          />
+        </styled.button>
+      </CloseSearchButton>
+      <styled.div>
+        <div
+          className="sc-egiyK fdVDyz"
+        >
+          <SearchInput>
+            <styled.input
+              placeholder="검색"
+              type="text"
+            >
+              <input
+                className="sc-iqseJM sjBMX"
+                placeholder="검색"
+                type="text"
+              />
+            </styled.input>
+          </SearchInput>
+          <SearchButton>
+            <styled.button>
+              <button
+                className="sc-kDTinF eYxxHh"
+              />
+            </styled.button>
+          </SearchButton>
+        </div>
+      </styled.div>
+      <styled.div>
+        <div
+          className="sc-crHmcD iAvvCT"
+        >
+          <RecentItem>
+            <styled.div>
+              <div
+                className="sc-jrQzAO kpqClJ"
+              >
+                <div
+                  className="img"
+                />
+                <div
+                  className="name"
+                >
+                  아령
+                </div>
+              </div>
+            </styled.div>
+          </RecentItem>
+          <RecentItem>
+            <styled.div>
+              <div
+                className="sc-jrQzAO kpqClJ"
+              >
+                <div
+                  className="img"
+                />
+                <div
+                  className="name"
+                >
+                  아령
+                </div>
+              </div>
+            </styled.div>
+          </RecentItem>
+          <RecentItem>
+            <styled.div>
+              <div
+                className="sc-jrQzAO kpqClJ"
+              >
+                <div
+                  className="img"
+                />
+                <div
+                  className="name"
+                >
+                  아령
+                </div>
+              </div>
+            </styled.div>
+          </RecentItem>
+          <RecentItem>
+            <styled.div>
+              <div
+                className="sc-jrQzAO kpqClJ"
+              >
+                <div
+                  className="img"
+                />
+                <div
+                  className="name"
+                >
+                  아령
+                </div>
+              </div>
+            </styled.div>
+          </RecentItem>
+          <RecentItem>
+            <styled.div>
+              <div
+                className="sc-jrQzAO kpqClJ"
+              >
+                <div
+                  className="img"
+                />
+                <div
+                  className="name"
+                >
+                  아령
+                </div>
+              </div>
+            </styled.div>
+          </RecentItem>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</TopSearch>
+`;
+
 exports[`header test~ should match snapshot Logo 1`] = `
 <TopSearch
   handleCloseSearch={[MockFunction]}
