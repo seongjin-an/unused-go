@@ -3,9 +3,17 @@ import React from "react";
 import {List} from "../components/molecules/contents/list";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import {QueryClient, QueryClientProvider} from "react-query";
+import {createFakeProducts2} from "../mocks/createFakes";
 
 const setup = <TOriginalProps extends {}>(WrappedComponent: React.FunctionComponent<TOriginalProps>, props: TOriginalProps) => {
-    const queryClient = new QueryClient()
+    const queryClient = new QueryClient({
+        defaultOptions: {
+            queries: {
+                suspense: false,
+                placeholderData: createFakeProducts2()
+            },
+        },
+    })
     const wrapper = mount(
         <QueryClientProvider client={queryClient}>
             <WrappedComponent {...props} />
