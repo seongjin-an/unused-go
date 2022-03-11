@@ -16,8 +16,8 @@ export const List: React.FC<IProps> = ({listType}) => {
 
 
     const {data: products, status, isPlaceholderData,} = useProducts()
-    console.log('products:', products)
-    console.log('isPlaceholderData:', isPlaceholderData)
+    // console.log('products:', products)
+    // console.log('isPlaceholderData:', isPlaceholderData)
 
     return (
         <ListWrapper listType={listType}>

@@ -36,4 +36,14 @@ describe("list test", () => {
         const component = setup<IListProps>(List, {listType: "product"})
         expect(component).toMatchSnapshot()
     })
+
+    it('should render exactly', async () => {
+        const {wrapper} = setup<IListProps>(List, {listType: 'product'})
+        expect(wrapper.find('ListItem')).toHaveLength(10)
+        const listItems = wrapper.find('ListItem')
+        listItems.forEach((item, index) => {
+            // expect(item.text().includes('아령')).toBe(true)
+            expect(item.text()).toContain('아령')
+        })
+    })
 })
