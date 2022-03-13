@@ -45,5 +45,6 @@ describe("list test", () => {
             // expect(item.text().includes('아령')).toBe(true)
             expect(item.text()).toContain('아령')
         })
+        expect(listItems.get(0)).toHaveProperty('key', "0")
     })
 })
