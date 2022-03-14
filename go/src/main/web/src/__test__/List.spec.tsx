@@ -53,10 +53,14 @@ describe("list test", () => {
             expect(item.text()).toContain('10,000원')
         })
         expect(listItems.get(0)).toHaveProperty('key', "0")
+        expect(listItems.get(1)).toHaveProperty('key', '1')
+        expect(listItems.get(1).props).toHaveProperty('listType', 'product')
 
-        // expect(listItems.at(0).find('ListItemCountValue').text()).toContain("관심")
-        expect(wrapper.find('ListItemCountValue').at(0).text()).toContain("관심")
-
-
+        expect(wrapper.find('ListItem').length).toBe(10)
+        expect(wrapper.find('ListItem').at(0).find("div").length).toBe(5)
+        expect(wrapper.find('ListItem').at(0).find('div').get(0).props).toHaveProperty('children')//get, at, childAt 구별이 까다로움
+        expect(wrapper.find('ListItem').at(0).find('div').at(0).childAt(0).props()).toHaveProperty('active')
+        expect(wrapper.find('ListItem').at(0).find('div').at(0).childAt(1).props()).toHaveProperty('children', '아령')
+        //get은 element를 반환함, at은 wrapper를 반환함..
     })
 })
