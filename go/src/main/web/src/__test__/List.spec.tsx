@@ -4,9 +4,6 @@ import {List} from "../components/molecules/contents/list";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
 import {QueryClient, QueryClientProvider} from "react-query";
 import {createFakeProducts2} from "../mocks/createFakes";
-import {BrowserRouter, Routes} from "react-router-dom";
-import {RecoilRoot} from "recoil";
-import {ModalContextProvider} from "../contexts/modalContext";
 
 const setup = <TOriginalProps extends {}>(WrappedComponent: React.FunctionComponent<TOriginalProps>, props?: TOriginalProps) => {
     const queryClient = new QueryClient({
