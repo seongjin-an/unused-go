@@ -23,6 +23,7 @@ describe('product info test', () => {
         const userName = wrapper.find('.user_name')
         expect(userName.text()).toContain("안김안")
         const productInfoInput = wrapper.find('ProductInfoInput')
+        expect(productInfoInput.length).toBe(4)
         expect(productInfoInput.at(0).props()).toHaveProperty('placeholder')
         const productInfoTitle = wrapper.find('.product_info_title')
         expect(productInfoTitle.at(0).text()).toContain('카테고리 선택')
