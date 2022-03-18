@@ -26,6 +26,7 @@ describe('product info test', () => {
         expect(productInfoInput.at(0).props()).toHaveProperty('placeholder')
         const productInfoTitle = wrapper.find('.product_info_title')
         expect(productInfoTitle.at(0).text()).toContain('카테고리 선택')
-
+        const selectInput = wrapper.find('SelectInput')
+        expect(selectInput.length).toBe(3)
     })
 })
