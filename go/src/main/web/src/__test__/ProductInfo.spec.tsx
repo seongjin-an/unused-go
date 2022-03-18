@@ -18,7 +18,14 @@ describe('product info test', () => {
         const component = setup(ProductInfo)
         expect(component).toMatchSnapshot()
     })
-    // it('should render exactly', () => {
-    //     const {wrapper} = setup(ProductInfo)
-    // })
+    it('should render exactly', () => {
+        const {wrapper} = setup(ProductInfo)
+        const userName = wrapper.find('.user_name')
+        expect(userName.text()).toContain("안김안")
+        const productInfoInput = wrapper.find('ProductInfoInput')
+        expect(productInfoInput.at(0).props()).toHaveProperty('placeholder')
+        const productInfoTitle = wrapper.find('.product_info_title')
+        expect(productInfoTitle.at(0).text()).toContain('카테고리 선택')
+
+    })
 })
