@@ -29,5 +29,7 @@ describe('product info test', () => {
         expect(productInfoTitle.at(0).text()).toContain('카테고리 선택')
         const selectInput = wrapper.find('SelectInput')
         expect(selectInput.length).toBe(3)
+        const colorBlocks = wrapper.find('ColorBlock')
+        expect(colorBlocks.length).toBe(14)
     })
 })
