@@ -31,5 +31,7 @@ describe('product info test', () => {
         expect(selectInput.length).toBe(3)
         const colorBlocks = wrapper.find('ColorBlock')
         expect(colorBlocks.length).toBe(14)
+        const buttons = wrapper.find('Button')
+        expect(buttons.length).toBe(3)
     })
 })
