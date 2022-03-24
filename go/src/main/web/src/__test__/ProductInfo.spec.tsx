@@ -36,4 +36,13 @@ describe('product info test', () => {
         const saveButtons = wrapper.find('SaveButton')
         expect(saveButtons.length).toBe(2)
     })
+
+    it('should simulate exactly', async() => {
+        const {wrapper} = setup(ProductInfo)
+        const colorBlocks = wrapper.find('ColorBlock')
+        expect(colorBlocks.at(0).props()).toHaveProperty('type', 'white')
+        expect(colorBlocks.at(0).props()).toHaveProperty('active', false)
+        colorBlocks.at(0).simulate('click')
+        // expect(colorBlocks.at(0).props()).toHaveProperty('active', true)
+    })
 })
