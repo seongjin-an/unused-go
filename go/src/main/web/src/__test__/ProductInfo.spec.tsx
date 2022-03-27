@@ -46,5 +46,9 @@ describe('product info test', () => {
         colorBlocks.at(0).simulate('click')
         colorBlocks = wrapper.find('ColorBlock')//The issue was being caused from referring to the existing const content created at the top of the test, which became stale after the update. Changing the test suite to:
         expect(colorBlocks.at(0).props()).toHaveProperty('active', true)//https://stackoverflow.com/questions/51085691/simulating-a-click-on-react-with-enzyme-not-doing-anything
+        colorBlocks.at(1).simulate('click')
+        colorBlocks = wrapper.find('ColorBlock')
+        expect(colorBlocks.at(0).props()).toHaveProperty('active', false)
+        expect(colorBlocks.at(1).props()).toHaveProperty('active', true)
     })
 })
