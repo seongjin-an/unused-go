@@ -50,5 +50,7 @@ describe('product info test', () => {
         colorBlocks = wrapper.find('ColorBlock')
         expect(colorBlocks.at(0).props()).toHaveProperty('active', false)
         expect(colorBlocks.at(1).props()).toHaveProperty('active', true)
+
+        // wrapper.find('SaveButton').at(0).simulate('change', {target: {value: 'imsi11'}})
     })
 })
