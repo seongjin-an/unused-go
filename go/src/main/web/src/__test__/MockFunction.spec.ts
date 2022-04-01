@@ -1,3 +1,6 @@
+import axios from "axios";
+import Users from "./util/user";
+
 export {}
 function forEach(items: any[], callback: Function) {
     for (let index = 0; index < items.length; index++) {
@@ -79,4 +82,63 @@ describe('mock test', () => {
         // expect(someMockFunction.mock.lastCall[0]).toBe('test');
     })
 
+    it('should mock return value', () => {
+        const myMock = jest.fn();
+
+        console.log(myMock());
+        // > undefined
+
+        myMock.mockReturnValueOnce(10).mockReturnValueOnce('x').mockReturnValue(true);
+
+        console.log(myMock(), myMock(), myMock(), myMock(), myMock());
+        // > 10, 'x', true, true
+
+        const filterTestFn = jest.fn();
+
+        // Make the mock return `true` for the first call,
+        // and `false` for the second call
+        filterTestFn.mockReturnValueOnce(true).mockReturnValueOnce(false);
+
+        const result = [11, 12].filter(num => filterTestFn(num));
+
+        console.log(result);
+        // > [11]
+        console.log(filterTestFn.mock.calls[0][0]); // 11
+        console.log(filterTestFn.mock.calls[1][0]); // 12
+    })
+    jest.mock('axios', () => {
+        return{
+            create: jest.fn(() => ({
+                get: jest.fn().mockResolvedValue({data: 1})
+            }))
+        }
+    })
+    it('should mock modules', () => {
+        // jest.mock('axios', () => {
+        //     return {
+        //         create: jest.fn(() => ({
+        //             get: jest.fn().mockResolvedValue({ data: {} }),
+        //             interceptors: {
+        //                 request: { use: jest.fn(), eject: jest.fn() },
+        //                 response: { use: jest.fn(), eject: jest.fn() },
+        //             },
+        //         })),
+        //     };
+        // });
+        // axios.get.mockResolvedValue({ data: 'mock data' });
+
+        const users = [{name: 'Bob'}];
+        const resp = {data: users};
+        // axios.get = jest.fn().mockResolvedValue('')
+
+        const mock = jest.spyOn(axios, "get");
+        mock.mockImplementation(() => Promise.resolve({ data: 1 }));
+        const result = axios.get('/json')
+        result.then(i => console.log(i.data))
+
+        // or you could use the following depending on your use case:
+        // axios.get.mockImplementation(() => Promise.resolve(resp))
+
+        return Users.all().then(data => expect(data).toEqual(users));
+    })
 })
