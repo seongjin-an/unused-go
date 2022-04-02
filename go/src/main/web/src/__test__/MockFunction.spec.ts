@@ -1,6 +1,7 @@
-import axios from "axios";
+// import axios from "axios";
+const axios = require("axios");
 import Users from "./util/user";
-
+jest.mock('axios')
 export {}
 function forEach(items: any[], callback: Function) {
     for (let index = 0; index < items.length; index++) {
@@ -106,13 +107,7 @@ describe('mock test', () => {
         console.log(filterTestFn.mock.calls[0][0]); // 11
         console.log(filterTestFn.mock.calls[1][0]); // 12
     })
-    jest.mock('axios', () => {
-        return{
-            create: jest.fn(() => ({
-                get: jest.fn().mockResolvedValue({data: 1})
-            }))
-        }
-    })
+
     it('should mock modules', () => {
         // jest.mock('axios', () => {
         //     return {
@@ -126,7 +121,7 @@ describe('mock test', () => {
         //     };
         // });
         // axios.get.mockResolvedValue({ data: 'mock data' });
-
+        axios.get.mockResolvedValue(1)
         const users = [{name: 'Bob'}];
         const resp = {data: users};
         // axios.get = jest.fn().mockResolvedValue('')
@@ -134,7 +129,7 @@ describe('mock test', () => {
         const mock = jest.spyOn(axios, "get");
         mock.mockImplementation(() => Promise.resolve({ data: 1 }));
         const result = axios.get('/json')
-        result.then(i => console.log(i.data))
+        // result.then(i => console.log(i.data))
 
         // or you could use the following depending on your use case:
         // axios.get.mockImplementation(() => Promise.resolve(resp))
