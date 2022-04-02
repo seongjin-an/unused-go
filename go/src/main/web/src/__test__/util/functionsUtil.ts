@@ -18,6 +18,6 @@ export const getPerson = (): Promise<IPerson> => {
     return axios.get('/api/user').then((i: AxiosResponse<IPerson>) => i.data)
 }
 
-export const getCity = (num: number): Promise<ICity> => {
+export const getCity = (): Promise<ICity> => {
     return axios.get('/api/city').then((i: AxiosResponse<ICity>) => i.data)
 }

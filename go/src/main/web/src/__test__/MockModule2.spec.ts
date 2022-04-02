@@ -15,7 +15,7 @@ describe('mock module test', () => {
         const mock = jest.spyOn(api, 'getCity')
         const city = {data: {name: 'pangyo', place: 'seongnam'}}
         mock.mockImplementation(() => new Promise<ICity>((resolve) => resolve({name: 'pangyo', place: 'seongnam'}) ))
-        const axiosResponse = await getCity(1)
+        const axiosResponse = await getCity()
         expect(axiosResponse).toEqual({name: 'pangyo', place: 'seongnam'})
     })
 })
