@@ -21,7 +21,17 @@ describe('mock module test', () => {
         const mock = jest.spyOn(api, 'getCity')
         const city = {data: {name: 'pangyo', place: 'seongnam'}}
         mock.mockImplementation(() => new Promise<ICity>((resolve) => resolve({name: 'pangyo', place: 'seongnam'}) ))
-        const axiosResponse = await getCity()
+        const axiosResponse = await getCity(1)
         expect(axiosResponse).toEqual({name: 'pangyo', place: 'seongnam'})
+    })
+    it('should call api', async () => {
+        jest.clearAllMocks()
+        const mock = jest.spyOn(api, 'getCity')
+        const city = {data: {name: 'pangyo', place: 'seongnam'}}
+        mock.mockImplementation((num: number) => new Promise<ICity>((resolve) => resolve({name: 'pangyo', place: 'seongnam'}) ))
+        await getCity(2)
+        expect(mock).toBeCalled()
+        expect(mock).toBeCalledTimes(1)
+        expect(mock).toBeCalledWith(2)
     })
 })
