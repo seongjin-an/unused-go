@@ -1,6 +1,6 @@
 export type Params = {
-    id: string
-}
+    id: string;
+};
 
 export interface IProduct {
     id: string;

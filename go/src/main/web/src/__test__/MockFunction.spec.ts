@@ -1,8 +1,8 @@
 // import axios from "axios";
-const axios = require("axios");
-import Users from "./util/user";
-jest.mock('axios')
-export {}
+const axios = require('axios');
+import Users from './util/user';
+jest.mock('axios');
+export {};
 function forEach(items: any[], callback: Function) {
     for (let index = 0; index < items.length; index++) {
         callback(items[index]);
@@ -29,7 +29,7 @@ describe('mock test', () => {
         expect(mockCallback.mock.results[0].value).toBe(42);
 
         // The return value of the second call to the function was 43
-        expect(mockCallback.mock.results[1].value).toBe(43)
+        expect(mockCallback.mock.results[1].value).toBe(43);
     });
 
     it('should mock property', () => {
@@ -40,10 +40,10 @@ describe('mock test', () => {
         const bound = myMock.bind(b);
         bound();
 
-        console.log(myMock.mock.instances);// > [ <a>, <b> ]
+        console.log(myMock.mock.instances); // > [ <a>, <b> ]
 
-        const someMockFunction = jest.fn((x: string, y: string): string => `arg1: ${x} / arg2: ${y}`)
-        someMockFunction('first arg', 'second arg')
+        const someMockFunction = jest.fn((x: string, y: string): string => `arg1: ${x} / arg2: ${y}`);
+        someMockFunction('first arg', 'second arg');
         // someMockFunction('1st arg', '2nd arg')
 
         // The function was called exactly once
@@ -56,12 +56,11 @@ describe('mock test', () => {
         expect(someMockFunction.mock.calls[0][1]).toBe('second arg');
 
         // The return value of the first call to the function was 'return value'
-//         expect(someMockFunction.mock.results[0].value).toBe('return value');
+        //         expect(someMockFunction.mock.results[0].value).toBe('return value');
         expect(someMockFunction.mock.results[0].value).toBe('arg1: first arg / arg2: second arg');
 
         // This function was instantiated exactly twice
         expect(someMockFunction.mock.instances.length).toBe(1);
-
 
         const MockConstructor = jest.fn();
         const a2 = new MockConstructor();
@@ -70,7 +69,9 @@ describe('mock test', () => {
         expect(MockConstructor.mock.instances[0]).toBe(a2);
         expect(MockConstructor.mock.instances[1]).toBe(b2);
 
-        const SomeMockFunction2 = jest.fn((_name: string): {name2: string} => ({name2: _name}))
+        const SomeMockFunction2 = jest.fn((_name: string): { name2: string } => ({
+            name2: _name,
+        }));
         const a3 = new SomeMockFunction2('a3');
         const b3 = new SomeMockFunction2('b3');
         // The object returned by the first instantiation of this function
@@ -81,7 +82,7 @@ describe('mock test', () => {
 
         // The first argument of the last call to the function was 'test'
         // expect(someMockFunction.mock.lastCall[0]).toBe('test');
-    })
+    });
 
     it('should mock return value', () => {
         const myMock = jest.fn();
@@ -106,7 +107,7 @@ describe('mock test', () => {
         // > [11]
         console.log(filterTestFn.mock.calls[0][0]); // 11
         console.log(filterTestFn.mock.calls[1][0]); // 12
-    })
+    });
 
     it('should mock modules', () => {
         // jest.mock('axios', () => {
@@ -121,19 +122,19 @@ describe('mock test', () => {
         //     };
         // });
         // axios.get.mockResolvedValue({ data: 'mock data' });
-        axios.get.mockResolvedValue(1)
-        const users = [{name: 'Bob'}];
-        const resp = {data: users};
+        axios.get.mockResolvedValue(1);
+        const users = [{ name: 'Bob' }];
+        const resp = { data: users };
         // axios.get = jest.fn().mockResolvedValue('')
 
-        const mock = jest.spyOn(axios, "get");
+        const mock = jest.spyOn(axios, 'get');
         mock.mockImplementation(() => Promise.resolve({ data: 1 }));
-        const result = axios.get('/json')
+        const result = axios.get('/json');
         // result.then(i => console.log(i.data))
 
         // or you could use the following depending on your use case:
         // axios.get.mockImplementation(() => Promise.resolve(resp))
 
         return Users.all().then(data => expect(data).toEqual(users));
-    })
-})
+    });
+});

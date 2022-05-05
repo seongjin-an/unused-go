@@ -1,1 +1,1 @@
-export {CommunityNavigator} from './CommunityNavigator'
+export { CommunityNavigator } from './CommunityNavigator';

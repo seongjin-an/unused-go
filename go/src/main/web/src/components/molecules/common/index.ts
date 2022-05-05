@@ -1,2 +1,2 @@
-export {MenuNavigator} from './MenuNavigator'
-export {Modal} from './Modal'
+export { MenuNavigator } from './MenuNavigator';
+export { Modal } from './Modal';

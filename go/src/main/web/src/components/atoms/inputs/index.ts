@@ -1,2 +1,2 @@
-export {SelectInput} from './SelectInput'
-export {TextAreaInput} from './TextAreaInput'
+export { SelectInput } from './SelectInput';
+export { TextAreaInput } from './TextAreaInput';

@@ -1,7 +1,5 @@
-import React from "react";
+import React from 'react';
 
 export const Error: React.FC = () => {
-    return(
-        <div>ERROR PAGE</div>
-    )
-}
+    return <div>ERROR PAGE</div>;
+};

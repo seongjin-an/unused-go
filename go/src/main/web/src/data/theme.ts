@@ -1,9 +1,9 @@
-import {Theme} from "../types/theme";
-import {SxProps, SystemStyleObject} from "../types/sx";
+import { Theme } from '../types/theme';
+import { SxProps, SystemStyleObject } from '../types/sx';
 
 export const theme: Theme = {
     palette: {
-        common:{
+        common: {
             white: '#fff',
             gray: '#9c9c9b',
             darkGray: '#52565b',
@@ -17,50 +17,52 @@ export const theme: Theme = {
             darkGreen: '#03431d',
             skyBlue: '#00c3eb',
             blue: '#2508ff',
-            violet: '#570070'
+            violet: '#570070',
         },
         primary: {
             dark: '#000',
             light: '#e6e6e6',
-            main: '#e6e6e6'
+            main: '#e6e6e6',
         },
-        error:{
+        error: {
             dark: '#000',
             light: '#e6e6e6',
-            main: '#e6e6e6'
+            main: '#e6e6e6',
         },
-        info:{
+        info: {
             dark: '#000',
             light: '#e6e6e6',
-            main: '#e6e6e6'
+            main: '#e6e6e6',
         },
-        secondary:{
+        secondary: {
             dark: '#000',
             light: '#e6e6e6',
-            main: '#e6e6e6'
+            main: '#e6e6e6',
         },
-        success:{
+        success: {
             dark: '#000',
             light: '#e6e6e6',
-            main: '#e6e6e6'
+            main: '#e6e6e6',
         },
-        warning:{
+        warning: {
             dark: '#000',
             light: '#e6e6e6',
-            main: '#e6e6e6'
-        }
+            main: '#e6e6e6',
+        },
     },
     padding: {
         main: '649px',
-        secondary: '150px'
-    }
-}
+        secondary: '150px',
+    },
+};
 
 export const handleSxProps = (sx?: SxProps<Theme>): SystemStyleObject<Theme> => {
-    if(typeof sx === 'function'){
-        return sx(theme)
+    if (typeof sx === 'function') {
+        return sx(theme);
     }
-    return Object.fromEntries(Object.entries(sx!).map(([key, value]) => {
-        return [key, typeof value === 'function' ? handleSxProps(value) : value]
-    }))
-}
+    return Object.fromEntries(
+        Object.entries(sx!).map(([key, value]) => {
+            return [key, typeof value === 'function' ? handleSxProps(value) : value];
+        }),
+    );
+};

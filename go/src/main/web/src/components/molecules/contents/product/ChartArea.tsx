@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import Highcharts from 'highcharts'
-import HighchartsReact from "highcharts-react-official";
+import React from 'react';
+import styled from 'styled-components';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
 
-interface IProps{
+interface IProps {
     mypage?: boolean;
 }
 
-export const ChartArea: React.FC<IProps> = ({mypage}) => {
+export const ChartArea: React.FC<IProps> = ({ mypage }) => {
     const options = {
         chart: {
             backgroundColor: 'transparent',
@@ -15,16 +15,16 @@ export const ChartArea: React.FC<IProps> = ({mypage}) => {
             spacingBottom: 0,
             spacingLeft: 0,
             spacingRight: 0,
-            height: '110px'
+            height: '110px',
         },
         title: {
             text: '',
         },
         subtitle: {
-            text: ''
+            text: '',
         },
         credits: {
-            enabled: false
+            enabled: false,
         },
         tooltip: {
             style: {
@@ -44,13 +44,24 @@ export const ChartArea: React.FC<IProps> = ({mypage}) => {
                     fontFamily: 'PretendardL',
                     color: '#c5d1ee',
                     fontSize: 0,
-                }
+                },
             },
-            categories: ['2022/01/01', '2022/01/02', '2022/01/03', '2022/01/04', '2022/01/05', '2022/01/06', '2022/01/07', '2022/01/08', '2022/01/09', '2022/01/10']
+            categories: [
+                '2022/01/01',
+                '2022/01/02',
+                '2022/01/03',
+                '2022/01/04',
+                '2022/01/05',
+                '2022/01/06',
+                '2022/01/07',
+                '2022/01/08',
+                '2022/01/09',
+                '2022/01/10',
+            ],
         },
         yAxis: {
             title: {
-                text: ''
+                text: '',
             },
             gridLineColor: 'transparent',
             gridLineWidth: 1,
@@ -59,7 +70,7 @@ export const ChartArea: React.FC<IProps> = ({mypage}) => {
                     fontFamily: 'PretendardL',
                     color: '#c5d1ee',
                     fontSize: 0,
-                }
+                },
             },
             tickPositions: [0, 30, 80, 150, 200],
         },
@@ -78,41 +89,42 @@ export const ChartArea: React.FC<IProps> = ({mypage}) => {
             symbolHeight: 9,
             y: 41,
         },
-        series: [{
-            name: '집계',
-            data: [30, 20, 10, 10, 30, 20, 10, 10, 10, 10],
-            lineColor: '#EE8AFF',
-            color: '#EE8AFF',
-        }],
+        series: [
+            {
+                name: '집계',
+                data: [30, 20, 10, 10, 30, 20, 10, 10, 10, 10],
+                lineColor: '#EE8AFF',
+                color: '#EE8AFF',
+            },
+        ],
         plotOptions: {
             series: {
                 lineWidth: 3,
                 label: {
-                    connectorAllowed: false
+                    connectorAllowed: false,
                 },
                 marker: {
                     radius: 0,
-                    symbol: 'circle'
-                }
-            }
-        }
-    }
-    return(
+                    symbol: 'circle',
+                },
+            },
+        },
+    };
+    return (
         <StyledChartArea mypage={mypage}>
             <div className="chart_in">
                 <HighchartsReact highcharts={Highcharts} options={options} />
             </div>
-
         </StyledChartArea>
-    )
-}
-const StyledChartArea = styled.div<{mypage?: boolean}>`
-  width: ${({mypage}) => mypage ? '930px' : '700px'};
-  height: 110px;
-  margin-top: 27.5px;
-  margin-bottom: 75px;
-  & > .chart_in{
-    width: 100%;
-    height: 100%;
-  }
-`
+    );
+};
+const StyledChartArea = styled.div<{ mypage?: boolean }>`
+    width: ${({ mypage }) => (mypage ? '930px' : '700px')};
+    height: 110px;
+    margin-top: 27.5px;
+    margin-bottom: 75px;
+    & > .chart_in {
+        width: 100%;
+        height: 100%;
+    }
+`;

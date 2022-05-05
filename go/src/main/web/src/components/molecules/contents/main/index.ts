@@ -1,2 +1,2 @@
-export {MainDash} from "./MainDash";
-export {MainProduct} from './MainProduct'
+export { MainDash } from './MainDash';
+export { MainProduct } from './MainProduct';

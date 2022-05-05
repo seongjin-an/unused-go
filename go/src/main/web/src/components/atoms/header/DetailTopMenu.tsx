@@ -1,11 +1,11 @@
-import React, {MouseEvent} from "react";
-import styled, {css, keyframes} from "styled-components";
+import React, { MouseEvent } from 'react';
+import styled, { css, keyframes } from 'styled-components';
 
 interface IProps {
     isShow: boolean;
 }
 
-export const DetailTopMenu: React.FC<IProps> = ({isShow}) => {
+export const DetailTopMenu: React.FC<IProps> = ({ isShow }) => {
     return (
         <StyledDetailMenu isShow={isShow}>
             <ul>
@@ -43,8 +43,8 @@ export const DetailTopMenu: React.FC<IProps> = ({isShow}) => {
                 </li>
             </ul>
         </StyledDetailMenu>
-    )
-}
+    );
+};
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -54,7 +54,7 @@ const fadeIn = keyframes`
     opacity: 1;
     //display: flex;
   }
-`
+`;
 const fadeOut = keyframes`
   from {
     opacity: 1;
@@ -64,57 +64,65 @@ const fadeOut = keyframes`
     opacity: 0;
     //display: none;
   }
-`
+`;
 const StyledDetailMenu = styled.div<{ isShow: boolean }>`
-  //transition: opacity .15s ease-in-out, -webkit-transform .3s ease-in-out;
-  display: none;
-  ${({isShow}) => isShow ? css`display: flex; opacity: 1;` : css`display: none; opacity: 0;`};
-  animation-name: ${({isShow}) => isShow && fadeIn};
-  animation-duration: .3s;
-  //animation-iteration-count: 0;
-  
-  width: 100%;
-  height: 372px;
-  background-color: #341CFF;
-  border-bottom: 1px solid #fff;
-  padding: 42px 0 0 238px;
-  position: absolute;
-  border-top: 1px solid #fff;
-  top: 70px;
-  left: 0;
+    //transition: opacity .15s ease-in-out, -webkit-transform .3s ease-in-out;
+    display: none;
+    ${({ isShow }) =>
+        isShow
+            ? css`
+                  display: flex;
+                  opacity: 1;
+              `
+            : css`
+                  display: none;
+                  opacity: 0;
+              `};
+    animation-name: ${({ isShow }) => isShow && fadeIn};
+    animation-duration: 0.3s;
+    //animation-iteration-count: 0;
 
-  & > ul {
-    display: flex;
-    width: auto;
-    height: auto;
-  }
+    width: 100%;
+    height: 372px;
+    background-color: #341cff;
+    border-bottom: 1px solid #fff;
+    padding: 42px 0 0 238px;
+    position: absolute;
+    border-top: 1px solid #fff;
+    top: 70px;
+    left: 0;
 
-  & ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  & > ul > li > ul {
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    margin-right: 60px;
-  }
-
-  & > ul > li > ul > li {
-    font-family: PretendardSemiBold;
-    font-size: 18px;
-    color: #FFFFFF;
-    margin-bottom: 18px;
-    cursor: pointer;
-    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
-    &:hover{
-      transform:translate(3px, 0);
-      -ms-transform:translate(3px, 0);
-      -webkit-transform:translate(3px, 0);
+    & > ul {
+        display: flex;
+        width: auto;
+        height: auto;
     }
-  }
 
-`
+    & ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    & > ul > li > ul {
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        margin-right: 60px;
+    }
+
+    & > ul > li > ul > li {
+        font-family: PretendardSemiBold;
+        font-size: 18px;
+        color: #ffffff;
+        margin-bottom: 18px;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+        &:hover {
+            transform: translate(3px, 0);
+            -ms-transform: translate(3px, 0);
+            -webkit-transform: translate(3px, 0);
+        }
+    }
+`;

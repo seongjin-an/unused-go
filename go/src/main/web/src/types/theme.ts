@@ -1,18 +1,18 @@
-export interface Theme{
+export interface Theme {
     palette: {
-        [K in keyof IPalette]: IPalette[K]
-    },
+        [K in keyof IPalette]: IPalette[K];
+    };
     padding: {
-        [K in keyof IPadding]: IPadding[K]
-    }
+        [K in keyof IPadding]: IPadding[K];
+    };
 }
 
-export interface IPadding{
+export interface IPadding {
     main: string;
     secondary: string;
 }
 
-export interface IPalette{
+export interface IPalette {
     common: ICommonColors;
     primary: IColors;
     secondary: IColors;
@@ -21,7 +21,7 @@ export interface IPalette{
     warning: IColors;
     info: IColors;
 }
-export interface ICommonColors{
+export interface ICommonColors {
     white: string;
     gray: string;
     darkGray: string;
@@ -38,7 +38,7 @@ export interface ICommonColors{
     violet: string;
 }
 
-export interface IColors{
+export interface IColors {
     main: string;
     light: string;
     dark: string;

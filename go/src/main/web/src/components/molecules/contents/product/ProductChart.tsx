@@ -1,18 +1,18 @@
-import React from "react";
-import {ProductInfoFrame} from "./ProductInfoFrame";
-import {ChartArea, ChartPeriodList, TotalPriceList} from "./index";
+import React from 'react';
+import { ProductInfoFrame } from './ProductInfoFrame';
+import { ChartArea, ChartPeriodList, TotalPriceList } from './index';
 
 interface IProps {
     mypage?: boolean;
 }
 
-export const ProductChart: React.FC<IProps> = ({mypage}) => {
-    return(
+export const ProductChart: React.FC<IProps> = ({ mypage }) => {
+    return (
         <ProductInfoFrame>
             <div className="product_info_title">시세</div>
-            <ChartPeriodList/>
-            <ChartArea mypage={mypage}/>
-            <TotalPriceList/>
+            <ChartPeriodList />
+            <ChartArea mypage={mypage} />
+            <TotalPriceList />
         </ProductInfoFrame>
-    )
-}
+    );
+};

@@ -1,25 +1,25 @@
-import React from "react";
-import styled from "styled-components";
-import {FuncButton, UserName} from "../../atoms/header";
-interface IProps{
+import React from 'react';
+import styled from 'styled-components';
+import { FuncButton, UserName } from '../../atoms/header';
+interface IProps {
     handleOpenSearch: () => void;
 }
-export const TopFunc:React.FC<IProps> = ({handleOpenSearch}) => {
-    return(
+export const TopFunc: React.FC<IProps> = ({ handleOpenSearch }) => {
+    return (
         <div>
             <StyledTopFunc>
-                <UserName/>
-                <FuncButton buttonType={'search'} callback={handleOpenSearch}/>
-                <FuncButton buttonType={'basket'}/>
+                <UserName />
+                <FuncButton buttonType={'search'} callback={handleOpenSearch} />
+                <FuncButton buttonType={'basket'} />
             </StyledTopFunc>
         </div>
-    )
-}
+    );
+};
 
 const StyledTopFunc = styled.div`
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-`
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+`;

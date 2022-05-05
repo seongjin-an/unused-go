@@ -1,2 +1,2 @@
-export {Error} from './Error'
-export {NotFound} from './NotFound'
+export { Error } from './Error';
+export { NotFound } from './NotFound';

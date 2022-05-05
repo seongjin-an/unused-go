@@ -1,7 +1,6 @@
-import {atom, selector} from "recoil";
+import { atom, selector } from 'recoil';
 
 export const modalState = atom<boolean>({
     key: 'isModalShow',
-    default: false
-})
-
+    default: false,
+});

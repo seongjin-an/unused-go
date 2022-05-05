@@ -1,16 +1,16 @@
-import React from "react";
-import {CommentFrame, ProductChart} from "../../../molecules/contents/product";
-import {StyledProductInfo} from "../../../molecules/contents/product/ProductInfo";
-import {ProductInfoFrame} from "../../../molecules/contents/product/ProductInfoFrame";
-import {ColorBlock} from "../../../atoms/contents/product";
+import React from 'react';
+import { CommentFrame, ProductChart } from '../../../molecules/contents/product';
+import { StyledProductInfo } from '../../../molecules/contents/product/ProductInfo';
+import { ProductInfoFrame } from '../../../molecules/contents/product/ProductInfoFrame';
+import { ColorBlock } from '../../../atoms/contents/product';
 
 export const ProductDetail: React.FC = () => {
-    return(
+    return (
         <StyledProductInfo>
             <div className="user_name">안김안</div>
             <div className="product_name">상품명</div>
             <div className="product_price">100,000원</div>
-            <ProductChart/>
+            <ProductChart />
             <ProductInfoFrame>
                 <div className="product_info_title">사이즈</div>
                 <div className="product_info_text">S</div>
@@ -18,7 +18,7 @@ export const ProductDetail: React.FC = () => {
             <ProductInfoFrame>
                 <div className="product_info_title">색상</div>
                 <div className="color_select_area">
-                    <ColorBlock active sx={theme => ({backgroundColor: theme.palette.common.darkGreen})}/>
+                    <ColorBlock active sx={theme => ({ backgroundColor: theme.palette.common.darkGreen })} />
                 </div>
             </ProductInfoFrame>
             <ProductInfoFrame>
@@ -40,7 +40,7 @@ export const ProductDetail: React.FC = () => {
                     <button className="btn_product_like">관심상품 67</button>
                 </div>
             </ProductInfoFrame>
-            <CommentFrame/>
+            <CommentFrame />
         </StyledProductInfo>
-    )
-}
+    );
+};

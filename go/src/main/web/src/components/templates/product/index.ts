@@ -1,2 +1,2 @@
-export {ProductTempalte} from './ProductTemplate'
-export {ProductDetailTemplate} from './ProductDetailTemplate'
+export { ProductTempalte } from './ProductTemplate';
+export { ProductDetailTemplate } from './ProductDetailTemplate';

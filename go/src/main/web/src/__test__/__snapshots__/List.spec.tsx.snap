@@ -1,0 +1,1501 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`list test should match snapshot 1`] = `
+Object {
+  "wrapper": <QueryClientProvider
+    client={
+      QueryClient {
+        "defaultOptions": Object {
+          "queries": Object {
+            "placeholderData": Array [
+              Object {
+                "id": "10",
+                "name": "product 0",
+                "price": 0,
+                "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                "type": "product",
+              },
+              Object {
+                "id": "11",
+                "name": "product 1",
+                "price": 1000,
+                "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                "type": "product",
+              },
+              Object {
+                "id": "12",
+                "name": "product 2",
+                "price": 2000,
+                "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                "type": "product",
+              },
+              Object {
+                "id": "13",
+                "name": "product 3",
+                "price": 3000,
+                "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                "type": "product",
+              },
+              Object {
+                "id": "14",
+                "name": "product 4",
+                "price": 4000,
+                "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                "type": "product",
+              },
+              Object {
+                "id": "15",
+                "name": "product 5",
+                "price": 5000,
+                "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                "type": "product",
+              },
+              Object {
+                "id": "16",
+                "name": "product 6",
+                "price": 6000,
+                "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                "type": "product",
+              },
+              Object {
+                "id": "17",
+                "name": "product 7",
+                "price": 7000,
+                "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                "type": "product",
+              },
+              Object {
+                "id": "18",
+                "name": "product 8",
+                "price": 8000,
+                "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                "type": "product",
+              },
+              Object {
+                "id": "19",
+                "name": "product 9",
+                "price": 9000,
+                "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                "type": "product",
+              },
+            ],
+            "suspense": false,
+          },
+        },
+        "mutationCache": MutationCache {
+          "config": Object {},
+          "listeners": Array [],
+          "mutationId": 0,
+          "mutations": Array [],
+        },
+        "mutationDefaults": Array [],
+        "queryCache": QueryCache {
+          "config": Object {},
+          "listeners": Array [],
+          "queries": Array [
+            Query {
+              "abortSignalConsumed": false,
+              "cache": [Circular],
+              "cacheTime": 300000,
+              "defaultOptions": undefined,
+              "gcTimeout": undefined,
+              "hadObservers": true,
+              "initialState": Object {
+                "data": undefined,
+                "dataUpdateCount": 0,
+                "dataUpdatedAt": 0,
+                "error": null,
+                "errorUpdateCount": 0,
+                "errorUpdatedAt": 0,
+                "fetchFailureCount": 0,
+                "fetchMeta": null,
+                "isFetching": false,
+                "isInvalidated": false,
+                "isPaused": false,
+                "status": "idle",
+              },
+              "meta": undefined,
+              "observers": Array [
+                QueryObserver {
+                  "client": [Circular],
+                  "currentQuery": [Circular],
+                  "currentQueryInitialState": Object {
+                    "data": undefined,
+                    "dataUpdateCount": 0,
+                    "dataUpdatedAt": 0,
+                    "error": null,
+                    "errorUpdateCount": 0,
+                    "errorUpdatedAt": 0,
+                    "fetchFailureCount": 0,
+                    "fetchMeta": null,
+                    "isFetching": false,
+                    "isInvalidated": false,
+                    "isPaused": false,
+                    "status": "idle",
+                  },
+                  "currentRefetchInterval": false,
+                  "currentResult": Object {
+                    "data": Array [
+                      Object {
+                        "id": "10",
+                        "name": "product 0",
+                        "price": 0,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "11",
+                        "name": "product 1",
+                        "price": 1000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "12",
+                        "name": "product 2",
+                        "price": 2000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "13",
+                        "name": "product 3",
+                        "price": 3000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "14",
+                        "name": "product 4",
+                        "price": 4000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "15",
+                        "name": "product 5",
+                        "price": 5000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "16",
+                        "name": "product 6",
+                        "price": 6000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "17",
+                        "name": "product 7",
+                        "price": 7000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "18",
+                        "name": "product 8",
+                        "price": 8000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "19",
+                        "name": "product 9",
+                        "price": 9000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                    ],
+                    "dataUpdatedAt": 0,
+                    "error": null,
+                    "errorUpdatedAt": 0,
+                    "failureCount": 0,
+                    "isError": false,
+                    "isFetched": false,
+                    "isFetchedAfterMount": false,
+                    "isFetching": true,
+                    "isIdle": false,
+                    "isLoading": false,
+                    "isLoadingError": false,
+                    "isPlaceholderData": true,
+                    "isPreviousData": false,
+                    "isRefetchError": false,
+                    "isRefetching": true,
+                    "isStale": true,
+                    "isSuccess": true,
+                    "refetch": [Function],
+                    "remove": [Function],
+                    "status": "success",
+                  },
+                  "currentResultOptions": Object {
+                    "_defaulted": true,
+                    "optimisticResults": true,
+                    "placeholderData": Array [
+                      Object {
+                        "id": "10",
+                        "name": "product 0",
+                        "price": 0,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "11",
+                        "name": "product 1",
+                        "price": 1000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "12",
+                        "name": "product 2",
+                        "price": 2000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "13",
+                        "name": "product 3",
+                        "price": 3000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "14",
+                        "name": "product 4",
+                        "price": 4000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "15",
+                        "name": "product 5",
+                        "price": 5000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "16",
+                        "name": "product 6",
+                        "price": 6000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "17",
+                        "name": "product 7",
+                        "price": 7000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "18",
+                        "name": "product 8",
+                        "price": 8000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "19",
+                        "name": "product 9",
+                        "price": 9000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                    ],
+                    "queryFn": [Function],
+                    "queryHash": "[\\"getProducts\\"]",
+                    "queryKey": Array [
+                      "getProducts",
+                    ],
+                    "suspense": false,
+                  },
+                  "currentResultState": Object {
+                    "data": undefined,
+                    "dataUpdateCount": 0,
+                    "dataUpdatedAt": 0,
+                    "error": null,
+                    "errorUpdateCount": 0,
+                    "errorUpdatedAt": 0,
+                    "fetchFailureCount": 0,
+                    "fetchMeta": null,
+                    "isFetching": true,
+                    "isInvalidated": false,
+                    "isPaused": false,
+                    "status": "loading",
+                  },
+                  "listeners": Array [
+                    [Function],
+                  ],
+                  "options": Object {
+                    "_defaulted": true,
+                    "optimisticResults": true,
+                    "placeholderData": Array [
+                      Object {
+                        "id": "10",
+                        "name": "product 0",
+                        "price": 0,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "11",
+                        "name": "product 1",
+                        "price": 1000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "12",
+                        "name": "product 2",
+                        "price": 2000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "13",
+                        "name": "product 3",
+                        "price": 3000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "14",
+                        "name": "product 4",
+                        "price": 4000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "15",
+                        "name": "product 5",
+                        "price": 5000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "16",
+                        "name": "product 6",
+                        "price": 6000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "17",
+                        "name": "product 7",
+                        "price": 7000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "18",
+                        "name": "product 8",
+                        "price": 8000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "19",
+                        "name": "product 9",
+                        "price": 9000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                    ],
+                    "queryFn": [Function],
+                    "queryHash": "[\\"getProducts\\"]",
+                    "queryKey": Array [
+                      "getProducts",
+                    ],
+                    "suspense": false,
+                  },
+                  "previousQueryResult": undefined,
+                  "previousSelectError": null,
+                  "refetch": [Function],
+                  "refetchIntervalId": undefined,
+                  "remove": [Function],
+                  "staleTimeoutId": undefined,
+                  "trackedProps": Array [],
+                },
+              ],
+              "options": Object {
+                "_defaulted": true,
+                "optimisticResults": true,
+                "placeholderData": Array [
+                  Object {
+                    "id": "10",
+                    "name": "product 0",
+                    "price": 0,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "11",
+                    "name": "product 1",
+                    "price": 1000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "12",
+                    "name": "product 2",
+                    "price": 2000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "13",
+                    "name": "product 3",
+                    "price": 3000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "14",
+                    "name": "product 4",
+                    "price": 4000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "15",
+                    "name": "product 5",
+                    "price": 5000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "16",
+                    "name": "product 6",
+                    "price": 6000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "17",
+                    "name": "product 7",
+                    "price": 7000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "18",
+                    "name": "product 8",
+                    "price": 8000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "19",
+                    "name": "product 9",
+                    "price": 9000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                ],
+                "queryFn": [Function],
+                "queryHash": "[\\"getProducts\\"]",
+                "queryKey": Array [
+                  "getProducts",
+                ],
+                "suspense": false,
+              },
+              "promise": Promise {},
+              "queryHash": "[\\"getProducts\\"]",
+              "queryKey": Array [
+                "getProducts",
+              ],
+              "retryer": Retryer {
+                "abort": [Function],
+                "cancel": [Function],
+                "cancelRetry": [Function],
+                "continue": [Function],
+                "continueRetry": [Function],
+                "failureCount": 0,
+                "isPaused": false,
+                "isResolved": false,
+                "isTransportCancelable": false,
+                "promise": Promise {},
+              },
+              "revertState": Object {
+                "data": undefined,
+                "dataUpdateCount": 0,
+                "dataUpdatedAt": 0,
+                "error": null,
+                "errorUpdateCount": 0,
+                "errorUpdatedAt": 0,
+                "fetchFailureCount": 0,
+                "fetchMeta": null,
+                "isFetching": false,
+                "isInvalidated": false,
+                "isPaused": false,
+                "status": "idle",
+              },
+              "state": Object {
+                "data": undefined,
+                "dataUpdateCount": 0,
+                "dataUpdatedAt": 0,
+                "error": null,
+                "errorUpdateCount": 0,
+                "errorUpdatedAt": 0,
+                "fetchFailureCount": 0,
+                "fetchMeta": null,
+                "isFetching": true,
+                "isInvalidated": false,
+                "isPaused": false,
+                "status": "loading",
+              },
+            },
+          ],
+          "queriesMap": Object {
+            "[\\"getProducts\\"]": Query {
+              "abortSignalConsumed": false,
+              "cache": [Circular],
+              "cacheTime": 300000,
+              "defaultOptions": undefined,
+              "gcTimeout": undefined,
+              "hadObservers": true,
+              "initialState": Object {
+                "data": undefined,
+                "dataUpdateCount": 0,
+                "dataUpdatedAt": 0,
+                "error": null,
+                "errorUpdateCount": 0,
+                "errorUpdatedAt": 0,
+                "fetchFailureCount": 0,
+                "fetchMeta": null,
+                "isFetching": false,
+                "isInvalidated": false,
+                "isPaused": false,
+                "status": "idle",
+              },
+              "meta": undefined,
+              "observers": Array [
+                QueryObserver {
+                  "client": [Circular],
+                  "currentQuery": [Circular],
+                  "currentQueryInitialState": Object {
+                    "data": undefined,
+                    "dataUpdateCount": 0,
+                    "dataUpdatedAt": 0,
+                    "error": null,
+                    "errorUpdateCount": 0,
+                    "errorUpdatedAt": 0,
+                    "fetchFailureCount": 0,
+                    "fetchMeta": null,
+                    "isFetching": false,
+                    "isInvalidated": false,
+                    "isPaused": false,
+                    "status": "idle",
+                  },
+                  "currentRefetchInterval": false,
+                  "currentResult": Object {
+                    "data": Array [
+                      Object {
+                        "id": "10",
+                        "name": "product 0",
+                        "price": 0,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "11",
+                        "name": "product 1",
+                        "price": 1000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "12",
+                        "name": "product 2",
+                        "price": 2000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "13",
+                        "name": "product 3",
+                        "price": 3000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "14",
+                        "name": "product 4",
+                        "price": 4000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "15",
+                        "name": "product 5",
+                        "price": 5000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "16",
+                        "name": "product 6",
+                        "price": 6000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "17",
+                        "name": "product 7",
+                        "price": 7000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "18",
+                        "name": "product 8",
+                        "price": 8000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "19",
+                        "name": "product 9",
+                        "price": 9000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                    ],
+                    "dataUpdatedAt": 0,
+                    "error": null,
+                    "errorUpdatedAt": 0,
+                    "failureCount": 0,
+                    "isError": false,
+                    "isFetched": false,
+                    "isFetchedAfterMount": false,
+                    "isFetching": true,
+                    "isIdle": false,
+                    "isLoading": false,
+                    "isLoadingError": false,
+                    "isPlaceholderData": true,
+                    "isPreviousData": false,
+                    "isRefetchError": false,
+                    "isRefetching": true,
+                    "isStale": true,
+                    "isSuccess": true,
+                    "refetch": [Function],
+                    "remove": [Function],
+                    "status": "success",
+                  },
+                  "currentResultOptions": Object {
+                    "_defaulted": true,
+                    "optimisticResults": true,
+                    "placeholderData": Array [
+                      Object {
+                        "id": "10",
+                        "name": "product 0",
+                        "price": 0,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "11",
+                        "name": "product 1",
+                        "price": 1000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "12",
+                        "name": "product 2",
+                        "price": 2000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "13",
+                        "name": "product 3",
+                        "price": 3000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "14",
+                        "name": "product 4",
+                        "price": 4000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "15",
+                        "name": "product 5",
+                        "price": 5000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "16",
+                        "name": "product 6",
+                        "price": 6000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "17",
+                        "name": "product 7",
+                        "price": 7000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "18",
+                        "name": "product 8",
+                        "price": 8000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "19",
+                        "name": "product 9",
+                        "price": 9000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                    ],
+                    "queryFn": [Function],
+                    "queryHash": "[\\"getProducts\\"]",
+                    "queryKey": Array [
+                      "getProducts",
+                    ],
+                    "suspense": false,
+                  },
+                  "currentResultState": Object {
+                    "data": undefined,
+                    "dataUpdateCount": 0,
+                    "dataUpdatedAt": 0,
+                    "error": null,
+                    "errorUpdateCount": 0,
+                    "errorUpdatedAt": 0,
+                    "fetchFailureCount": 0,
+                    "fetchMeta": null,
+                    "isFetching": true,
+                    "isInvalidated": false,
+                    "isPaused": false,
+                    "status": "loading",
+                  },
+                  "listeners": Array [
+                    [Function],
+                  ],
+                  "options": Object {
+                    "_defaulted": true,
+                    "optimisticResults": true,
+                    "placeholderData": Array [
+                      Object {
+                        "id": "10",
+                        "name": "product 0",
+                        "price": 0,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "11",
+                        "name": "product 1",
+                        "price": 1000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "12",
+                        "name": "product 2",
+                        "price": 2000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "13",
+                        "name": "product 3",
+                        "price": 3000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "14",
+                        "name": "product 4",
+                        "price": 4000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "15",
+                        "name": "product 5",
+                        "price": 5000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "16",
+                        "name": "product 6",
+                        "price": 6000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "17",
+                        "name": "product 7",
+                        "price": 7000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "18",
+                        "name": "product 8",
+                        "price": 8000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                      Object {
+                        "id": "19",
+                        "name": "product 9",
+                        "price": 9000,
+                        "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                        "type": "product",
+                      },
+                    ],
+                    "queryFn": [Function],
+                    "queryHash": "[\\"getProducts\\"]",
+                    "queryKey": Array [
+                      "getProducts",
+                    ],
+                    "suspense": false,
+                  },
+                  "previousQueryResult": undefined,
+                  "previousSelectError": null,
+                  "refetch": [Function],
+                  "refetchIntervalId": undefined,
+                  "remove": [Function],
+                  "staleTimeoutId": undefined,
+                  "trackedProps": Array [],
+                },
+              ],
+              "options": Object {
+                "_defaulted": true,
+                "optimisticResults": true,
+                "placeholderData": Array [
+                  Object {
+                    "id": "10",
+                    "name": "product 0",
+                    "price": 0,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "11",
+                    "name": "product 1",
+                    "price": 1000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "12",
+                    "name": "product 2",
+                    "price": 2000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "13",
+                    "name": "product 3",
+                    "price": 3000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "14",
+                    "name": "product 4",
+                    "price": 4000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "15",
+                    "name": "product 5",
+                    "price": 5000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "16",
+                    "name": "product 6",
+                    "price": 6000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "17",
+                    "name": "product 7",
+                    "price": 7000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "18",
+                    "name": "product 8",
+                    "price": 8000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                  Object {
+                    "id": "19",
+                    "name": "product 9",
+                    "price": 9000,
+                    "time": "Tue Mar 15 2022 00:55:57 GMT+0900 (대한민국 표준시)",
+                    "type": "product",
+                  },
+                ],
+                "queryFn": [Function],
+                "queryHash": "[\\"getProducts\\"]",
+                "queryKey": Array [
+                  "getProducts",
+                ],
+                "suspense": false,
+              },
+              "promise": Promise {},
+              "queryHash": "[\\"getProducts\\"]",
+              "queryKey": Array [
+                "getProducts",
+              ],
+              "retryer": Retryer {
+                "abort": [Function],
+                "cancel": [Function],
+                "cancelRetry": [Function],
+                "continue": [Function],
+                "continueRetry": [Function],
+                "failureCount": 0,
+                "isPaused": false,
+                "isResolved": false,
+                "isTransportCancelable": false,
+                "promise": Promise {},
+              },
+              "revertState": Object {
+                "data": undefined,
+                "dataUpdateCount": 0,
+                "dataUpdatedAt": 0,
+                "error": null,
+                "errorUpdateCount": 0,
+                "errorUpdatedAt": 0,
+                "fetchFailureCount": 0,
+                "fetchMeta": null,
+                "isFetching": false,
+                "isInvalidated": false,
+                "isPaused": false,
+                "status": "idle",
+              },
+              "state": Object {
+                "data": undefined,
+                "dataUpdateCount": 0,
+                "dataUpdatedAt": 0,
+                "error": null,
+                "errorUpdateCount": 0,
+                "errorUpdatedAt": 0,
+                "fetchFailureCount": 0,
+                "fetchMeta": null,
+                "isFetching": true,
+                "isInvalidated": false,
+                "isPaused": false,
+                "status": "loading",
+              },
+            },
+          },
+        },
+        "queryDefaults": Array [],
+        "unsubscribeFocus": [Function],
+        "unsubscribeOnline": [Function],
+      }
+    }
+  >
+    <List
+      listType="product"
+    >
+      <ListWrapper
+        listType="product"
+      >
+        <styled.div>
+          <div
+            className="sc-furwcr dEemok"
+          >
+            <styled.div
+              sort={false}
+            >
+              <div
+                className="sc-iCfMLu fOLxGi"
+              >
+                <button
+                  onClick={[Function]}
+                >
+                  인기 순
+                </button>
+                <ul>
+                  <li
+                    key="인기 순"
+                  >
+                    인기 순
+                  </li>
+                  <li
+                    key="즉시 판매가순"
+                  >
+                    즉시 판매가순
+                  </li>
+                  <li
+                    key="즉시 구매가순"
+                  >
+                    즉시 구매가순
+                  </li>
+                </ul>
+              </div>
+            </styled.div>
+            <styled.div>
+              <div
+                className="sc-gKclnd eWaOfs"
+              >
+                <ListItem
+                  key="0"
+                  listType="product"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bdvvtL HjBcl"
+                    >
+                      <styled.div
+                        active={false}
+                      >
+                        <div
+                          className="sc-gsDKAQ kujKKE"
+                        >
+                          <button
+                            onClick={[Function]}
+                          />
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-dkPtRN jrgXeT"
+                        >
+                          아령
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-hKwDye iGfwWW"
+                        >
+                          10,000원
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-eCImPb xLbfN"
+                        >
+                          관심13 채팅10
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItem>
+                <ListItem
+                  key="1"
+                  listType="product"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bdvvtL HjBcl"
+                    >
+                      <styled.div
+                        active={false}
+                      >
+                        <div
+                          className="sc-gsDKAQ kujKKE"
+                        >
+                          <button
+                            onClick={[Function]}
+                          />
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-dkPtRN jrgXeT"
+                        >
+                          아령
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-hKwDye iGfwWW"
+                        >
+                          10,000원
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-eCImPb xLbfN"
+                        >
+                          관심13 채팅10
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItem>
+                <ListItem
+                  key="2"
+                  listType="product"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bdvvtL HjBcl"
+                    >
+                      <styled.div
+                        active={false}
+                      >
+                        <div
+                          className="sc-gsDKAQ kujKKE"
+                        >
+                          <button
+                            onClick={[Function]}
+                          />
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-dkPtRN jrgXeT"
+                        >
+                          아령
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-hKwDye iGfwWW"
+                        >
+                          10,000원
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-eCImPb xLbfN"
+                        >
+                          관심13 채팅10
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItem>
+                <ListItem
+                  key="3"
+                  listType="product"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bdvvtL HjBcl"
+                    >
+                      <styled.div
+                        active={false}
+                      >
+                        <div
+                          className="sc-gsDKAQ kujKKE"
+                        >
+                          <button
+                            onClick={[Function]}
+                          />
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-dkPtRN jrgXeT"
+                        >
+                          아령
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-hKwDye iGfwWW"
+                        >
+                          10,000원
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-eCImPb xLbfN"
+                        >
+                          관심13 채팅10
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItem>
+                <ListItem
+                  key="4"
+                  listType="product"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bdvvtL HjBcl"
+                    >
+                      <styled.div
+                        active={false}
+                      >
+                        <div
+                          className="sc-gsDKAQ kujKKE"
+                        >
+                          <button
+                            onClick={[Function]}
+                          />
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-dkPtRN jrgXeT"
+                        >
+                          아령
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-hKwDye iGfwWW"
+                        >
+                          10,000원
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-eCImPb xLbfN"
+                        >
+                          관심13 채팅10
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItem>
+                <ListItem
+                  key="5"
+                  listType="product"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bdvvtL HjBcl"
+                    >
+                      <styled.div
+                        active={false}
+                      >
+                        <div
+                          className="sc-gsDKAQ kujKKE"
+                        >
+                          <button
+                            onClick={[Function]}
+                          />
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-dkPtRN jrgXeT"
+                        >
+                          아령
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-hKwDye iGfwWW"
+                        >
+                          10,000원
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-eCImPb xLbfN"
+                        >
+                          관심13 채팅10
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItem>
+                <ListItem
+                  key="6"
+                  listType="product"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bdvvtL HjBcl"
+                    >
+                      <styled.div
+                        active={false}
+                      >
+                        <div
+                          className="sc-gsDKAQ kujKKE"
+                        >
+                          <button
+                            onClick={[Function]}
+                          />
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-dkPtRN jrgXeT"
+                        >
+                          아령
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-hKwDye iGfwWW"
+                        >
+                          10,000원
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-eCImPb xLbfN"
+                        >
+                          관심13 채팅10
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItem>
+                <ListItem
+                  key="7"
+                  listType="product"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bdvvtL HjBcl"
+                    >
+                      <styled.div
+                        active={false}
+                      >
+                        <div
+                          className="sc-gsDKAQ kujKKE"
+                        >
+                          <button
+                            onClick={[Function]}
+                          />
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-dkPtRN jrgXeT"
+                        >
+                          아령
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-hKwDye iGfwWW"
+                        >
+                          10,000원
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-eCImPb xLbfN"
+                        >
+                          관심13 채팅10
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItem>
+                <ListItem
+                  key="8"
+                  listType="product"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bdvvtL HjBcl"
+                    >
+                      <styled.div
+                        active={false}
+                      >
+                        <div
+                          className="sc-gsDKAQ kujKKE"
+                        >
+                          <button
+                            onClick={[Function]}
+                          />
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-dkPtRN jrgXeT"
+                        >
+                          아령
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-hKwDye iGfwWW"
+                        >
+                          10,000원
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-eCImPb xLbfN"
+                        >
+                          관심13 채팅10
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItem>
+                <ListItem
+                  key="9"
+                  listType="product"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bdvvtL HjBcl"
+                    >
+                      <styled.div
+                        active={false}
+                      >
+                        <div
+                          className="sc-gsDKAQ kujKKE"
+                        >
+                          <button
+                            onClick={[Function]}
+                          />
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-dkPtRN jrgXeT"
+                        >
+                          아령
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-hKwDye iGfwWW"
+                        >
+                          10,000원
+                        </div>
+                      </styled.div>
+                      <styled.div>
+                        <div
+                          className="sc-eCImPb xLbfN"
+                        >
+                          관심13 채팅10
+                        </div>
+                      </styled.div>
+                    </div>
+                  </styled.div>
+                </ListItem>
+              </div>
+            </styled.div>
+            <styled.button>
+              <button
+                className="sc-jRQBWg cSZCgf"
+              >
+                더보기
+              </button>
+            </styled.button>
+          </div>
+        </styled.div>
+      </ListWrapper>
+    </List>
+  </QueryClientProvider>,
+}
+`;

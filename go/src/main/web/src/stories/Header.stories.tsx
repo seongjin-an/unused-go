@@ -4,15 +4,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Header } from '../components/organisms/header/Header';
 
 export default {
-  title: 'Example/Header',
-  component: Header,
+    title: 'Example/Header',
+    component: Header,
 } as ComponentMeta<typeof Header>;
 
-const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
+const Template: ComponentStory<typeof Header> = args => <Header {...args} />;
 export const Normal = Template.bind({});
-Normal.args = {
-  
-}
+Normal.args = {};
 // export const LoggedIn = Template.bind({});
 // LoggedIn.args = {
 // };

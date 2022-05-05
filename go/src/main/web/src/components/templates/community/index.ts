@@ -1,1 +1,1 @@
-export {CommunityTemplate} from './CommunityTemplate'
+export { CommunityTemplate } from './CommunityTemplate';
