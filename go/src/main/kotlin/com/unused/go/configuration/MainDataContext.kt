@@ -1,4 +1,4 @@
-package com.unused.go.config
+package com.unused.go.configuration
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 import org.springframework.orm.jpa.JpaTransactionManager
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter
-import org.unbescape.properties.PropertiesEscape
 import java.util.Properties
 import javax.sql.DataSource
 
