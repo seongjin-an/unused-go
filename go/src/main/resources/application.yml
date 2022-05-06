@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /unused-go
+spring:
+  thymeleaf:
+    prefix: classpath:/static/
+    suffix: .html
+  datasource:
+    hikari:
+      jdbc-url: jdbc:postgresql://127.0.0.1:5432/ansj
+      driver-class-name: org.postgresql.Driver
+      username: ansj
+      password: 1234
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    generate-ddl: true
