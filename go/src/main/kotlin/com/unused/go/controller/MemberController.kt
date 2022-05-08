@@ -1,6 +1,7 @@
 package com.unused.go.controller
 
 import com.unused.go.service.UserInfoService
+import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.CrossOrigin
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/member")
 @CrossOrigin
 class MemberController(val userInfoService: UserInfoService) {
-    @GetMapping("/me")
+    private final val _logger = LoggerFactory.getLogger(MemberController::class.java)
+    @GetMapping
     fun getMyMemberInfo(): ResponseEntity<Any>{
+        _logger.info("request get /member")
         return try {
             val userInfo = userInfoService.getMyInfo()
             if(userInfo != null){
@@ -27,10 +30,11 @@ class MemberController(val userInfoService: UserInfoService) {
         }
     }
 
-    @GetMapping("/{email}")
-    fun getMemberInfo(@PathVariable("email") email: String): ResponseEntity<Any>{
+    @GetMapping("/{loginId}")
+    fun getMemberInfo(@PathVariable("loginId") loginId: String): ResponseEntity<Any>{
+        _logger.info("request get /member/{loginId}")
         return try{
-            val userInfo = userInfoService.getMyInfo()
+            val userInfo = userInfoService.getUserInfo(loginId)
             if(userInfo != null){
                 ResponseEntity.ok(userInfo)
             }else{
