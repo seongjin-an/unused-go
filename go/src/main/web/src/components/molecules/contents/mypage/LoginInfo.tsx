@@ -5,18 +5,18 @@ import { MyPageInfoText } from '../../../atoms/contents/mypage/MyPageInfoText';
 import { StyledBtnInfoEdit } from '../../../atoms/button';
 
 interface IProps {
-    label: string;
-    value: string;
-    password?: boolean;
-    readonly?: boolean;
+  label: string;
+  value: string;
+  password?: boolean;
+  readonly?: boolean;
 }
 
 export const LoginInfo: React.FC<IProps> = ({ label, value, password, readonly }) => {
-    return (
-        <MyPageInfoBoxWrapper>
-            <MyPageInfoTitle text={label} />
-            <MyPageInfoText text={value} password={password} readonly={readonly} />
-            <StyledBtnInfoEdit>변경</StyledBtnInfoEdit>
-        </MyPageInfoBoxWrapper>
-    );
+  return (
+    <MyPageInfoBoxWrapper>
+      <MyPageInfoTitle text={label} />
+      <MyPageInfoText text={value} password={password} readonly={readonly} />
+      <StyledBtnInfoEdit>변경</StyledBtnInfoEdit>
+    </MyPageInfoBoxWrapper>
+  );
 };

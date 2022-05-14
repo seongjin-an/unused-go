@@ -7,8 +7,8 @@ import { Skeleton } from '../components/atoms/skeleton';
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 
 export default {
-    title: 'Example/Skelton',
-    component: Skeleton,
+  title: 'Example/Skelton',
+  component: Skeleton,
 } as ComponentMeta<typeof Skeleton>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -18,6 +18,6 @@ const SkeletonStory: ComponentStory<typeof Skeleton> = args => <Skeleton {...arg
 export const Primary = SkeletonStory.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-    width: 500,
-    height: 500,
+  width: 500,
+  height: 500,
 };

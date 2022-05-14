@@ -6,12 +6,12 @@ import { MyPageTemplate } from '../../components/templates/mypage';
 import { Footer } from '../../components/organisms/footer/Footer';
 
 export const Intro: React.FC = () => {
-    const { id } = useParams<Params>();
-    return (
-        <>
-            <Header />
-            <MyPageTemplate />
-            <Footer />
-        </>
-    );
+  const { id } = useParams<Params>();
+  return (
+    <>
+      <Header />
+      <MyPageTemplate />
+      <Footer />
+    </>
+  );
 };

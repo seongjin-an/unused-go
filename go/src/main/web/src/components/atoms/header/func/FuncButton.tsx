@@ -5,27 +5,27 @@ import searchButton from '../../../../static/image/dark/common/topBar/icon/icon_
 import basketButton from '../../../../static/image/dark/common/topBar/icon/icon_basket.png';
 
 interface IProps {
-    buttonType: string;
-    callback?: () => void;
+  buttonType: string;
+  callback?: () => void;
 }
 
 export const FuncButton: React.FC<IProps> = ({ buttonType, callback }) => {
-    return <StyledFuncButton buttonType={buttonType} onClick={callback} />;
+  return <StyledFuncButton buttonType={buttonType} onClick={callback} />;
 };
 const StyledFuncButton = styled.button<IProps>`
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    border: 0;
-    background: transparent;
-    background-image: url(${({ buttonType }) => (buttonType === 'search' ? searchButton : basketButton)});
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: 10px;
-    transition: all 0.25s;
-    cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 0;
+  background: transparent;
+  background-image: url(${({ buttonType }) => (buttonType === 'search' ? searchButton : basketButton)});
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 10px;
+  transition: all 0.25s;
+  cursor: pointer;
 
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-    }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 `;

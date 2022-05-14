@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/member")
+@RequestMapping("member")
 @CrossOrigin
 class MemberController(val userInfoService: UserInfoService) {
     private final val _logger = LoggerFactory.getLogger(MemberController::class.java)
-    @GetMapping
+
+    @GetMapping("account")
     fun getMyMemberInfo(): ResponseEntity<Any>{
         _logger.info("request get /member")
         return try {
@@ -30,7 +31,7 @@ class MemberController(val userInfoService: UserInfoService) {
         }
     }
 
-    @GetMapping("/{loginId}")
+    @GetMapping("me/{loginId}")
     fun getMemberInfo(@PathVariable("loginId") loginId: String): ResponseEntity<Any>{
         _logger.info("request get /member/{loginId}")
         return try{

@@ -8,15 +8,15 @@ export interface IInjectedMainComponentProps {}
 export interface IExternalMainComponentProps {}
 
 const withMain = <TOriginalProps extends {}>(
-    WrappedComponent:
-        | React.ComponentClass<TOriginalProps & IInjectedMainComponentProps>
-        | React.FunctionComponent<TOriginalProps & IInjectedMainComponentProps>,
-    sx?: SxProps<Theme>,
+  WrappedComponent: // React.ComponentType<TOriginalProps & IInjectedMainComponentProps>,
+  // | React.ComponentClass<TOriginalProps & IInjectedMainComponentProps>
+  React.FunctionComponent<TOriginalProps & IInjectedMainComponentProps>,
+  sx?: SxProps<Theme>,
 ) => {
-    type ResultProps = TOriginalProps & IExternalMainComponentProps;
-    const IntermeidateComponent: React.FC<ResultProps> = props => {
-        return <MainWrapper sx={sx && handleSxProps(sx)} render={() => <WrappedComponent {...props} />} />;
-    };
-    return IntermeidateComponent;
+  type ResultProps = TOriginalProps & IExternalMainComponentProps;
+  const IntermeidateComponent: React.FC<ResultProps> = (props: any) => {
+    return <MainWrapper sx={sx && handleSxProps(sx)} render={() => <WrappedComponent {...props} />} />;
+  };
+  return IntermeidateComponent;
 };
 export default withMain;

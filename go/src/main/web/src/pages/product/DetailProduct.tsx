@@ -6,12 +6,12 @@ import { Footer } from '../../components/organisms/footer/Footer';
 import { ProductDetailTemplate } from '../../components/templates/product';
 
 export const DetailProduct: React.FC = () => {
-    const { id } = useParams<Params>();
-    return (
-        <>
-            <Header />
-            <ProductDetailTemplate />
-            <Footer />
-        </>
-    );
+  const { id } = useParams<Params>();
+  return (
+    <>
+      <Header />
+      <ProductDetailTemplate />
+      <Footer />
+    </>
+  );
 };

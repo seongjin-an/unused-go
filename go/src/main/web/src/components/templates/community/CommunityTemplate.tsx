@@ -5,23 +5,23 @@ import withMain from '../../../hoc/withMain';
 import { CommunityNavigator } from '../../molecules/contents/community';
 
 export const CommunityTemplate: React.FC = () => {
-    const { pathname } = useLocation();
-    const WrappedComponent: React.FC = () => (
-        <>
-            <CommunityNavigator />
-            <Suspense
-                fallback={
-                    <ListWrapper listType="community">
-                        <PlaceholderList />
-                    </ListWrapper>
-                }
-            >
-                <List listType="community" />
-            </Suspense>
-        </>
-    );
-    const Community = withMain(WrappedComponent, {
-        paddingTop: theme => theme.padding.secondary,
-    });
-    return <Community />;
+  const { pathname } = useLocation();
+  const WrappedComponent: React.FC = () => (
+    <>
+      <CommunityNavigator />
+      <Suspense
+        fallback={
+          <ListWrapper listType="community">
+            <PlaceholderList />
+          </ListWrapper>
+        }
+      >
+        <List listType="community" />
+      </Suspense>
+    </>
+  );
+  const Community = withMain(WrappedComponent, {
+    paddingTop: theme => theme.padding.secondary,
+  });
+  return <Community />;
 };
