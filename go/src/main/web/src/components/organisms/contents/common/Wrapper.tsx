@@ -1,17 +1,18 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { TWrapper } from "../../../../types/wrapper";
 
-type WrapperType = 'basic' | 'login'
+
 
 interface IProps {
-  type?: WrapperType
+  type: TWrapper
 }
 
-export const Wrapper: React.FC<IProps> = ({type= 'basic', children}) => {
+export const Wrapper: React.FC<IProps> = ({type, children}) => {
   return <StyledWrapper type={type}>{children}</StyledWrapper>
 }
-const StyledWrapper = styled.div<{type?: WrapperType}>`
-  ${({type}) => type === 'basic' ? `${StyledBasicWrapper}` : css``}
+const StyledWrapper = styled.div<{type: TWrapper}>`
+  ${({type}) => type === 'basic' ? `${StyledBasicWrapper}` : null}
   
 `
 const StyledBasicWrapper = css`

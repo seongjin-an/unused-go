@@ -1,9 +1,10 @@
 import React, { ChangeEvent } from "react";
 import { MyPageInfoBoxWrapper } from './MyPageInfoBoxWrapper';
 import { AccountInput, MyPageInfoTitle } from '../../../atoms/contents/mypage';
+import { useFormContext } from "react-hook-form";
 
 interface IProps {
-  name?: string
+  name: string
   text: string;
   placeholder: string;
   inputValue?: string;

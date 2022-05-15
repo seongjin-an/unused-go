@@ -1,14 +1,16 @@
 import React, {MouseEvent} from 'react';
 import styled, { css } from "styled-components";
+import { useFormContext } from "react-hook-form";
 
 interface IProps {
   text: string;
   kind: string;
   onClick?: (event: MouseEvent) => void
+  type?: 'submit' | 'reset' | 'button' | undefined;
 }
 
-export const BasicButton: React.FC<IProps> = ({ text , kind= 'basic', onClick}) => {
-  return <StyledSaveButton kind={kind} onClick={onClick && onClick}>{text}</StyledSaveButton>;
+export const BasicButton: React.FC<IProps> = ({ type, text , kind= 'basic', onClick}) => {
+  return <StyledSaveButton type={type} kind={kind} onClick={onClick && onClick}>{text}</StyledSaveButton>;
 };
 
 const StyledSaveButton = styled.button<{ kind: string }>`

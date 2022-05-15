@@ -8,9 +8,9 @@ export const Account: React.FC = () => {
       <div className="mypage_main_title">판매 정산 계좌</div>
       <MyPageInfoFrame>
         <div className="mypage_info_title">정산 계좌 등록</div>
-        <MyPageLine text="은행명" placeholder="은행명을 입력하세요." />
-        <MyPageLine text="계좌번호" placeholder="- 없이 입력하세요." />
-        <MyPageLine text="예금주" placeholder="예금주명을 정확히 입력하세요." />
+        <MyPageLine name='bank' text="은행명" placeholder="은행명을 입력하세요." />
+        <MyPageLine name='account' text="계좌번호" placeholder="- 없이 입력하세요." />
+        <MyPageLine name='name' text="예금주" placeholder="예금주명을 정확히 입력하세요." />
       </MyPageInfoFrame>
     </MyPageWrapper>
   );

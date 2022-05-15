@@ -6,13 +6,11 @@ import com.unused.go.dto.TokenDto
 import com.unused.go.dto.TokenRequestDto
 import com.unused.go.service.AuthService
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin("*")
 class AuthController(val authService: AuthService) {
     @PostMapping("/signup")
     fun signup(@RequestBody memberRequestDto: MemberRequestDto): ResponseEntity<MemberResponseDto>{
