@@ -1,5 +1,5 @@
 export { Button } from './Button';
-export { SaveButton } from './SaveButton';
+export { BasicButton } from './BasicButton';
 export { TestButton } from './TestButton';
 
 export { btnProfileEdit } from './btnProfileEdit';

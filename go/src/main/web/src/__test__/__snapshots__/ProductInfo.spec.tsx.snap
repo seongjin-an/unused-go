@@ -5630,7 +5630,7 @@ Object {
             <div
               className="product_btn_group"
             >
-              <SaveButton
+              <BasicButton
                 text="임시저장"
               >
                 <styled.button>
@@ -5640,8 +5640,8 @@ Object {
                     임시저장
                   </button>
                 </styled.button>
-              </SaveButton>
-              <SaveButton
+              </BasicButton>
+              <BasicButton
                 text="등록완료"
               >
                 <styled.button>
@@ -5651,7 +5651,7 @@ Object {
                     등록완료
                   </button>
                 </styled.button>
-              </SaveButton>
+              </BasicButton>
             </div>
           </div>
         </styled.div>

@@ -1,0 +1,1 @@
+export {SignupArea} from './SignupArea'

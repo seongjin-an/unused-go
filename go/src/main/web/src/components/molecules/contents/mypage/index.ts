@@ -1,6 +1,6 @@
 export { MyPageInfoFrame } from './MyPageInfoFrame';
 export { MyPageInfoBoxWrapper } from './MyPageInfoBoxWrapper';
-export { MyPageBankInfo } from './MyPageBankInfo';
+export { MyPageLine } from './MyPageLine';
 export { ProfileFrame } from './ProfileFrame';
 export { HistoryFrame } from './HistoryFrame';
 export { HistoryBox } from './HistoryBox';

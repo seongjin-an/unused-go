@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import withMain from '../../../hoc/withMain';
 import { MenuNavigator } from '../../molecules/common';
-import { MyPageBankInfo, MyPageInfoFrame, ProfileFrame } from '../../molecules/contents/mypage';
+import { MyPageLine, MyPageInfoFrame, ProfileFrame } from '../../molecules/contents/mypage';
 import { Account, Intro, MyPageWrapper, ProductsArea, Profile, PurchaseSales } from '../../organisms/contents/mypage';
 
 export function MyPageTemplate() {

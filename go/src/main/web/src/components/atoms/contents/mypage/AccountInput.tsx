@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { ChangeEvent } from "react";
 import styled from 'styled-components';
 
 interface IProps {
+  name?: string
   placeholder: string;
+  inputValue?: string;
+  callback?: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const AccountInput: React.FC<IProps> = ({ placeholder }) => {
-  return <StyledAccountInput type="text" placeholder={placeholder} />;
+export const AccountInput: React.FC<IProps> = ({ name, placeholder, inputValue, callback }) => {
+  return <StyledAccountInput name={name} type="text" placeholder={placeholder} value={inputValue && inputValue} onChange={callback && callback}/>;
 };
 const StyledAccountInput = styled.input`
   width: 100%;

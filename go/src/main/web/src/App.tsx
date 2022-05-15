@@ -14,6 +14,7 @@ import { Modal } from './components/molecules/common';
 import { modalState } from './stores/modal';
 import ModalContext from './contexts/modalContext';
 import { LoginPage } from "./pages/login/LoginPage";
+import { SignupPage } from './pages/signup'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -59,7 +60,7 @@ function App() {
             </Route>
 
             <Route path="login" element={<LoginPage/>} />
-            <Route path="signup" element={<div>회원가입</div>} />
+            <Route path="signup" element={<SignupPage/>} />
 
             <Route path="mypage" element={<Outlet />}>
               <Route path="account" element={<Account />} />

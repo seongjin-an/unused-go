@@ -6,7 +6,7 @@ import { OptionType } from '../../../atoms/inputs/SelectInput';
 
 import imgProfile from '../../../../static/image/dark/page/product/img/img_profile.png';
 import { ColorBlock, ProductInfoInput } from '../../../atoms/contents/product';
-import { Button, SaveButton } from '../../../atoms/button';
+import { Button, BasicButton } from '../../../atoms/button';
 
 export type TActiveButton = 'good' | 'notGoodNotBad' | 'bad' | null;
 export type TActiveColor =
@@ -215,8 +215,8 @@ export const ProductInfo: React.FC = () => {
       <StyledProductFrame>
         <TextAreaInput placeholder="기타 추가 정보를 입력해 주세요. (최대 1,000자)" />
         <div className="product_btn_group">
-          <SaveButton text="임시저장" />
-          <SaveButton text="등록완료" />
+          <BasicButton text="임시저장" kind='basic'/>
+          <BasicButton text="등록완료" kind='basic'/>
         </div>
       </StyledProductFrame>
     </StyledProductInfo>
