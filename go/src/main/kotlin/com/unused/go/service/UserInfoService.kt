@@ -19,6 +19,7 @@ class UserInfoService(val userInfoRepository: UserInfoRepository) {
     fun getMyInfo(): MemberResponseDto? {
         return userInfoRepository.findByLoginId(SecurityUtil.getCurrentMemberId())
             .map { MemberResponseDto.of(it) }
-            .orElseThrow { RuntimeException("NOT FOUND USER INFO") }
+//            .orElseThrow { RuntimeException("NOT FOUND USER INFO") }
+            .orElse(null)
     }
 }

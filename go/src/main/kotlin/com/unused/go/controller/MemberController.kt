@@ -1,5 +1,6 @@
 package com.unused.go.controller
 
+import com.unused.go.dto.ResultResponse
 import com.unused.go.service.UserInfoService
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("member")
-@CrossOrigin
+@CrossOrigin("*")
 class MemberController(val userInfoService: UserInfoService) {
     private final val _logger = LoggerFactory.getLogger(MemberController::class.java)
 
@@ -22,9 +23,9 @@ class MemberController(val userInfoService: UserInfoService) {
         return try {
             val userInfo = userInfoService.getMyInfo()
             if(userInfo != null){
-                ResponseEntity.ok(userInfo)
+                ResponseEntity.ok(ResultResponse("success", userInfo))
             }else{
-                ResponseEntity.status(HttpStatus.BAD_REQUEST).body("FAIL")
+                ResponseEntity.ok(ResultResponse("empty"))
             }
         }catch(error: Exception){
             ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error.message)

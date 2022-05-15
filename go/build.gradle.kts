@@ -80,10 +80,10 @@ tasks.register("installReact", Exec::class) {
     inputs.dir(webappDir)
     group = BasePlugin.BUILD_GROUP
     if (System.getProperty("os.name").toLowerCase().contains("windows")) {
-        commandLine("npm.cmd", "audit", "fix")
+//        commandLine("npm.cmd", "audit", "fix")
         commandLine("npm.cmd", "install")
     } else {
-        commandLine("npm", "audit", "fix")
+//        commandLine("npm", "audit", "fix")
         commandLine("npm", "install")
     }
 }

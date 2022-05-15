@@ -6,21 +6,24 @@ import { Link } from "react-router-dom";
 
 export const UserName: React.FC = () => {
   const { data, error } = useMember();
-  const [flag, setFlag] = useState<boolean>(false);
-  // useEffect(() => {
-  //   if(data){
-  //     localStorage.setItem('token', data)
-  //     setFlag(true)
-  //   }else{
-  //     setFlag(false)
-  //   }
-  // },[data])
+
+  const useLocalStorage = (itemName: string, value: string = '') => {
+    const [state, setState] = useState(() => {
+      return localStorage.getItem(itemName) || value
+    })
+    useEffect(() => {
+      localStorage.setItem(itemName, state)
+    },[state])
+    return [state, setState]
+  }
+
+  console.log('data:', data)
   // console.log('localStorage.getItem(token):', localStorage.getItem('token'))
   return (
     <>
     {
-      flag ?
-        <StyledUserName>안김안<span>님</span></StyledUserName> :
+      data && data.code === 'success' ?
+        <StyledUserName>{data.result.name}<span>님</span></StyledUserName> :
         <>
           <Link to='/login' >
             <StyledGuest>로그인</StyledGuest>

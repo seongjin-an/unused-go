@@ -1,11 +1,11 @@
 import { useQuery, UseQueryResult } from 'react-query';
 import { AxiosError, AxiosResponse } from 'axios';
-import { imsi } from '../apis/user/userApi';
+import { checkTokenState, imsi } from "../apis/user/userApi";
 
-export const useMember = (): UseQueryResult<string, AxiosError> => {
+export const useMember = (): UseQueryResult<{code: string, result: {loginId: string, name: string}}, AxiosError> => {
   return useQuery({
     queryKey: ['getImsi'],
-    queryFn: imsi,
+    queryFn: checkTokenState,
     suspense: true,
   });
 };

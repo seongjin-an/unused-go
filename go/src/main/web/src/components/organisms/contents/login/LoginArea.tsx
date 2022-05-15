@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { login } from "../../../../apis/user/userApi";
 import { useNavigate } from "react-router-dom";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { ITokenInfo } from "../../../../types/tokenInfo";
 
 interface ILoginForm {
   id: string;
@@ -21,7 +22,8 @@ export const LoginArea: React.FC = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const mutation = useMutation(login, {
-    onSuccess: (a) => {
+    onSuccess: (data: ITokenInfo) => {
+      localStorage.setItem('token', data.accessToken)
       navigate("/main");
     }
   });
