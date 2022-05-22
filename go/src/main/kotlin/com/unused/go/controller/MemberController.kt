@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
@@ -28,7 +29,7 @@ class MemberController(val userInfoService: UserInfoService) {
                 ResponseEntity.ok(ResultResponse("empty"))
             }
         }catch(error: Exception){
-            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error.message)
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResultResponse("error", error.message))
         }
     }
 
@@ -40,10 +41,24 @@ class MemberController(val userInfoService: UserInfoService) {
             if(userInfo != null){
                 ResponseEntity.ok(userInfo)
             }else{
-                ResponseEntity.status(HttpStatus.BAD_REQUEST).body("FAIL")
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ResultResponse("400", "BAD_REQUEST"))
             }
         }catch(error: Exception){
             ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error.message)
+        }
+    }
+
+    @GetMapping("check/id")
+    fun checkId(@RequestParam("id") id: String): ResponseEntity<ResultResponse> {
+        return try{
+            val checkId = userInfoService.checkId(id)
+            if(checkId == null){
+                ResponseEntity.ok(ResultResponse("SUCCESS", "사용가능"))
+            }else{
+                ResponseEntity.ok(ResultResponse("FAIL", "사용불가능"))
+            }
+        }catch(error: Exception){
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResultResponse("500", error.message))
         }
     }
 }

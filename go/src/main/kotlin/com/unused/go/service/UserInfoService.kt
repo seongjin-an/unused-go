@@ -22,4 +22,13 @@ class UserInfoService(val userInfoRepository: UserInfoRepository) {
 //            .orElseThrow { RuntimeException("NOT FOUND USER INFO") }
             .orElse(null)
     }
+
+    fun checkId(id: String): String? {
+        val user = userInfoRepository.findByLoginId(id).orElse(null)
+        return if(user != null){
+            "EXIST"
+        }else{
+            null
+        }
+    }
 }

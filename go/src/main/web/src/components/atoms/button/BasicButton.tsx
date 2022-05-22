@@ -1,10 +1,14 @@
 import React, {MouseEvent} from 'react';
 import styled, { css } from "styled-components";
 import { useFormContext } from "react-hook-form";
+import { TButton } from '../../../types/button';
+import { btnCheck } from "./btnCheck";
+
+
 
 interface IProps {
   text: string;
-  kind: string;
+  kind: TButton;
   onClick?: (event: MouseEvent) => void
   type?: 'submit' | 'reset' | 'button' | undefined;
 }
@@ -14,13 +18,14 @@ export const BasicButton: React.FC<IProps> = ({ type, text , kind= 'basic', onCl
 };
 
 const StyledSaveButton = styled.button<{ kind: string }>`
-  ${({kind}) => kind === 'login' ? `${LoginButtonStyle}` : `${BasicButtonStyle}`}
+  ${({kind}) => kind === 'login' ? `${LoginButtonStyle}` : 
+                kind === 'check' ? `${btnCheck}` : `${BasicButtonStyle}`}
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    //background-color: rgba(255, 255, 255, 0.1);
   }
   &:active {
     &:hover {
-      background-color: transparent;
+      //background-color: transparent;
     }
   }
 `;

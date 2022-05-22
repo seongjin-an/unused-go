@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useState, MouseEvent } from "react";
 import { Wrapper } from "../common";
 import { MyPageLine } from "../../../molecules/contents/mypage";
 import {
@@ -17,6 +17,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useMutation, useQueryClient } from "react-query";
 import { signup } from "../../../../apis/user/userApi";
 import { useNavigate } from "react-router-dom";
+import { useCheckId } from "../../../../hook/useCheckId";
 
 interface IForm {
   name: string;
@@ -47,8 +48,15 @@ export const SignupArea: React.FC = () => {
   })
 
   const onSubmit: SubmitHandler<IForm> = (data: UnpackNestedValue<IForm>, event) => {
-    setResult(JSON.stringify(data));
-
+    if(data.pwd !== data.pwd2){
+      setResult("비밀번호를 확인해주세요!")
+      return
+    }
+    if(!checkIdResult){
+      setResult("사용불가 아이디입니다.")
+      return
+    }
+    // setResult(JSON.stringify(data));
     const imsi = { loginId: data.id, pwd: data.pwd, name: data.name, email: data.email, phone: data.phone }
     console.log('imsi:', imsi)
     mutation.mutate({ loginId: data.id, pwd: data.pwd, name: data.name, email: data.email, phone: data.phone });
@@ -63,20 +71,37 @@ export const SignupArea: React.FC = () => {
 
     }
   }
+  const [ id, setId ] = useState<string>('')
+  const handleChangeId = (event: ChangeEvent<HTMLInputElement>) => {
+    setId(event.target.value)
+  }
+  const {data: checkResult, refetch} = useCheckId(id)
+  const [ checkIdResult, setCheckIdResult ] = useState<boolean>(false)
+  const handleClickIdCheck = (event: MouseEvent) => {
+    refetch()
+      .then(() => {
+        console.log('success you can use!')
+        setCheckIdResult(true)
+      })
+      .catch(error => {
+        console.log('error')
+        setCheckIdResult(false)
+      })
+  }
   return (
     <Wrapper type="basic">
       <div className="login_title">회원가입</div>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <MyPageLine name='name' text="이름" placeholder="이름을 입력해 주세요." callback={handleChange} />
-          <MyPageLine name='id' text="아이디" placeholder="아이디를 입력하세요." />
-          <MyPageLine name='pwd' text="비밀번호" placeholder="비밀번호를 입력하세요." />
-          <MyPageLine name='pwd2' text="비밀번호 확인" placeholder="비밀번호를 확인해 주세요." />
+          <MyPageLine name='name' text="이름" placeholder="이름을 입력해 주세요."/>
+          <MyPageLine name='id' text="아이디" placeholder="아이디를 입력하세요." checkId callback={handleChangeId} refetchResult={handleClickIdCheck} />
+          <MyPageLine type='password' name='pwd' text="비밀번호" placeholder="비밀번호를 입력하세요." />
+          <MyPageLine type='password' name='pwd2' text="비밀번호 확인" placeholder="비밀번호를 확인해 주세요." />
           <MyPageLine name='email' text="이메일" placeholder="이메일을 입력해 주세요." />
           <MyPageLine name='phone' text="연락처" placeholder="연락처를 입력해 주세요." />
-          <BasicButton type='submit' text='회원가입' kind='login' />
+          <BasicButton type='submit' text='회원가입' kind='basic' />
         </form>
-        <div style={{color: 'red'}}>result: {result}</div>
+        <div style={{color: 'red'}}>{result}</div>
       </FormProvider>
     </Wrapper>
   );
