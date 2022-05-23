@@ -43,7 +43,7 @@ export const SignupArea: React.FC = () => {
   const queryClient = useQueryClient()
   const mutation = useMutation(signup,{
     onSuccess: (e) => {
-      navigate('/main')
+      navigate('/main') 
     }
   })
 
