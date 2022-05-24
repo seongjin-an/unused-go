@@ -1,23 +1,24 @@
-import React, { ChangeEvent, useState, MouseEvent } from "react";
-import { Wrapper } from "../common";
-import { MyPageLine } from "../../../molecules/contents/mypage";
+import React, { ChangeEvent, useState, MouseEvent } from 'react';
 import {
   FieldValue,
   FieldValues,
-  FormProvider, Resolver,
+  FormProvider,
+  Resolver,
   SubmitHandler,
   UnpackNestedValue,
   useForm,
-  useFormContext
-} from "react-hook-form";
-import { BasicButton } from "../../../atoms/button";
-import * as yup from 'yup'
-import { useYupValidationResolver } from "../../../../hook/useYupValidation"
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useMutation, useQueryClient } from "react-query";
-import { signup } from "../../../../apis/user/userApi";
-import { useNavigate } from "react-router-dom";
-import { useCheckId } from "../../../../hook/useCheckId";
+  useFormContext,
+} from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useMutation, useQueryClient } from 'react-query';
+import { useNavigate } from 'react-router-dom';
+import { Wrapper } from '../common';
+import { MyPageLine } from '../../../molecules/contents/mypage';
+import { BasicButton } from '../../../atoms/button';
+import { useYupValidationResolver } from '../../../../hook/useYupValidation';
+import { signup } from '../../../../apis/user/userApi';
+import { useCheckId } from '../../../../hook/useCheckId';
 
 interface IForm {
   name: string;
@@ -37,71 +38,77 @@ export const SignupArea: React.FC = () => {
   //   phone: yup.string().required('연락처를 입력하세요!'),
   // });
   // const resolver = useYupValidationResolver(validationSchema)
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const methods = useForm<IForm>();
   const [result, setResult] = useState<string>('');
-  const queryClient = useQueryClient()
-  const mutation = useMutation(signup,{
-    onSuccess: (e) => {
-      navigate('/main') 
-    }
-  })
+  const queryClient = useQueryClient();
+  const mutation = useMutation(signup, {
+    onSuccess: e => {
+      navigate('/main');
+    },
+  });
 
   const onSubmit: SubmitHandler<IForm> = (data: UnpackNestedValue<IForm>, event) => {
-    if(data.pwd !== data.pwd2){
-      setResult("비밀번호를 확인해주세요!")
-      return
+    if (data.pwd !== data.pwd2) {
+      setResult('비밀번호를 확인해주세요!');
+      return;
     }
-    if(!checkIdResult){
-      setResult("사용불가 아이디입니다.")
-      return
+    if (!checkIdResult) {
+      setResult('사용불가 아이디입니다.');
+      return;
     }
     // setResult(JSON.stringify(data));
-    const imsi = { loginId: data.id, pwd: data.pwd, name: data.name, email: data.email, phone: data.phone }
-    console.log('imsi:', imsi)
+    const imsi = { loginId: data.id, pwd: data.pwd, name: data.name, email: data.email, phone: data.phone };
+    console.log('imsi:', imsi);
     mutation.mutate({ loginId: data.id, pwd: data.pwd, name: data.name, email: data.email, phone: data.phone });
   };
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const elementName = event.target.name
-    const elementValue = event.target.value
-    if(elementName === 'name') {
-      if(elementValue.length < 5){
-        console.log('5자리 이상의 글자를 입력하세요!')
+    const elementName = event.target.name;
+    const elementValue = event.target.value;
+    if (elementName === 'name') {
+      if (elementValue.length < 5) {
+        console.log('5자리 이상의 글자를 입력하세요!');
       }
-
     }
-  }
-  const [ id, setId ] = useState<string>('')
+  };
+  const [id, setId] = useState<string>('');
   const handleChangeId = (event: ChangeEvent<HTMLInputElement>) => {
-    setId(event.target.value)
-  }
-  const {data: checkResult, refetch} = useCheckId(id)
-  const [ checkIdResult, setCheckIdResult ] = useState<boolean>(false)
+    setId(event.target.value);
+  };
+  const { data: checkResult, refetch } = useCheckId(id);
+  const [checkIdResult, setCheckIdResult] = useState<boolean>(false);
   const handleClickIdCheck = (event: MouseEvent) => {
     refetch()
       .then(() => {
-        console.log('success you can use!')
-        setCheckIdResult(true)
+        console.log('success you can use!');
+        setCheckIdResult(true);
       })
       .catch(error => {
-        console.log('error')
-        setCheckIdResult(false)
-      })
-  }
+        console.log('error');
+        setCheckIdResult(false);
+      });
+  };
   return (
     <Wrapper type="basic">
       <div className="login_title">회원가입</div>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <MyPageLine name='name' text="이름" placeholder="이름을 입력해 주세요."/>
-          <MyPageLine name='id' text="아이디" placeholder="아이디를 입력하세요." checkId callback={handleChangeId} refetchResult={handleClickIdCheck} />
-          <MyPageLine type='password' name='pwd' text="비밀번호" placeholder="비밀번호를 입력하세요." />
-          <MyPageLine type='password' name='pwd2' text="비밀번호 확인" placeholder="비밀번호를 확인해 주세요." />
-          <MyPageLine name='email' text="이메일" placeholder="이메일을 입력해 주세요." />
-          <MyPageLine name='phone' text="연락처" placeholder="연락처를 입력해 주세요." />
-          <BasicButton type='submit' text='회원가입' kind='basic' />
+          <MyPageLine name="name" text="이름" placeholder="이름을 입력해 주세요." />
+          <MyPageLine
+            name="id"
+            text="아이디"
+            placeholder="아이디를 입력하세요."
+            checkId
+            callback={handleChangeId}
+            refetchResult={handleClickIdCheck}
+          />
+          <MyPageLine type="password" name="pwd" text="비밀번호" placeholder="비밀번호를 입력하세요." />
+          <MyPageLine type="password" name="pwd2" text="비밀번호 확인" placeholder="비밀번호를 확인해 주세요." />
+          <MyPageLine name="email" text="이메일" placeholder="이메일을 입력해 주세요." />
+          <MyPageLine name="phone" text="연락처" placeholder="연락처를 입력해 주세요." />
+          <BasicButton type="submit" text="회원가입" kind="basic" />
         </form>
-        <div style={{color: 'red'}}>{result}</div>
+        <div style={{ color: 'red' }}>{result}</div>
       </FormProvider>
     </Wrapper>
   );

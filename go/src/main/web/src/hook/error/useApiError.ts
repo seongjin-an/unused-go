@@ -1,46 +1,52 @@
 import { useCallback } from "react";
-interface IProps{
-  [key: string]: () => void;
-  [key: number]: () => void;
-}
+import { AxiosError } from "axios";
+
 type status401 = 401;
 type status403 = 403;
 type status409 = 409;
 type status500 = 500;
 type serviceCode10001 = 10001;
 type serviceCode10002 = 10002;
-export type IErrorHandler = {
-  [index: string]: () => void;
-} & {
-  [index in keyof status401]: { default: () => void };
-} & {
-  [index in keyof status403]: { default: () => void };
-} & {
-  [index in keyof status409]: {
-    serviceCode10001: () => void;
-    serviceCode10002: () => void;
-  };
-} & {
-  [index in keyof status500]: { default: () => void };
-} & {
-  common: () => void;
-  default: () => void;
-  status401: {
-    default: () => void;
-  };
-  status403: {
-    default: () => void;
-  };
-  status409: {
-    serviceCode10001: () => void;
-    serviceCode10002: () => void;
-  };
-  status500: {
-    default: () => void;
-  };
-};
-interface IError {
-  status: string | status401 | status403 | status409 | status500;
+
+const isStatus401 = (value: unknown): value is status401 => value === 401
+const isStatus403 = (value: unknown): value is status403 => value === 403
+const isStatus409 = (value: unknown): value is status409 => value === 409
+const isStatus500 = (value: unknown): value is status500 => value === 500
+const isServiceCode10001 = (value: unknown): value is serviceCode10001 => value === 10001
+const isServiceCode10002 = (value: unknown): value is serviceCode10002 => value === 10002
+
+// export type IErrorHandler = {
+//   [index: string]: () => void;
+// } & {
+//   [index in keyof status401]: { default: () => void };
+// } & {
+//   [index in keyof status403]: { default: () => void };
+// } & {
+//   [index in keyof status409]: {
+//     serviceCode10001: () => void;
+//     serviceCode10002: () => void;
+//   };
+// } & {
+//   [index in keyof status500]: { default: () => void };
+// } & {
+//   common: () => void;
+//   default: () => void;
+//   status401: {
+//     default: () => void;
+//   };
+//   status403: {
+//     default: () => void;
+//   };
+//   status409: {
+//     serviceCode10001: () => void;
+//     serviceCode10002: () => void;
+//   };
+//   status500: {
+//     default: () => void;
+//   };
+// };
+export interface IError {
+  status: number | string | status401 | status403 | status409 | status500;
   response: {
     meta: {
       code: string;
@@ -48,6 +54,9 @@ interface IError {
   };
 }
 
+interface IErrorHandler2 {
+  [index: string]: (() => void) | Record<string, unknown>;
+}
 const defaultHandlers = {
   common: () => console.log('common handler'),
   default: () => console.log('default handler'),
@@ -66,23 +75,26 @@ const defaultHandlers = {
   },
 };
 
-const useApiError = (handlers: IErrorHandler) => {
-  const handleError = useCallback((error: IError) => {
-    const httpStatus = error.status;
-    const serviceCode = error.response.meta.code;
-    Object.prototype.hasOwnProperty.call(handlers, httpStatus)
-    Object.prototype.hasOwnProperty.call(handlers[httpStatus], serviceCode)
-      handlers[httpStatus];
-    switch(true){
-      case handlers && Object.prototype.hasOwnProperty.call(handlers, httpStatus) && Object.prototype.hasOwnProperty.call(handlers[httpStatus], serviceCode): {
-      }
+export const useApiError = () => {
+  const handleError = useCallback((error: AxiosError) => {
+    // const httpStatus = error.status;
+    // const serviceCode = error.response.meta.code;
+    const httpStatus = 401
+    const serviceCode = 10001
+    if(isStatus401(httpStatus)) {
+      defaultHandlers.status401.default()
+    }else if(isStatus403(httpStatus)){
+      defaultHandlers.status403.default()
+    }else if(isStatus409(httpStatus) && isServiceCode10001(serviceCode)){
+      defaultHandlers.status409.serviceCode10001()
+    }else if(isStatus409(httpStatus) &&isServiceCode10002(serviceCode)){
+      defaultHandlers.status409.serviceCode10002()
+    }else if(isStatus500(httpStatus)){
+      defaultHandlers.status500.default()
+    }else{
+      defaultHandlers.default()
     }
-    // switch(true){
-    //   // case handlers && handlers.hasOwnProperty(httpStatus):
-    //   case handlers && Object.prototype.hasOwnProperty.call(handlers, httpStatus) &&
-    //     Object.prototype.hasOwnProperty.call(handlers[httpStatus], serviceCode):
-    //     console.log('hi')
-    //     break;
-    // }
-  },[handlers])
+    defaultHandlers.common()
+  },[])
+  return {handleError}
 };

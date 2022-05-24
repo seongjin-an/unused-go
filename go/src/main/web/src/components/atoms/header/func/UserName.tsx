@@ -3,26 +3,31 @@ import styled from 'styled-components';
 import imgProfile from '../../../../static/image/dark/page/product/img/img_profile.png';
 import { useMember } from '../../../../hook/useMember';
 import { Link } from "react-router-dom";
+import useLocalStorage from "react-query/types/devtools/useLocalStorage";
+import { useApiError } from "../../../../hook/error/useApiError";
 
 export const UserName: React.FC = () => {
-  const { data, error } = useMember();
-
-  const useLocalStorage = (itemName: string, value: string = '') => {
-    const [state, setState] = useState(() => {
-      return localStorage.getItem(itemName) || value
-    })
-    useEffect(() => {
-      localStorage.setItem(itemName, state)
-    },[state])
-    return [state, setState]
-  }
-
+  console.log('render userName')
+  const { handleError } = useApiError();
+  const { data, error, status, isError, isStale } = useMember(handleError);
+  console.log('error:',error)
   console.log('data:', data)
+  console.log('status:', status)
+
+  useEffect(() => {
+    return () => {
+      localStorage.removeItem('token')
+      window.addEventListener('beforeunload', () => {
+        localStorage.removeItem('token')
+      })
+    }
+  }, [])
   // console.log('localStorage.getItem(token):', localStorage.getItem('token'))
+
   return (
     <>
     {
-      data && data.code === 'success' ?
+      data && (data.code === 'success' || status === 'error') ?
         <StyledUserName>{data.result.name}<span>님</span></StyledUserName> :
         <>
           <Link to='/login' >

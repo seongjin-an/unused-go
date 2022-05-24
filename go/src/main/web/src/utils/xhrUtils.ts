@@ -15,7 +15,7 @@ xhr.interceptors.request.use(
     return config;
   },
   (error: AxiosError) => {
-    return Promise.reject(error);
+    return Promise.reject(error).catch(err => console.log('req err:', err));
   },
 );
 // 응답 인터샙터, 2개의 콜백함수르 받는다.
@@ -24,6 +24,7 @@ xhr.interceptors.response.use(
     return response;
   },
   (error: AxiosError) => {
-    return Promise.reject(error);
+    // return Promise.reject(error).catch(err => console.log('res err:', err));
+    // return Promise.reject(error).catch(error => 'FAIL');
   },
 );
