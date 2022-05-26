@@ -55,7 +55,26 @@ export interface IError {
 }
 
 interface IErrorHandler2 {
-  [index: string]: (() => void) | Record<string, unknown>;
+  [index: string]: (() => void) | Record<string, never>;
+}
+type Imsi = () => void
+type IErrorHandler3 = Record<string, Imsi | { [index: string]: Imsi }>;
+
+type Ansj = {
+  [index: string]: Imsi
+}
+type IErrorHandler4 = Record<string, Ansj|Imsi>
+function isImsi(value: unknown): value is Imsi{
+  return typeof value === 'function'
+}
+function isAnsj(value: unknown): value is Ansj{
+  return typeof value === 'object'
+}
+const im: IErrorHandler4 = {
+  common: () => console.log('hi'),
+  common2: {
+    ansj: () => console.log('hi')
+  }
 }
 const defaultHandlers = {
   common: () => console.log('common handler'),
@@ -75,12 +94,20 @@ const defaultHandlers = {
   },
 };
 
-export const useApiError = () => {
+export const useApiError = (handler: IErrorHandler4) => {
   const handleError = useCallback((error: AxiosError) => {
     // const httpStatus = error.status;
     // const serviceCode = error.response.meta.code;
     const httpStatus = 401
-    const serviceCode = 10001
+    const serviceCode = '10001'
+    if(handler){
+      const imsi = handler[httpStatus]
+      if(isImsi(imsi)){
+        imsi()
+      }else if(isAnsj(imsi)){
+        imsi[serviceCode]()
+      }
+    }
     if(isStatus401(httpStatus)) {
       defaultHandlers.status401.default()
     }else if(isStatus403(httpStatus)){
@@ -95,6 +122,6 @@ export const useApiError = () => {
       defaultHandlers.default()
     }
     defaultHandlers.common()
-  },[])
-  return {handleError}
+  },[handler])
+  return { handleError };
 };
