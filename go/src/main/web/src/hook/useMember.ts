@@ -1,7 +1,6 @@
 import { useQuery, UseQueryResult } from 'react-query';
-import { AxiosError, AxiosResponse } from 'axios';
-import { checkTokenState, imsi } from "../apis/user/userApi";
-import { IError } from "./error/useApiError";
+import { AxiosError } from 'axios';
+import { checkTokenState } from '../apis/user/userApi';
 
 export const useMember = (
   handleError: (error: AxiosError) => void,
@@ -10,7 +9,11 @@ export const useMember = (
     queryKey: ['getImsi'],
     queryFn: checkTokenState,
     // suspense: true,
-    // onError: (err) => handleError(err)
-    onError: (error: AxiosError) => error
+    refetchOnMount: true,
+    staleTime: 0,
+    onError: error => {
+      handleError(error);
+      Promise.reject(new Error(error.message));
+    },
   });
 };

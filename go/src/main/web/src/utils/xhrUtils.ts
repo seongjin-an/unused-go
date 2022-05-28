@@ -25,6 +25,6 @@ xhr.interceptors.response.use(
   },
   (error: AxiosError) => {
     // return Promise.reject(error).catch(err => console.log('res err:', err));
-    // return Promise.reject(error).catch(error => 'FAIL');
+    return Promise.reject(error);
   },
 );

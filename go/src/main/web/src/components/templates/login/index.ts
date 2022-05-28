@@ -1,1 +1,1 @@
-export {LoginTemplate} from './LoginTemplate'
+export { LoginTemplate } from './LoginTemplate';

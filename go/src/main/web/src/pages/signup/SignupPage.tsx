@@ -1,14 +1,14 @@
 import React from 'react';
 import { Header } from '../../components/organisms/header/Header';
-import { Footer } from "../../components/organisms/footer/Footer";
+import { Footer } from '../../components/organisms/footer/Footer';
 import { SignupTemplate } from '../../components/templates/singup';
 
 export const SignupPage: React.FC = () => {
-  return(
+  return (
     <>
-      <Header/>
-      <SignupTemplate/>
-      <Footer/>
+      <Header />
+      <SignupTemplate />
+      <Footer />
     </>
-  )
-}
+  );
+};

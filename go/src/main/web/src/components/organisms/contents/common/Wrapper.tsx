@@ -1,20 +1,17 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import { TWrapper } from "../../../../types/wrapper";
-
-
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { TWrapper } from '../../../../types/wrapper';
 
 interface IProps {
-  type: TWrapper
+  type: TWrapper;
 }
 
-export const Wrapper: React.FC<IProps> = ({type, children}) => {
-  return <StyledWrapper type={type}>{children}</StyledWrapper>
-}
-const StyledWrapper = styled.div<{type: TWrapper}>`
-  ${({type}) => type === 'basic' ? `${StyledBasicWrapper}` : null}
-  
-`
+export const Wrapper: React.FC<IProps> = ({ type, children }) => {
+  return <StyledWrapper type={type}>{children}</StyledWrapper>;
+};
+const StyledWrapper = styled.div<{ type: TWrapper }>`
+  ${({ type }) => (type === 'basic' ? `${StyledBasicWrapper}` : null)}
+`;
 const StyledBasicWrapper = css`
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,4 +33,4 @@ const StyledBasicWrapper = css`
     margin-bottom: 30px;
     letter-spacing: 10px;
   }
-`
+`;

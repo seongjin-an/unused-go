@@ -1,3 +1,1 @@
-export type TWrapper =
-  | 'basic'
-  | 'login2';
+export type TWrapper = 'basic' | 'login2';

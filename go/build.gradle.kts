@@ -45,15 +45,23 @@ dependencies {
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.2")
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.2")
 }
+
 val webappDir = "$projectDir/src/main/web"
 
 sourceSets {
     main {
         resources {
-            srcDirs(listOf("$webappDir/build", "$projectDir/src/main/resources", "$projectDir/src/main/resources/fonts"))
+            srcDirs(
+                listOf(
+                    "$webappDir/build",
+                    "$projectDir/src/main/resources",
+                    "$projectDir/src/main/resources/fonts"
+                )
+            )
         }
     }
 }
+
 
 
 tasks {
@@ -62,8 +70,8 @@ tasks {
         duplicatesStrategy = org.gradle.api.file.DuplicatesStrategy.EXCLUDE
     }
 }
-
 tasks.register("buildReact", Exec::class) {
+    onlyIf { !project.hasProperty("isDev") }
     dependsOn("installReact")
     workingDir(webappDir)
     inputs.dir(webappDir)
@@ -76,6 +84,7 @@ tasks.register("buildReact", Exec::class) {
 }
 
 tasks.register("installReact", Exec::class) {
+    onlyIf { !project.hasProperty("isDev") }
     workingDir(webappDir)
     inputs.dir(webappDir)
     group = BasePlugin.BUILD_GROUP
@@ -87,7 +96,6 @@ tasks.register("installReact", Exec::class) {
         commandLine("npm", "install")
     }
 }
-
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")

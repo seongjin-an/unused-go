@@ -215,8 +215,8 @@ export const ProductInfo: React.FC = () => {
       <StyledProductFrame>
         <TextAreaInput placeholder="기타 추가 정보를 입력해 주세요. (최대 1,000자)" />
         <div className="product_btn_group">
-          <BasicButton text="임시저장" kind='basic'/>
-          <BasicButton text="등록완료" kind='basic'/>
+          <BasicButton text="임시저장" kind="basic" />
+          <BasicButton text="등록완료" kind="basic" />
         </div>
       </StyledProductFrame>
     </StyledProductInfo>

@@ -1,45 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import imgProfile from '../../../../static/image/dark/page/product/img/img_profile.png';
 import { useMember } from '../../../../hook/useMember';
-import { Link } from "react-router-dom";
-import useLocalStorage from "react-query/types/devtools/useLocalStorage";
-import { useApiError } from "../../../../hook/error/useApiError";
+import { Link } from 'react-router-dom';
+import useLocalStorage from 'react-query/types/devtools/useLocalStorage';
+import { useApiError } from '../../../../hook/error/useApiError';
 
 export const UserName: React.FC = () => {
-  console.log('render userName')
-  const { handleError } = useApiError();
+  console.log('render userName');
+  const defaultHandlers = {
+    401: {
+      default: () => console.log('4011111111111 handler'),
+    },
+  };
+  const { handleError } = useApiError(defaultHandlers);
   const { data, error, status, isError, isStale } = useMember(handleError);
-  console.log('error:',error)
-  console.log('data:', data)
-  console.log('status:', status)
-
-  useEffect(() => {
-    return () => {
-      localStorage.removeItem('token')
-      window.addEventListener('beforeunload', () => {
-        localStorage.removeItem('token')
-      })
-    }
-  }, [])
+  console.log('error:', error);
+  console.log('data:', data);
+  console.log('status:', status);
+  window.addEventListener('beforeunload', () => {
+    localStorage.removeItem('token');
+  });
   // console.log('localStorage.getItem(token):', localStorage.getItem('token'))
 
   return (
     <>
-    {
-      data && (data.code === 'success' || status === 'error') ?
-        <StyledUserName>{data.result.name}<span>님</span></StyledUserName> :
+      {data && (data.code === 'success' || status === 'error') ? (
+        <StyledUserName>
+          {data.result.name}
+          <span>님</span>
+        </StyledUserName>
+      ) : (
         <>
-          <Link to='/login' >
+          <Link to="/login">
             <StyledGuest>로그인</StyledGuest>
           </Link>
-          <Link to='/signup'>
+          <Link to="/signup">
             <StyledGuest>회원가입</StyledGuest>
           </Link>
         </>
-    }
+      )}
     </>
-  )
+  );
 };
 const StyledUserName = styled.div`
   justify-self: flex-end;
@@ -85,4 +87,4 @@ const StyledGuest = styled.div`
   text-align: left;
   color: #fff;
   cursor: pointer;
-`
+`;

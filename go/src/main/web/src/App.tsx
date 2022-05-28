@@ -13,13 +13,19 @@ import TestPage from './pages/TestPage';
 import { Modal } from './components/molecules/common';
 import { modalState } from './stores/modal';
 import ModalContext from './contexts/modalContext';
-import { LoginPage } from "./pages/login/LoginPage";
-import { SignupPage } from './pages/signup'
+import { LoginPage } from './pages/login/LoginPage';
+import { SignupPage } from './pages/signup';
+
+const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      // suspense: true,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      retry: false,
+      staleTime: twentyFourHoursInMs,
     },
   },
 });
@@ -59,8 +65,8 @@ function App() {
               <Route path=":id" element={<DetailProduct />} />
             </Route>
 
-            <Route path="login" element={<LoginPage/>} />
-            <Route path="signup" element={<SignupPage/>} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="signup" element={<SignupPage />} />
 
             <Route path="mypage" element={<Outlet />}>
               <Route path="account" element={<Account />} />

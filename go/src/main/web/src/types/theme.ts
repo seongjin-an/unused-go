@@ -7,7 +7,7 @@ export interface Theme {
   };
   margin: {
     [K in keyof IMargin]: IMargin[K];
-  }
+  };
 }
 
 export interface IPadding {

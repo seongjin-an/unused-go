@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 export const btnCheck = css`
   width: 124px;
@@ -13,7 +13,7 @@ export const btnCheck = css`
   transition: -webkit-transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-  &: hover{
+  &: hover {
     background-color: #ffe36d;
     transform: scale(1.2, 1.2);
     -ms-transform: scale(1.2, 1.2);

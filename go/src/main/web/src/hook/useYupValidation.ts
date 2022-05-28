@@ -1,5 +1,5 @@
-import { useCallback } from "react";
-import * as yup from 'yup'
+import { useCallback } from 'react';
+import * as yup from 'yup';
 import { ObjectSchema } from 'yup';
 
 export const useYupValidationResolver = (validationSchema: ObjectSchema<never>) =>

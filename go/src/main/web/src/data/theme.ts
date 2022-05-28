@@ -56,8 +56,8 @@ export const theme: Theme = {
   },
   margin: {
     main: '500px',
-    secondary: '300px'
-  }
+    secondary: '300px',
+  },
 };
 
 export const handleSxProps = (sx?: SxProps<Theme>): SystemStyleObject<Theme> => {

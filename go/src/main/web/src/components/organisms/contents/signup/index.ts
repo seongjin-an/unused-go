@@ -1,1 +1,1 @@
-export {SignupArea} from './SignupArea'
+export { SignupArea } from './SignupArea';

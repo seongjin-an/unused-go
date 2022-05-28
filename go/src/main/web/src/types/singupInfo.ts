@@ -3,5 +3,5 @@ export interface ISignupInfo {
   pwd: string;
   name: string;
   email: string;
-  phone: string
+  phone: string;
 }
