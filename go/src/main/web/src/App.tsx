@@ -87,8 +87,8 @@ function App() {
         {/* </ErrorBoundary> */}
         <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
           <ModalBody>
-            <h2>Title</h2>
-            <p>Description</p>
+            <h2>제목</h2>
+            <p>내용</p>
           </ModalBody>
         </Modal>
       </DashWrap>
