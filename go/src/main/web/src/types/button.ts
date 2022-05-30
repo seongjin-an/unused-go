@@ -1,1 +1,1 @@
-export type TButton = 'basic' | 'check';
+export type TButton = 'basic' | 'check' | 'confirm' | 'cancel';

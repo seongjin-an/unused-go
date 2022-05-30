@@ -11,8 +11,6 @@ import { Main } from './pages/main';
 import { Community } from './pages/community';
 import TestPage from './pages/TestPage';
 import { Modal } from './components/molecules/common';
-import { modalState } from './stores/modal';
-import ModalContext from './contexts/modalContext';
 import { LoginPage } from './pages/login/LoginPage';
 import { SignupPage } from './pages/signup';
 
@@ -31,15 +29,6 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  // const [isOpen, setIsOpen] = useState<boolean>(false);
-  // const handleOpen = () => {
-  //     setIsOpen(true);
-  // }
-  // const handleClose = () => {
-  //     setIsOpen(false);
-  // }
-  // const {state: {isOpen}, action: {setIsOpen}} = useContext(ModalContext)
-  const [isOpen, setIsOpen] = useRecoilState(modalState);
   return (
     <QueryClientProvider client={queryClient}>
       {/* <QueryErrorResetBoundary> */}
@@ -84,21 +73,14 @@ function App() {
             <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-        {/* </ErrorBoundary> */}
-        <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-          <ModalBody>
-            <h2>제목</h2>
-            <p>내용</p>
-          </ModalBody>
-        </Modal>
+          <Modal/>
       </DashWrap>
-      {/*        </ErrorBoundary> */}
-      {/*    )} */}
       {/* </QueryErrorResetBoundary> */}
     </QueryClientProvider>
   );
 }
-
+//{marginRight: () => '4px'}
+// () => ({marginRight: '4px'})
 const DashWrap = styled.section`
   width: 100%;
   height: 100%;
@@ -107,14 +89,5 @@ const DashWrap = styled.section`
   position: relative;
   background-color: #0f0655;
 `;
-const ModalBody = styled.div`
-  border-radius: 8px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  background: #fff;
-  max-height: calc(100vh - 16px);
-  overflow: hidden auto;
-  position: relative;
-  padding-block: 12px;
-  padding-inline: 24px;
-`;
+
 export default App;

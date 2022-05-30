@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, MouseEvent } from 'react';
+import React, { ChangeEvent, useState, MouseEvent, useEffect } from "react";
 import {
   FieldValue,
   FieldValues,
@@ -19,6 +19,8 @@ import { BasicButton } from '../../../atoms/button';
 import { useYupValidationResolver } from '../../../../hook/useYupValidation';
 import { signup } from '../../../../apis/user/userApi';
 import { useCheckId } from '../../../../hook/useCheckId';
+import { useSetRecoilState } from "recoil";
+import { modalState } from "../../../../stores/modal";
 
 interface IForm {
   name: string;
@@ -54,7 +56,7 @@ export const SignupArea: React.FC = () => {
       return;
     }
     if (!checkIdResult) {
-      setResult('사용불가 아이디입니다.');
+      setIsOpen({ hide: true, type: 'alert', header: '경고', subject: '아이디 확인', message: '아이디를 확인해주세요' })
       return;
     }
     // setResult(JSON.stringify(data));
@@ -77,11 +79,20 @@ export const SignupArea: React.FC = () => {
   };
   const { data: checkResult, refetch } = useCheckId(id);
   const [checkIdResult, setCheckIdResult] = useState<boolean>(false);
+  useEffect(() => {
+    setCheckIdResult(false)
+  }, [id])
+  const setIsOpen = useSetRecoilState(modalState)
   const handleClickIdCheck = (event: MouseEvent) => {
+    if(!id){
+      setIsOpen({ hide: true, type: 'alert', header: '경고', subject: '공백', message: '아이디를 입력해주세요.' })
+      return
+    }
     refetch()
       .then(() => {
         console.log('success you can use!');
         setCheckIdResult(true);
+        setIsOpen({ hide: true, type: 'info', header: '알림', subject: '확인', message: '사용 가능한 아이디입니다.' })
       })
       .catch(error => {
         console.log('error');

@@ -3,24 +3,31 @@ import styled, { css } from 'styled-components';
 import { useFormContext } from 'react-hook-form';
 import { TButton } from '../../../types/button';
 import { btnCheck } from './btnCheck';
+import { StyledCancel, StyledConfirm } from "./btnConfirm";
+import { SxProps } from "../../../types/sx";
+import { Theme } from "../../../types/theme";
+import { handleSxProps } from "../../../data/theme";
 
 interface IProps {
   text: string;
   kind: TButton;
   onClick?: (event: MouseEvent) => void;
   type?: 'submit' | 'reset' | 'button' | undefined;
+  sx?: SxProps<Theme>
 }
 
-export const BasicButton: React.FC<IProps> = ({ type, text, kind = 'basic', onClick }) => {
+export const BasicButton: React.FC<IProps> = ({ type, text, kind = 'basic', onClick, sx}) => {
   return (
-    <StyledSaveButton type={type} kind={kind} onClick={onClick && onClick}>
+    <StyledSaveButton type={type} kind={kind} onClick={onClick && onClick} sx={sx}>
       {text}
     </StyledSaveButton>
   );
 };
 
-const StyledSaveButton = styled.button<{ kind: string }>`
-  ${({ kind }) => (kind === 'login' ? `${LoginButtonStyle}` : kind === 'check' ? `${btnCheck}` : `${BasicButtonStyle}`)}
+const StyledSaveButton = styled.button<{ kind: string, sx?: SxProps<Theme> }>`
+  ${({ kind }) => (kind === 'login' ? `${LoginButtonStyle}` : 
+                    kind === 'check' ? `${btnCheck}` : 
+                            kind === 'confirm' ? `${StyledConfirm}` : kind === 'cancel' ? `${StyledCancel}` : `${BasicButtonStyle}`)}
   &:hover {
     //background-color: rgba(255, 255, 255, 0.1);
   }
@@ -29,6 +36,7 @@ const StyledSaveButton = styled.button<{ kind: string }>`
       //background-color: transparent;
     }
   }
+  ${({sx}) => sx && ({...handleSxProps(sx)})}
 `;
 
 const LoginButtonStyle = css`

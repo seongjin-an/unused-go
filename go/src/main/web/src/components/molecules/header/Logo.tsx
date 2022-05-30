@@ -2,18 +2,23 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useRecoilState } from 'recoil';
 import logoIcon from '../../../static/image/dark/common/topBar/img/img_logo.png';
-import { Modal } from '../common';
-import { modalState } from '../../../stores/modal';
-import ModalContext from '../../../contexts/modalContext';
+import { IModal, modalState } from "../../../stores/modal";
 
 export const Logo: React.FC = () => {
-  const [isOpen, setIsOpen] = useRecoilState<boolean>(modalState);
+  const [isOpen, setIsOpen] = useRecoilState<IModal>(modalState);
   // const {action: {setIsOpen}} = useContext(ModalContext)
   const handleOpen = () => {
-    setIsOpen(true);
+    setIsOpen({
+      hide: true,
+      type: 'confirm',
+      header: '알림',
+      subject: '알림 메시지',
+      message: '로고를 클릭하셨습니다.',
+      callback: () => console.log('testest'),
+    });
   };
   const handleClose = () => {
-    setIsOpen(false);
+    setIsOpen({ hide: false });
   };
   return (
     <StyledLogoWrapper>
