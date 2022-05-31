@@ -5,7 +5,6 @@ import { Portal } from './Portal';
 import { BasicButton } from "../../atoms/button";
 import { useRecoilState } from "recoil";
 import { modalState } from "../../../stores/modal";
-// import {Portal} from 'react-portal'
 
 interface IProps {
   // isOpen: boolean;
