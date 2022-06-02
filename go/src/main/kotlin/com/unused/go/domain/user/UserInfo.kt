@@ -8,7 +8,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "TBL_USER_INFO", schema = "USERS")
-class UserInfo(
+data class UserInfo(
     @Id
     @Column(name = "ID")
     var id: String? = null,

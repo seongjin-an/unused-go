@@ -7,7 +7,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "TBL_CATEGORY", schema = "PRODUCTS")
-class Category (
+data class Category (
     @Id
     @Column(name = "ID")
     var id: String,

@@ -1,4 +1,4 @@
-package com.unused.go.domain.products
+package com.unused.go.enums.product
 
 enum class FeelingType {
     UPPER, MIDDLE, LOWER

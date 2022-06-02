@@ -7,7 +7,7 @@ import javax.persistence.Table
 
 @Entity
 @Table(name = "TBL_ATTACH", schema = "PRODUCTS")
-class Attach (
+data class Attach (
     @Id
     @Column(name = "ID")
     var id: String,
