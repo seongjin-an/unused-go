@@ -4,7 +4,7 @@ import com.unused.go.dto.MemberRequestDto
 import com.unused.go.dto.MemberResponseDto
 import com.unused.go.dto.TokenDto
 import com.unused.go.dto.TokenRequestDto
-import com.unused.go.service.AuthService
+import com.unused.go.service.auth.AuthService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 

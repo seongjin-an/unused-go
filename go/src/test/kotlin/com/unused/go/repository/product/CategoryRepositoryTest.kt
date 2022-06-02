@@ -34,4 +34,18 @@ class CategoryRepositoryTest {
         Assertions.assertNotNull(categories)
     }
 
+    @Test
+    fun findRootCategoryTest(){
+        val categories = categoryRepository.findRootCategory()
+        categories.forEach { println("category: $it") }
+        Assertions.assertEquals(1, categories.size)
+    }
+
+    @Test
+    fun findRootCategory2Test(){
+        val categories = categoryRepository.findBySubject()
+        categories.forEach { println("category: $it") }
+        Assertions.assertEquals(1, categories.size)
+    }
+
 }

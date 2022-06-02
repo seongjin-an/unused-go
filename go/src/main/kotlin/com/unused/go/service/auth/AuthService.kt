@@ -1,4 +1,4 @@
-package com.unused.go.service
+package com.unused.go.service.auth
 
 import com.unused.go.configuration.jwt.TokenProvider
 import com.unused.go.domain.user.RefreshToken
