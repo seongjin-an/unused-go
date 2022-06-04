@@ -1,4 +1,4 @@
-package com.unused.go.controller
+package com.unused.go.controller.auth
 
 import com.unused.go.dto.ResultResponse
 import com.unused.go.service.UserInfoService
