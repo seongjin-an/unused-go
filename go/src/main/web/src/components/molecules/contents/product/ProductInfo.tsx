@@ -7,6 +7,7 @@ import { OptionType } from '../../../atoms/inputs/SelectInput';
 import imgProfile from '../../../../static/image/dark/page/product/img/img_profile.png';
 import { ColorBlock, ProductInfoInput } from '../../../atoms/contents/product';
 import { Button, BasicButton } from '../../../atoms/button';
+import { useCategory } from "../../../../hook/product/useCategory";
 
 export type TActiveButton = 'good' | 'notGoodNotBad' | 'bad' | null;
 export type TActiveColor =
@@ -88,6 +89,12 @@ export const ProductInfo: React.FC = () => {
       setActiveColor('violet');
     }
   }, []);
+
+  const { data: rootCategory } = useCategory();
+  const rootCategoryOptions = rootCategory?.result.map(
+    category => ({ value: category.type, label: category.name } as OptionType),
+  )!;
+
   return (
     <StyledProductInfo>
       <div className="user_name">안김안</div>
@@ -96,7 +103,7 @@ export const ProductInfo: React.FC = () => {
       </StyledProductFrame>
       <StyledProductFrame>
         <div className="product_info_title">카테고리 선택</div>
-        <SelectInput defaultValue={mainDefaultValue} options={mainCategoryOption} />
+        <SelectInput defaultValue={mainDefaultValue} options={rootCategoryOptions} />
         <SelectInput defaultValue={subDefaultValue} options={subCategoryOption} />
       </StyledProductFrame>
       <StyledPrice>
