@@ -1,5 +1,6 @@
-import React, { useCallback, useState, MouseEvent } from 'react';
+import React, { useCallback, useState, MouseEvent, useEffect } from 'react';
 import styled from 'styled-components';
+import { Props as SelectProps, Options } from 'react-select';
 import { colors } from 'react-select/dist/declarations/src/theme';
 import { SelectInput, TextAreaInput } from '../../../atoms/inputs';
 import { OptionType } from '../../../atoms/inputs/SelectInput';
@@ -7,7 +8,7 @@ import { OptionType } from '../../../atoms/inputs/SelectInput';
 import imgProfile from '../../../../static/image/dark/page/product/img/img_profile.png';
 import { ColorBlock, ProductInfoInput } from '../../../atoms/contents/product';
 import { Button, BasicButton } from '../../../atoms/button';
-import { useCategory } from "../../../../hook/product/useCategory";
+import { useCategory } from '../../../../hook/product/useCategory';
 
 export type TActiveButton = 'good' | 'notGoodNotBad' | 'bad' | null;
 export type TActiveColor =
@@ -28,6 +29,7 @@ export type TActiveColor =
   | null;
 
 export const ProductInfo: React.FC = () => {
+  const [mainCategory, setMainCategory] = useState<string>('');
   const mainCategoryOption: OptionType[] = [
     { value: 'athletic', label: '운동용품' },
     { value: 'clothes', label: '의류' },
@@ -46,6 +48,8 @@ export const ProductInfo: React.FC = () => {
     { value: 'M', label: 'M' },
     { value: 'L', label: 'L' },
   ];
+  const emptyOption: OptionType[] = [{ value: '', label: '' }];
+
   const sizeDefaultValue = { value: '', label: '사이즈' };
   const [activeButton, setActiveButton] = useState<TActiveButton>(null);
   const handleClickActiveButton = useCallback((type: TActiveButton) => {
@@ -95,6 +99,10 @@ export const ProductInfo: React.FC = () => {
     category => ({ value: category.type, label: category.name } as OptionType),
   )!;
 
+  const handleChangeMainCategory = (selectedOption: OptionType | OptionType[] | null | void) => {
+    console.log('selectedOption:', selectedOption);
+  };
+
   return (
     <StyledProductInfo>
       <div className="user_name">안김안</div>
@@ -103,7 +111,11 @@ export const ProductInfo: React.FC = () => {
       </StyledProductFrame>
       <StyledProductFrame>
         <div className="product_info_title">카테고리 선택</div>
-        <SelectInput defaultValue={mainDefaultValue} options={rootCategoryOptions} />
+        <SelectInput
+          defaultValue={mainDefaultValue}
+          options={rootCategoryOptions}
+          callback={handleChangeMainCategory}
+        />
         <SelectInput defaultValue={subDefaultValue} options={subCategoryOption} />
       </StyledProductFrame>
       <StyledPrice>

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import Select, { Options } from 'react-select';
+import Select, { StylesConfig } from 'react-select';
+import { hover } from "@testing-library/user-event/dist/hover";
+// import './area.css'
 
 export type OptionType = {
   value: string;
@@ -11,17 +13,124 @@ export interface ISelectInputProps {
   options: OptionType[];
   defaultValue: OptionType;
   small?: boolean;
+  callback?: (selectedOption: OptionType | OptionType[] | null | void) => void;
 }
 
-export const SelectInput: React.FC<ISelectInputProps> = ({ defaultValue, options, small }) => {
+export const SelectInput: React.FC<ISelectInputProps> = ({ defaultValue, options, small, callback }) => {
+  const customStyles: StylesConfig<OptionType, false> = {
+    control: () => ({
+      // none of react-select's styles are passed to <Control />
+      cursor: 'pointer',
+      width: small ? '162px' : '98%',
+      height: '40px',
+      fontFamily: 'PretendardLight',
+      fontSize: '16px',
+      color: '#e7e7e7',
+      fontWeight: 'bold',
+      textAlign: 'left',
+      letterSpacing: '-0.015625vw',
+      paddingLeft: '9px',
+      borderRadius: '5px',
+      border: '2px solid rgba(196, 196, 196, 0.7)',
+      backgroundColor: 'transparent',
+
+      margin: 0,
+      marginBottom: '11px',
+      float: 'left',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    }),
+    singleValue: (provided, state) => {
+      // const opacity = state.isDisabled ? 0.5 : 1;
+      // const transition = 'opacity 300ms';
+      // return { ...provided, opacity, transition };
+      return {
+        color: '#fff',
+        fontWeight: 'bold',
+      };
+    },
+    placeholder: (base, props) => ({
+      color: '#fff',
+      fontFamily: 'NotoSansCJKkr, serif',
+      fontSize: '0.7vw',
+      fontWeight: 'bold',
+      backgroundColor: 'rgb(122, 69, 255)',
+      '&:hover': {
+        color: '#ee8aff',
+        transition: 'color 0.2s ease-in-out',
+      },
+    }),
+    option: (base, props) => ({
+      color: '#fff',
+      fontFamily: 'PretendardRegular',
+      fontSize: '0.7vw',
+      fontWeight: 'bold',
+      // backgroundColor: 'rgb(122, 69, 255)',
+      backgroundColor: props.isSelected ? '#341cff' : 'transparent',
+      '&:hover': {
+        color: '#ee8aff',
+        transition: 'color 0.2s ease-in-out',
+      },
+      '&:active': {
+        backgroundColor: '#341cff',
+      },
+
+      cursor: 'pointer',
+      border: 'none',
+      margin: 0,
+      height: 'auto',
+      paddingLeft: '14px',
+    }),
+    indicatorSeparator: (base, props) => ({
+      display: 'none'
+    }),
+    valueContainer: (base, props) => ({
+      padding: '0 6px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }),
+    dropdownIndicator: (base, props) => ({
+      padding: 0,
+      paddingRight: '10px',
+    }),
+    menu: (base, props) => ({
+      ...base,
+      width: small ? '162px' : '99%',
+      borderRadius: '5px',
+      margin: 0,
+      // border: '2px solid rgba(196, 196, 196, 0.7)',
+      // backgroundColor: '#21248d',
+      marginTop: '-7px',
+      padding: '7px 0px',
+
+      cursor: 'pointer',
+      border: 'none',
+      fontFamily: 'PretendardRegular',
+      backgroundColor: 'transparent',
+      height: 'auto',
+    }),
+    menuList: (base, props) => ({
+      width: small ? '162px' : '100%',
+      borderRadius: '5px',
+      margin: 0,
+      border: '2px solid rgba(196, 196, 196, 0.7)',
+      backgroundColor: '#21248d',
+      marginTop: '-16px',
+      padding: '7px 0',
+    }),
+
+  }
   return (
-    <StyledSelect
+    <Select
+      styles={customStyles}
       options={options}
       isSearchable
       classNamePrefix="area-select"
-      small={small}
+      // small={small}
       defaultValue={defaultValue}
-      onChange={() => console.log('hi')}
+      onChange={callback}
     />
   );
 };
