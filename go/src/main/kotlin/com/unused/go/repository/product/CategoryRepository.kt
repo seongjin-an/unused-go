@@ -1,6 +1,7 @@
 package com.unused.go.repository.product
 
 import com.unused.go.domain.products.Category
+import com.unused.go.dto.product.CategoryDto
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.stereotype.Repository
@@ -10,7 +11,8 @@ import java.util.Optional
 interface CategoryRepository: JpaRepository<Category, String> {
     @Query("SELECT C FROM Category C WHERE C.subject = 'ROOT' ")
     fun findRootCategory(): Collection<Category>
-    fun findBySubject(subject: String = "ROOT"): Collection<Category>
+    fun findBySubject(subject: String = "ROOT"): Collection<CategoryDto>
+    fun findByName(name: String): Collection<CategoryDto>
 }
 /*
     1. and

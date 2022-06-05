@@ -48,4 +48,11 @@ class CategoryRepositoryTest {
         Assertions.assertEquals(1, categories.size)
     }
 
+    @Test
+    fun productTest(){
+        val categories = categoryRepository.findByName("운동용품")
+        categories.forEach { println("Result of projection: $it") }
+        Assertions.assertEquals(1, categories.size)
+    }
+
 }
