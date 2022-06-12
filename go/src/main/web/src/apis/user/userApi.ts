@@ -16,6 +16,8 @@ export const imsi = async () => xhr.get('/test/imsi').then(i => i.data);
 
 export const login = async (loginInfo: ILoginInfo) => xhr.post('/auth/login', loginInfo).then(i => i.data);
 
+export const logout = async () => await xhr.post('/auth/logout');
+
 export const signup = async (signupInfo: ISignupInfo) => xhr.post('/auth/signup', signupInfo).then(i => i.data);
 
 export const checkId = async (id: string): Promise<{ code: string; result: string }> => {

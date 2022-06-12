@@ -5,6 +5,19 @@ import { useMember } from '../../../../hook/useMember';
 import { Link } from 'react-router-dom';
 import useLocalStorage from 'react-query/types/devtools/useLocalStorage';
 import { useApiError } from '../../../../hook/error/useApiError';
+import { Logout } from "../../../molecules/common";
+function clearStorage() {
+
+  const session = sessionStorage.getItem('register');
+
+  if (session == null) {
+
+    localStorage.removeItem('token');
+
+  }
+  sessionStorage.setItem('register', '1');
+}
+window.addEventListener('load', clearStorage);
 
 export const UserName: React.FC = () => {
   console.log('render userName');
@@ -15,21 +28,26 @@ export const UserName: React.FC = () => {
   };
   const { handleError } = useApiError(defaultHandlers);
   const { data, error, status, isError, isStale } = useMember(handleError);
-  console.log('error:', error);
-  console.log('data:', data);
-  console.log('status:', status);
-  window.addEventListener('beforeunload', () => {
-    localStorage.removeItem('token');
-  });
+  // window.addEventListener('unload', () => {
+  //   localStorage.removeItem('token');
+  // });
   // console.log('localStorage.getItem(token):', localStorage.getItem('token'))
 
+
+  // window.addEventListener('beforeunload', () => {
+  //   localStorage.removeItem('token');
+  // })
+  clearStorage()
   return (
     <>
-      {data && (data.code === 'success' || status === 'error') ? (
-        <StyledUserName>
-          {data.result.name}
-          <span>님</span>
-        </StyledUserName>
+      {data && (data.code === 'success') ? (
+        <>
+          <StyledUserName>
+            {data.result.name}
+            <span>님</span>
+          </StyledUserName>
+          <Logout/>
+        </>
       ) : (
         <>
           <Link to="/login">

@@ -1,6 +1,7 @@
 package com.unused.go.service.auth
 
 import com.unused.go.configuration.jwt.TokenProvider
+import com.unused.go.configuration.security.SecurityUtil
 import com.unused.go.domain.user.RefreshToken
 import com.unused.go.dto.MemberRequestDto
 import com.unused.go.dto.MemberResponseDto
@@ -83,5 +84,21 @@ class AuthService(
 
         // 토큰 발급
         return tokenDto
+    }
+
+    @Transactional
+    fun logout(): Boolean {
+        var result = false;
+        val imsi = userInfoRepository.findByLoginId(SecurityUtil.getCurrentMemberId())
+            .map { MemberResponseDto.of(it) }
+//            .orElseThrow { RuntimeException("NOT FOUND USER INFO") }
+            .orElse(null)
+        refreshTokenRepository.findById(imsi.loginId).ifPresent {
+            refreshTokenRepository.delete(it)
+            result = true
+        }
+        SecurityUtil.clearContext()
+//        println("imsi: $imsi")
+        return result
     }
 }

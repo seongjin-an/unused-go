@@ -32,7 +32,7 @@ export const AccountInput: React.FC<IProps> = ({
       <StyledAccountInput
         {...register(name, {
           required: { value: true, message: '필수 입력값입니다.' },
-          minLength: { value: 5, message: '5자리 이상 입력하세요!' },
+          minLength: { value: 1, message: '값을 입력하세요!' },
           onChange: callback,
         })}
         type={type}

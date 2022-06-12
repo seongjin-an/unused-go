@@ -13,5 +13,9 @@ class SecurityUtil {
             }
             return authentication.name
         }
+
+        fun clearContext(){
+            SecurityContextHolder.clearContext()
+        }
     }
 }

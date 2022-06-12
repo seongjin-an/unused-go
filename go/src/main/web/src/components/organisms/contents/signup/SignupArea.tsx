@@ -46,6 +46,7 @@ export const SignupArea: React.FC = () => {
   const queryClient = useQueryClient();
   const mutation = useMutation(signup, {
     onSuccess: e => {
+      setIsOpen({ hide: true, type: 'info', header: '알림', subject: '회원 가입', message: '회원 가입 완료되었습니다.'})
       navigate('/main');
     },
   });
@@ -60,8 +61,7 @@ export const SignupArea: React.FC = () => {
       return;
     }
     // setResult(JSON.stringify(data));
-    const imsi = { loginId: data.id, pwd: data.pwd, name: data.name, email: data.email, phone: data.phone };
-    console.log('imsi:', imsi);
+
     mutation.mutate({ loginId: data.id, pwd: data.pwd, name: data.name, email: data.email, phone: data.phone });
   };
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -83,22 +83,30 @@ export const SignupArea: React.FC = () => {
     setCheckIdResult(false)
   }, [id])
   const setIsOpen = useSetRecoilState(modalState)
+
   const handleClickIdCheck = (event: MouseEvent) => {
     if(!id){
       setIsOpen({ hide: true, type: 'alert', header: '경고', subject: '공백', message: '아이디를 입력해주세요.' })
       return
     }
     refetch()
-      .then(() => {
-        console.log('success you can use!');
-        setCheckIdResult(true);
-        setIsOpen({ hide: true, type: 'info', header: '알림', subject: '확인', message: '사용 가능한 아이디입니다.' })
+      .then((result) => {
+        console.log('result:', result);
+        if(result.data?.code === 'SUCCESS'){
+          setCheckIdResult(true);
+          setIsOpen({ hide: true, type: 'info', header: '알림', subject: '성공', message: '사용 가능한 아이디입니다.' })
+        } else if(result.data?.code === 'FAIL') {
+          setCheckIdResult(false);
+          setIsOpen({ hide: true, type: 'info', header: '알림', subject: '실패', message: '사용 불가능한 아이디입니다.' });
+        }
+
       })
       .catch(error => {
         console.log('error');
         setCheckIdResult(false);
       });
   };
+
   return (
     <Wrapper type="basic">
       <div className="login_title">회원가입</div>

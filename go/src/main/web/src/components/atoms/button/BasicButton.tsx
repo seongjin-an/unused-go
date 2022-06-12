@@ -23,11 +23,21 @@ export const BasicButton: React.FC<IProps> = ({ type, text, kind = 'basic', onCl
     </StyledSaveButton>
   );
 };
-
+const emptyButton = css`
+  cursor: pointer;
+  border: none;
+  width: 80px;
+  font-family: PretendardBold;
+  font-size: 18px;
+  color: #fff;
+  background-color: transparent;
+`
 const StyledSaveButton = styled.button<{ kind: string, sx?: SxProps<Theme> }>`
   ${({ kind }) => (kind === 'login' ? `${LoginButtonStyle}` : 
                     kind === 'check' ? `${btnCheck}` : 
-                            kind === 'confirm' ? `${StyledConfirm}` : kind === 'cancel' ? `${StyledCancel}` : `${BasicButtonStyle}`)}
+                            kind === 'confirm' ? `${StyledConfirm}` : 
+                                    kind === 'cancel' ? `${StyledCancel}` : 
+                                            kind === 'basic' ? `${emptyButton}` : `${BasicButtonStyle}`)}
   &:hover {
     //background-color: rgba(255, 255, 255, 0.1);
   }

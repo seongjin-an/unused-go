@@ -9,6 +9,10 @@ import { useNavigate } from 'react-router-dom';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { ITokenInfo } from '../../../../types/tokenInfo';
 import { useCheckId } from '../../../../hook/useCheckId';
+import { useSetRecoilState } from "recoil";
+import { modalState } from "../../../../stores/modal";
+import { xhr } from "../../../../utils/xhrUtils";
+import { AxiosRequestConfig } from "axios";
 
 interface ILoginForm {
   id: string;
@@ -22,11 +26,19 @@ export const LoginArea: React.FC = () => {
   const [alertInfo, setAlertInfo] = useState<string>(' ');
   const navigate = useNavigate();
   const queryClient = useQueryClient();
+  const setIsOpen = useSetRecoilState(modalState);
   const mutation = useMutation(login, {
     onSuccess: (data: ITokenInfo) => {
       localStorage.setItem('token', data.accessToken);
+      xhr.defaults.headers.common = {
+        Authorization: `Bearer ${data.accessToken}`,
+      };
       navigate('/main');
     },
+    onError: (error) => {
+      console.log('error:', error)
+      setIsOpen({ hide: true, type: 'alert', header: '경고', subject: '인증실패', message: '유효한 계정이 아닙니다.' })
+    }
   });
   const onSubmit: SubmitHandler<ILoginForm> = data => {
     mutation.mutate({ loginId: data.id, pwd: data.pwd });

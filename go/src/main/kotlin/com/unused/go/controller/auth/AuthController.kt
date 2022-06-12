@@ -1,10 +1,9 @@
 package com.unused.go.controller.auth
 
-import com.unused.go.dto.MemberRequestDto
-import com.unused.go.dto.MemberResponseDto
-import com.unused.go.dto.TokenDto
-import com.unused.go.dto.TokenRequestDto
+import com.unused.go.constants.app.AppConstant
+import com.unused.go.dto.*
 import com.unused.go.service.auth.AuthService
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -25,5 +24,18 @@ class AuthController(val authService: AuthService) {
     @PostMapping("/reissue")
     fun reissue(@RequestBody tokenRequestDto: TokenRequestDto): ResponseEntity<TokenDto> {
         return ResponseEntity.ok(authService.reissue(tokenRequestDto))
+    }
+
+    @PostMapping("/logout")
+    fun logout(): ResponseEntity<ResultResponse>{
+        return try {
+            if(authService.logout()) {
+                ResponseEntity.ok(ResultResponse(AppConstant.Result.SUCCESS))
+            }else{
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ResultResponse(AppConstant.Result.ERROR))
+            }
+        }catch(error: Exception){
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResultResponse(code = AppConstant.Result.ERROR, result = error.message))
+        }
     }
 }
