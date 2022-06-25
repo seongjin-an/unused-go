@@ -10,7 +10,7 @@ export type OptionType = {
 };
 
 export interface ISelectInputProps {
-  options: OptionType[];
+  options: OptionType[] | undefined;
   defaultValue: OptionType;
   small?: boolean;
   callback?: (selectedOption: OptionType | OptionType[] | null | void) => void;

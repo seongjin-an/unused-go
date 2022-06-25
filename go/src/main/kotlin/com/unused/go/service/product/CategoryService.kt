@@ -10,4 +10,7 @@ class CategoryService(val categoryRepository: CategoryRepository) {
     fun getRootCategories(): Collection<CategoryDto> {
         return categoryRepository.findBySubject()
     }
+    fun getSubjectCategories(type: String): Collection<CategoryDto> {
+        return categoryRepository.findBySubjectAndType(type = type)
+    }
 }

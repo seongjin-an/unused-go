@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { ChangeEvent } from "react";
 import styled from 'styled-components';
 
 interface IProps {
   placeholder: string;
+  value: string;
+  callback: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-export const TextAreaInput: React.FC<IProps> = ({ placeholder }) => {
-  return <StyledTextAreaInput placeholder={placeholder} />;
+export const TextAreaInput: React.FC<IProps> = ({ placeholder, value, callback }) => {
+  return <StyledTextAreaInput placeholder={placeholder} value={value} onChange={callback}/>;
 };
 
 const StyledTextAreaInput = styled.textarea`

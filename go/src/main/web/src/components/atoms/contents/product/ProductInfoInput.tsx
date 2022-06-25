@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { ChangeEvent } from "react";
 import styled from 'styled-components';
 
 interface IProps {
   placeholder: string;
   styled?: React.CSSProperties;
+  value: string;
+  callback: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const ProductInfoInput: React.FC<IProps> = ({ placeholder, styled }) => {
-  return <StyledProductInfoInput type="text" placeholder={placeholder} styled={styled} />;
+export const ProductInfoInput: React.FC<IProps> = ({ placeholder, styled, value, callback }) => {
+  return <StyledProductInfoInput type="text" placeholder={placeholder} styled={styled} value={value} onChange={callback} />;
 };
 const StyledProductInfoInput = styled.input<{ styled?: React.CSSProperties }>`
   width: 97%;

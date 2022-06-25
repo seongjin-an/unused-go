@@ -20,6 +20,26 @@ class CategoryRepositoryTest {
     }
 
     @Test
+    fun createCategoryTest2(){
+        val categories = arrayOf("아령", "바벨", "원판/플레이트", "벨트", "악력기", "밴드/짐볼", "스트랩/보호대")
+            .map { Category(UUID.randomUUID().toString(), "sports", "SUBJECT", it) }
+        categoryRepository.saveAll(categories)
+    }
+
+    @Test
+    fun createCategoryTest3(){
+        val category = Category(UUID.randomUUID().toString(), "clothes", "ROOT", "의류")
+        categoryRepository.save(category)
+    }
+
+    @Test
+    fun createCategoryTest4(){
+        val categories = arrayOf("재킷 & 베스트", "탑 & 티셔츠", "팬츠 & 타이츠", "양말", "셋업")
+            .map{ Category(UUID.randomUUID().toString(), "clothes", "SUBJECT", it) }
+        categoryRepository.saveAll(categories)
+    }
+
+    @Test
     fun createSubCategoryTest(){
         val categories = IntArray(8) { i -> i*2 }.map { idx -> Category(UUID.randomUUID().toString(), "sports", "fitness$idx", "fitness$idx") }
         val result = categoryRepository.saveAll(categories)

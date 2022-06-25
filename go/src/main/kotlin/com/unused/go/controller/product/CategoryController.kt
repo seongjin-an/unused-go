@@ -5,10 +5,7 @@ import com.unused.go.dto.ResultResponse
 import com.unused.go.service.product.CategoryService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.CrossOrigin
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("category")
@@ -20,6 +17,17 @@ class CategoryController(val categoryService: CategoryService) {
             val result = categoryService.getRootCategories()
             ResponseEntity.ok(ResultResponse(AppConstant.Result.SUCCESS, result))
         } catch (error: Exception) {
+            ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(ResultResponse(AppConstant.Result.ERROR, error.message))
+        }
+    }
+
+    @GetMapping("subject")
+    fun getSubjectCategory(@RequestParam("type") type: String): ResponseEntity<ResultResponse> {
+        return try{
+            val result = categoryService.getSubjectCategories(type)
+            ResponseEntity.ok(ResultResponse(AppConstant.Result.SUCCESS, result))
+        } catch(error: Exception){
             ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(ResultResponse(AppConstant.Result.ERROR, error.message))
         }

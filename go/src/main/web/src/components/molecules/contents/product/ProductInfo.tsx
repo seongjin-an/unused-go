@@ -1,4 +1,4 @@
-import React, { useCallback, useState, MouseEvent, useEffect } from 'react';
+import React, { useCallback, useState, MouseEvent, useEffect, useRef, ChangeEvent } from "react";
 import styled from 'styled-components';
 import { Props as SelectProps, Options } from 'react-select';
 import { colors } from 'react-select/dist/declarations/src/theme';
@@ -8,7 +8,8 @@ import { OptionType } from '../../../atoms/inputs/SelectInput';
 import imgProfile from '../../../../static/image/dark/page/product/img/img_profile.png';
 import { ColorBlock, ProductInfoInput } from '../../../atoms/contents/product';
 import { Button, BasicButton } from '../../../atoms/button';
-import { useCategory } from '../../../../hook/product/useCategory';
+import { useCategory, useSubCategory } from "../../../../hook/product/useCategory";
+import { useQueryClient } from "react-query";
 
 export type TActiveButton = 'good' | 'notGoodNotBad' | 'bad' | null;
 export type TActiveColor =
@@ -29,30 +30,22 @@ export type TActiveColor =
   | null;
 
 export const ProductInfo: React.FC = () => {
-  const [mainCategory, setMainCategory] = useState<string>('');
-  const mainCategoryOption: OptionType[] = [
-    { value: 'athletic', label: '운동용품' },
-    { value: 'clothes', label: '의류' },
-  ];
-  const mainDefaultValue = { value: '', label: '대분류' };
-  const subCategoryOption: OptionType[] = [
-    { value: 'jacketAndBest', label: '재킷 & 베스트' },
-    { value: 'topAndT-Shirts', label: '탑 & 티셔츠' },
-    { value: 'pantsAndTights', label: '팬츠 & 타이츠' },
-    { value: 'socks', label: '양말' },
-    { value: 'setup', label: '셋업' },
-  ];
-  const subDefaultValue = { value: '', label: '소분류' };
+  const [sizeVal, setSizeVal] = useState<string>('')
   const sizeCategoryOption: OptionType[] = [
     { value: 'S', label: 'S' },
     { value: 'M', label: 'M' },
     { value: 'L', label: 'L' },
   ];
-  const emptyOption: OptionType[] = [{ value: '', label: '' }];
-
   const sizeDefaultValue = { value: '', label: '사이즈' };
+  const handleChangeSize = (selectedOption: OptionType | OptionType[] | null | void) => {
+    setSizeVal((selectedOption as OptionType).value)
+  }
   const [activeButton, setActiveButton] = useState<TActiveButton>(null);
   const handleClickActiveButton = useCallback((type: TActiveButton) => {
+    if(type === activeButton){
+      setActiveButton(null)
+      return
+    }
     if (type === 'good') {
       setActiveButton('good');
     } else if (type === 'notGoodNotBad') {
@@ -60,9 +53,13 @@ export const ProductInfo: React.FC = () => {
     } else if (type === 'bad') {
       setActiveButton('bad');
     }
-  }, []);
+  }, [activeButton]);
   const [activeColor, setActiveColor] = useState<TActiveColor>();
   const handleClickActiveColor = useCallback((type: TActiveColor) => {
+    if(type === activeColor) {
+      setActiveColor(null)
+      return
+    }
     if (type === 'white') {
       setActiveColor('white');
     } else if (type === 'gray') {
@@ -92,22 +89,44 @@ export const ProductInfo: React.FC = () => {
     } else if (type === 'violet') {
       setActiveColor('violet');
     }
-  }, []);
+  }, [activeColor]);
 
+
+  const [productName, setProductName] = useState<string>('')
+
+  const mainDefaultValue = { value: '', label: '대분류' };
+  const subDefaultValue = { value: '', label: '소분류' };
   const { data: rootCategory } = useCategory();
   const rootCategoryOptions = rootCategory?.result.map(
     category => ({ value: category.type, label: category.name } as OptionType),
   )!;
-
+  const [mainCategoryVal, setMainCategoryVal] = useState<string>('');
   const handleChangeMainCategory = (selectedOption: OptionType | OptionType[] | null | void) => {
-    console.log('selectedOption:', selectedOption);
+    setMainCategoryVal((selectedOption as OptionType).value);
   };
+  const { data: subCategory } = useSubCategory(mainCategoryVal);
+  const subCategoryOptions = subCategory?.result.map(
+    category => ({ value: category.type, label: category.name } as OptionType),
+  );
+  const [subCategoryVal, setSubCategoryVal] = useState<string>('')
+  const handleChangeSubCategory = (selectedOption: OptionType | OptionType[] | null | void) => {
+    setSubCategoryVal((selectedOption as OptionType).value)
+  }
+
+  const [price, setPrice] = useState<string>('')
+  const [usedDuration, setUsedDuration] = useState<string>('')
+  const [guaranteeDuration, setGuaranteeDuration] = useState<string>('')
+  const [etcInfo, setEtcInfo] = useState<string>('')
 
   return (
     <StyledProductInfo>
       <div className="user_name">안김안</div>
       <StyledProductFrame>
-        <ProductInfoInput placeholder="상품명을 입력해 주세요.(최대 30자)" />
+        <ProductInfoInput
+          placeholder="상품명을 입력해 주세요.(최대 30자)"
+          value={productName}
+          callback={(event: ChangeEvent<HTMLInputElement>) => setProductName(event.target.value)}
+        />
       </StyledProductFrame>
       <StyledProductFrame>
         <div className="product_info_title">카테고리 선택</div>
@@ -116,14 +135,19 @@ export const ProductInfo: React.FC = () => {
           options={rootCategoryOptions}
           callback={handleChangeMainCategory}
         />
-        <SelectInput defaultValue={subDefaultValue} options={subCategoryOption} />
+        <SelectInput defaultValue={subDefaultValue} options={subCategoryOptions} callback={handleChangeSubCategory} />
       </StyledProductFrame>
       <StyledPrice>
-        <ProductInfoInput placeholder="판매가격을 입력해 주세요." styled={{ paddingLeft: '40px', width: '94%' }} />
+        <ProductInfoInput
+          placeholder="판매가격을 입력해 주세요."
+          styled={{ paddingLeft: '40px', width: '94%' }}
+          value={price}
+          callback={(event: ChangeEvent<HTMLInputElement>) => setPrice(event.target.value)}
+        />
       </StyledPrice>
       <StyledProductFrame>
         <div className="product_info_title">사이즈</div>
-        <SelectInput defaultValue={sizeDefaultValue} options={sizeCategoryOption} />
+        <SelectInput defaultValue={sizeDefaultValue} options={sizeCategoryOption} callback={handleChangeSize} />
       </StyledProductFrame>
       <StyledProductFrame>
         <div className="product_info_title">색상</div>
@@ -228,11 +252,22 @@ export const ProductInfo: React.FC = () => {
         </div>
       </StyledProductFrame>
       <StyledProductFrame>
-        <ProductInfoInput placeholder="사용기간을 입력해 주세요." />
-        <ProductInfoInput placeholder="보증기간을 입력해 주세요." />
+        <ProductInfoInput
+          placeholder="사용기간을 입력해 주세요."
+          value={usedDuration}
+          callback={(event: ChangeEvent<HTMLInputElement>) => setUsedDuration(event.target.value)}
+        />
+        <ProductInfoInput
+          placeholder="보증기간을 입력해 주세요."
+          value={guaranteeDuration}
+          callback={(event: ChangeEvent<HTMLInputElement>) => setGuaranteeDuration(event.target.value)}
+        />
       </StyledProductFrame>
       <StyledProductFrame>
-        <TextAreaInput placeholder="기타 추가 정보를 입력해 주세요. (최대 1,000자)" />
+        <TextAreaInput
+          placeholder="기타 추가 정보를 입력해 주세요. (최대 1,000자)"
+          value={etcInfo} callback={(event) => setEtcInfo(event.target.value)}
+        />
         <div className="product_btn_group">
           <BasicButton text="임시저장" kind="basic" />
           <BasicButton text="등록완료" kind="basic" />

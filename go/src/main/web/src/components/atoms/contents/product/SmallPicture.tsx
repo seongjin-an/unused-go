@@ -2,21 +2,48 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import btnDelete from '../../../../static/image/dark/page/product/btn/btn_delete.png';
-
-export function SmallPicture() {
+interface IProps{
+  src: string | undefined;
+  idx: number;
+  handleExcludeButton: (idx: number) => void;
+}
+export const SmallPicture: React.FC<IProps> = ({src, idx, handleExcludeButton}) => {
   return (
     <StyledMallPicture>
-      <button />
+      {
+        src ?
+          <img src={src}/> :
+          <StyledEmptySmallPic/>
+      }
+
+      <button onClick={() => handleExcludeButton(idx)}/>
     </StyledMallPicture>
   );
 }
+const StyledEmptySmallPic = styled.div`
+  width: 88px;
+  height: 88px;
+  border-radius: 15px;
+  background-color: rgba(196, 196, 196, 0.5);
+  background-repeat: no-repeat;
+  position: relative;
+  margin-right: 15.5px;
+`
 const StyledMallPicture = styled.div`
   width: 88px;
   height: 88px;
   border-radius: 15px;
   background-color: rgba(196, 196, 196, 0.5);
+  background-repeat: no-repeat;
   position: relative;
   margin-right: 15.5px;
+  & > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    //border: none;
+    //background: none;
+  }
   & > button {
     width: 15px;
     height: 15px;

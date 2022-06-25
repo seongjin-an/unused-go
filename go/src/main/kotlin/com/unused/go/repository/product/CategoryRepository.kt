@@ -13,6 +13,7 @@ interface CategoryRepository: JpaRepository<Category, String> {
     fun findRootCategory(): Collection<Category>
     fun findBySubject(subject: String = "ROOT"): Collection<CategoryDto>
     fun findByName(name: String): Collection<CategoryDto>
+    fun findBySubjectAndType(subject: String= "SUBJECT", type: String = "sports"): Collection<CategoryDto>
 }
 /*
     1. and
