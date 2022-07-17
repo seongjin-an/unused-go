@@ -23,6 +23,6 @@ class ProductController(val productService: ProductService) {
         @RequestPart(value = "pictures") pictures: List<MultipartFile>
     ){
         _logger.info("post product")
-        productService.postProduct()
+        productService.postProduct(product, pictures)
     }
 }
