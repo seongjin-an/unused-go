@@ -14,6 +14,9 @@ data class Product (
     @Column(name = "ID")
     var id: String? = null,
 
+    @Column(name = "NAME")
+    var name: String? = null,
+
     @Column(name = "PRICE")
     var price: Long? = null,
 
@@ -48,11 +51,11 @@ data class Product (
     var user: UserInfo? = null,
 ): BaseEntity() {
     constructor(
-        id: String? = null, price: Long? = null, size: SizeType? = null,
+        id: String? = null, name: String? = null, price: Long? = null, size: SizeType? = null,
         color: String? = null, feelingOfUse: FeelingType? = null, periodOfUse: String? = null,
         periodOfGuarantee: String? = null, etc: String? = null, category: Category? = null, user: UserInfo? = null,
         createdAt: LocalDateTime, updatedAt: LocalDateTime
-    ): this(id, price, size, color, feelingOfUse, periodOfUse, periodOfGuarantee, etc, category, user) {
+    ): this(id, name, price, size, color, feelingOfUse, periodOfUse, periodOfGuarantee, etc, category, user) {
         super.createdAt = createdAt
         super.updatedAt = updatedAt
     }

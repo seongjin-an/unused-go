@@ -15,6 +15,7 @@ export const ProductPicture: React.FC<IProps> = ({ isShow }) => {
   const fileRef = useRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
   // const [sources, setSources] = useState<string[]>();
   const setIsOpen = useSetRecoilState(modalState)
+  const [pics, setPics] = useState<string[]>([])
   const [sources, setSources] = useRecoilState(pictureState);
   const handleChangeFile = async (event: ChangeEvent<HTMLInputElement>) => {
     if((event.target.files as FileList).length === 0){
@@ -32,6 +33,7 @@ export const ProductPicture: React.FC<IProps> = ({ isShow }) => {
     }
     const files: FileList = (event.target.files as FileList)
     console.log('files:', files)
+    console.log(Object.values(files))
 
 
     let _files = Array.from(files).map(file => {
@@ -47,7 +49,8 @@ export const ProductPicture: React.FC<IProps> = ({ isShow }) => {
     })
     const res = await Promise.all(_files)
     console.log('res:', res)
-    setSources({ files: res as string[] });
+    setSources({ files: Object.values(files) });
+    setPics(res as string[]);
     // fileReader.readAsDataURL(files[0])
     // fileReader.onload = (event) => {
     //   setSource1((event.target as FileReader).result)
@@ -56,21 +59,22 @@ export const ProductPicture: React.FC<IProps> = ({ isShow }) => {
   }
   const handleExcludeButton = (idx: number) => {
     setSources(currVal => ({ ...currVal, files: currVal.files.filter((_, index) => index !== idx) }));
+    setPics(currVal => currVal.filter((_, index) => index !== idx))
   }
   return (
     <StyledProductPicture>
       {
         uploadPicture ?
-          <StyledPictureContentBox src={ sources ? sources.files[0] : undefined } onClick={() => fileRef.current.click()}/> :
+          <StyledPictureContentBox src={ pics ? pics[0] : undefined } onClick={() => fileRef.current.click()}/> :
           <StyledPictureContentBox onClick={() => fileRef.current.click()} />
       }
       <input ref={fileRef} type="file" style={{ display: 'none' }} onChange={handleChangeFile} multiple />
       {isShow ? (
         <div className="picture_list">
-          <SmallPicture src={sources ? sources.files[1] : undefined} idx={1} handleExcludeButton={handleExcludeButton} />
-          <SmallPicture src={sources ? sources.files[2] : undefined} idx={2} handleExcludeButton={handleExcludeButton} />
-          <SmallPicture src={sources ? sources.files[3] : undefined} idx={3} handleExcludeButton={handleExcludeButton} />
-          <SmallPicture src={sources ? sources.files[4] : undefined} idx={4} handleExcludeButton={handleExcludeButton} />
+          <SmallPicture src={pics ? pics[1] : undefined} idx={1} handleExcludeButton={handleExcludeButton} />
+          <SmallPicture src={pics ? pics[2] : undefined} idx={2} handleExcludeButton={handleExcludeButton} />
+          <SmallPicture src={pics ? pics[3] : undefined} idx={3} handleExcludeButton={handleExcludeButton} />
+          <SmallPicture src={pics ? pics[4] : undefined} idx={4} handleExcludeButton={handleExcludeButton} />
         </div>
       ) : null}
     </StyledProductPicture>

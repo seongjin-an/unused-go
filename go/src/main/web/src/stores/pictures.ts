@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 interface IPicture{
-  files: string[];
+  files: File[];
 }
 export const pictureState = atom<IPicture>({
   key: 'productPictures',

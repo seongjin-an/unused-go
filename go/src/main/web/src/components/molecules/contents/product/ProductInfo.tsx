@@ -1,15 +1,19 @@
-import React, { useCallback, useState, MouseEvent, useEffect, useRef, ChangeEvent } from "react";
+import React, { useCallback, useState, MouseEvent, useEffect, useRef, ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { Props as SelectProps, Options } from 'react-select';
 import { colors } from 'react-select/dist/declarations/src/theme';
+import { useMutation, useQueryClient } from 'react-query';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { SelectInput, TextAreaInput } from '../../../atoms/inputs';
 import { OptionType } from '../../../atoms/inputs/SelectInput';
 
 import imgProfile from '../../../../static/image/dark/page/product/img/img_profile.png';
 import { ColorBlock, ProductInfoInput } from '../../../atoms/contents/product';
 import { Button, BasicButton } from '../../../atoms/button';
-import { useCategory, useSubCategory } from "../../../../hook/product/useCategory";
-import { useQueryClient } from "react-query";
+import { useCategory, useSubCategory } from '../../../../hook/product/useCategory';
+import { modalState } from '../../../../stores/modal';
+import { pictureState } from '../../../../stores/pictures';
+import { postProdcut } from '../../../../apis/product/productApi';
 
 export type TActiveButton = 'good' | 'notGoodNotBad' | 'bad' | null;
 export type TActiveColor =
@@ -30,7 +34,7 @@ export type TActiveColor =
   | null;
 
 export const ProductInfo: React.FC = () => {
-  const [sizeVal, setSizeVal] = useState<string>('')
+  const [sizeVal, setSizeVal] = useState<string>('');
   const sizeCategoryOption: OptionType[] = [
     { value: 'S', label: 'S' },
     { value: 'M', label: 'M' },
@@ -38,61 +42,66 @@ export const ProductInfo: React.FC = () => {
   ];
   const sizeDefaultValue = { value: '', label: '사이즈' };
   const handleChangeSize = (selectedOption: OptionType | OptionType[] | null | void) => {
-    setSizeVal((selectedOption as OptionType).value)
-  }
+    setSizeVal((selectedOption as OptionType).value);
+  };
   const [activeButton, setActiveButton] = useState<TActiveButton>(null);
-  const handleClickActiveButton = useCallback((type: TActiveButton) => {
-    if(type === activeButton){
-      setActiveButton(null)
-      return
-    }
-    if (type === 'good') {
-      setActiveButton('good');
-    } else if (type === 'notGoodNotBad') {
-      setActiveButton('notGoodNotBad');
-    } else if (type === 'bad') {
-      setActiveButton('bad');
-    }
-  }, [activeButton]);
+  const handleClickActiveButton = useCallback(
+    (type: TActiveButton) => {
+      if (type === activeButton) {
+        setActiveButton(null);
+        return;
+      }
+      if (type === 'good') {
+        setActiveButton('good');
+      } else if (type === 'notGoodNotBad') {
+        setActiveButton('notGoodNotBad');
+      } else if (type === 'bad') {
+        setActiveButton('bad');
+      }
+    },
+    [activeButton],
+  );
   const [activeColor, setActiveColor] = useState<TActiveColor>();
-  const handleClickActiveColor = useCallback((type: TActiveColor) => {
-    if(type === activeColor) {
-      setActiveColor(null)
-      return
-    }
-    if (type === 'white') {
-      setActiveColor('white');
-    } else if (type === 'gray') {
-      setActiveColor('gray');
-    } else if (type === 'darkGray') {
-      setActiveColor('darkGray');
-    } else if (type === 'black') {
-      setActiveColor('black');
-    } else if (type === 'red') {
-      setActiveColor('red');
-    } else if (type === 'pink') {
-      setActiveColor('pink');
-    } else if (type === 'orange') {
-      setActiveColor('orange');
-    } else if (type === 'yellow') {
-      setActiveColor('yellow');
-    } else if (type === 'mint') {
-      setActiveColor('mint');
-    } else if (type === 'green') {
-      setActiveColor('green');
-    } else if (type === 'darkGreen') {
-      setActiveColor('darkGreen');
-    } else if (type === 'skyBlue') {
-      setActiveColor('skyBlue');
-    } else if (type === 'blue') {
-      setActiveColor('blue');
-    } else if (type === 'violet') {
-      setActiveColor('violet');
-    }
-  }, [activeColor]);
+  const handleClickActiveColor = useCallback(
+    (type: TActiveColor) => {
+      if (type === activeColor) {
+        setActiveColor(null);
+        return;
+      }
+      if (type === 'white') {
+        setActiveColor('white');
+      } else if (type === 'gray') {
+        setActiveColor('gray');
+      } else if (type === 'darkGray') {
+        setActiveColor('darkGray');
+      } else if (type === 'black') {
+        setActiveColor('black');
+      } else if (type === 'red') {
+        setActiveColor('red');
+      } else if (type === 'pink') {
+        setActiveColor('pink');
+      } else if (type === 'orange') {
+        setActiveColor('orange');
+      } else if (type === 'yellow') {
+        setActiveColor('yellow');
+      } else if (type === 'mint') {
+        setActiveColor('mint');
+      } else if (type === 'green') {
+        setActiveColor('green');
+      } else if (type === 'darkGreen') {
+        setActiveColor('darkGreen');
+      } else if (type === 'skyBlue') {
+        setActiveColor('skyBlue');
+      } else if (type === 'blue') {
+        setActiveColor('blue');
+      } else if (type === 'violet') {
+        setActiveColor('violet');
+      }
+    },
+    [activeColor],
+  );
 
-
-  const [productName, setProductName] = useState<string>('')
+  const [productName, setProductName] = useState<string>('');
 
   const mainDefaultValue = { value: '', label: '대분류' };
   const subDefaultValue = { value: '', label: '소분류' };
@@ -108,15 +117,154 @@ export const ProductInfo: React.FC = () => {
   const subCategoryOptions = subCategory?.result.map(
     category => ({ value: category.type, label: category.name } as OptionType),
   );
-  const [subCategoryVal, setSubCategoryVal] = useState<string>('')
+  const [subCategoryVal, setSubCategoryVal] = useState<string>('');
   const handleChangeSubCategory = (selectedOption: OptionType | OptionType[] | null | void) => {
-    setSubCategoryVal((selectedOption as OptionType).value)
-  }
+    setSubCategoryVal((selectedOption as OptionType).value);
+  };
 
-  const [price, setPrice] = useState<string>('')
-  const [usedDuration, setUsedDuration] = useState<string>('')
-  const [guaranteeDuration, setGuaranteeDuration] = useState<string>('')
-  const [etcInfo, setEtcInfo] = useState<string>('')
+  const [price, setPrice] = useState<string>('');
+  const [usedDuration, setUsedDuration] = useState<string>('');
+  const [guaranteeDuration, setGuaranteeDuration] = useState<string>('');
+  const [etcInfo, setEtcInfo] = useState<string>('');
+
+  const openPopup = useSetRecoilState(modalState);
+  const pictures = useRecoilValue(pictureState);
+
+  const mutation = useMutation(postProdcut, {});
+
+  const handleSubmitButton = () => {
+    console.log('submit button clicked...');
+    if (!productName) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '상품명 누락',
+        message: '상품명을 입력하세요',
+      });
+      return;
+    }
+    if (!mainCategoryVal) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '대분류 카테고리 누락',
+        message: '대분류 카테고리를 선택하세요',
+      });
+      return;
+    }
+    if (!subCategoryVal) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '소분류 카테고리 누락',
+        message: '소분류 카테고리를 선택하세요',
+      });
+      return;
+    }
+    if (!price) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '판매가격 누락',
+        message: '판매가격을 입력하세요',
+      });
+      return;
+    }
+    if (!sizeVal) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '사이즈 누락',
+        message: '사이즈를 선택하세요',
+      });
+      return;
+    }
+    if (!activeColor) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '색상 누락',
+        message: '색상을 선택하세요',
+      });
+      return;
+    }
+    if (!activeButton) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '사용감 누락',
+        message: '사용감을 선택하세요',
+      });
+      return;
+    }
+    if (!usedDuration) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '사용기간 누락',
+        message: '사용기간을 입력하세요',
+      });
+      return;
+    }
+    if (!guaranteeDuration) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '보증기간 누락',
+        message: '보증기간을 입력하세요',
+      });
+      return;
+    }
+    if (!etcInfo) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '기타정보 누락',
+        message: '기타정보를 입력하세요',
+      });
+      return;
+    }
+    if (pictures.files.length === 0) {
+      openPopup({
+        type: 'alert',
+        hide: true,
+        header: '경고',
+        subject: '사진 누락',
+        message: '사진을 등록하세요',
+      });
+      return;
+    }
+
+    const formData = new FormData();
+    const productDto = {
+      productName,
+      categoryId: subCategoryVal,
+      price,
+      size: sizeVal,
+      color: activeColor,
+      feeling: activeButton,
+      usedDuration,
+      guaranteeDuration,
+      etcInfo,
+    };
+    formData.append('product', new Blob([JSON.stringify(productDto)], { type: 'application/json' }));
+    pictures.files.forEach(picture => {
+      formData.append('pictures', picture)
+    });
+
+    console.log('formData:', formData);
+    mutation.mutate(formData);
+  };
 
   return (
     <StyledProductInfo>
@@ -266,11 +414,12 @@ export const ProductInfo: React.FC = () => {
       <StyledProductFrame>
         <TextAreaInput
           placeholder="기타 추가 정보를 입력해 주세요. (최대 1,000자)"
-          value={etcInfo} callback={(event) => setEtcInfo(event.target.value)}
+          value={etcInfo}
+          callback={event => setEtcInfo(event.target.value)}
         />
         <div className="product_btn_group">
           <BasicButton text="임시저장" kind="basic" />
-          <BasicButton text="등록완료" kind="basic" />
+          <BasicButton text="등록완료" kind="basic" onClick={handleSubmitButton} />
         </div>
       </StyledProductFrame>
     </StyledProductInfo>
@@ -285,12 +434,14 @@ const StyledProductFrame = styled.div`
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 23px;
+
   & > .product_info_title {
     font-family: PretendardMedium;
     font-size: 20px;
     color: #e7e7e7;
     margin-bottom: 10px;
   }
+
   & > .color_select_area {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -301,6 +452,7 @@ const StyledProductFrame = styled.div`
     width: 100%;
     height: 38px;
   }
+
   & > .product_btn_group {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -325,6 +477,7 @@ const StyledPrice = styled.div`
   height: auto;
   margin-bottom: 30px;
   position: relative;
+
   &::before {
     content: '₩';
     display: block;
@@ -365,6 +518,7 @@ export const StyledProductInfo = styled.div`
       left: 0;
     }
   }
+
   & > .color_select_area {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -375,12 +529,14 @@ export const StyledProductInfo = styled.div`
     width: 100%;
     height: 38px;
   }
+
   & > .product_name {
     font-family: PretendardMedium;
     font-size: 22px;
     color: #ffffff;
     margin-bottom: 8px;
   }
+
   & > .product_price {
     font-family: PretendardMedium;
     font-size: 24px;

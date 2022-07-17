@@ -25,12 +25,18 @@ export const BasicButton: React.FC<IProps> = ({ type, text, kind = 'basic', onCl
 };
 const emptyButton = css`
   cursor: pointer;
+  //border: 1px solid white;
   border: none;
+  border-radius: 5px;
   width: 80px;
+  height: 3vh;
   font-family: PretendardBold;
   font-size: 18px;
   color: #fff;
-  background-color: transparent;
+  background-color: #0d6efd;
+  &:hover{
+    background-color: #025ce2;
+  }
 `
 const StyledSaveButton = styled.button<{ kind: string, sx?: SxProps<Theme> }>`
   ${({ kind }) => (kind === 'login' ? `${LoginButtonStyle}` : 
