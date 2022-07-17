@@ -48,7 +48,7 @@ class MainDataContext: HikariConfig() {
 //        return props
         return Properties().apply {
             setProperty(Environment.HBM2DDL_AUTO, "none")
-            setProperty("hibernate.show_sql", "true")
+            setProperty("hibernate.show_sql", "false")
             setProperty("hibernate.format_sql", "true")
             setProperty("hibernate.jdbc.time_zone", "Asia/Seoul")
             setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect")

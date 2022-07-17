@@ -14,7 +14,7 @@ export const Logout: React.FC = () => {
       // console.log('data:', data);
       localStorage.removeItem('token')
       queryClient.invalidateQueries(['checkTokenState']).then(r => console.log('rrrr:', r));
-      // navigate('/main')
+      navigate('/main')
     },
     onError: error => {
       // console.log('error:', error)

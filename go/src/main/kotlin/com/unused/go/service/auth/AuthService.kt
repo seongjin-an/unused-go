@@ -9,6 +9,7 @@ import com.unused.go.dto.TokenDto
 import com.unused.go.dto.TokenRequestDto
 import com.unused.go.repository.user.RefreshTokenRepository
 import com.unused.go.repository.user.UserInfoRepository
+import org.slf4j.LoggerFactory
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.core.Authentication
 import org.springframework.security.crypto.password.PasswordEncoder
@@ -24,6 +25,7 @@ class AuthService(
     val tokenProvider: TokenProvider,
     val refreshTokenRepository: RefreshTokenRepository
 ) {
+    private val _logger = LoggerFactory.getLogger(AuthService::class.java)
     @Transactional
     fun signup(memberRequestDto: MemberRequestDto): MemberResponseDto{
         if(userInfoRepository.existsByLoginId(memberRequestDto.loginId))
@@ -86,8 +88,9 @@ class AuthService(
         return tokenDto
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     fun logout(): Boolean {
+        _logger.info("LOGOUT INFO: {}", SecurityUtil.getCurrentMemberId())
         var result = false;
         val imsi = userInfoRepository.findByLoginId(SecurityUtil.getCurrentMemberId())
             .map { MemberResponseDto.of(it) }

@@ -31,6 +31,7 @@ export const LoginArea: React.FC = () => {
     onSuccess: (data: ITokenInfo) => {
       localStorage.setItem('token', data.accessToken);
       xhr.defaults.headers.common = {
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${data.accessToken}`,
       };
       navigate('/main');

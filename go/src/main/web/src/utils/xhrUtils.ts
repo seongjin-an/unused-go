@@ -7,7 +7,7 @@ import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } f
  */
 export const xhr: AxiosInstance = axios.create({
   baseURL: 'http://192.168.229.128:8080/unused-go',
-  timeout: 3000,
+  timeout: 5000,
 });
 // 요청 인터셉터, 2개의 콜백 함수를 받는다.
 xhr.interceptors.request.use(

@@ -3,14 +3,19 @@ package com.unused.go.controller.auth
 import com.unused.go.constants.app.AppConstant
 import com.unused.go.dto.*
 import com.unused.go.service.auth.AuthService
+import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import java.util.logging.Logger
 
 @RestController
 @RequestMapping("/auth")
 @CrossOrigin("*")
 class AuthController(val authService: AuthService) {
+
+    private val _logger = LoggerFactory.getLogger(AuthController::class.java)
+
     @PostMapping("/signup")
     fun signup(@RequestBody memberRequestDto: MemberRequestDto): ResponseEntity<MemberResponseDto>{
         return ResponseEntity.ok(authService.signup(memberRequestDto))

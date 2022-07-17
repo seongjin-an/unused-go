@@ -7,17 +7,15 @@ import useLocalStorage from 'react-query/types/devtools/useLocalStorage';
 import { useApiError } from '../../../../hook/error/useApiError';
 import { Logout } from "../../../molecules/common";
 function clearStorage() {
-
+  console.log('clearStorage!!!!!!!!!!!!!!!!!!!!!!!!!!')
   const session = sessionStorage.getItem('register');
 
-  if (session == null) {
-
+  if(session === null){
     localStorage.removeItem('token');
-
   }
   sessionStorage.setItem('register', '1');
 }
-window.addEventListener('load', clearStorage);
+window.addEventListener('unload', clearStorage);
 
 export const UserName: React.FC = () => {
   console.log('render userName');
